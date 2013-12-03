@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.ges.vivesinaloa"
+    version   = "1.0.0">
+
+<name>Vive Sinaloa</name>
+
+<description>
+Guía turística del estado de Sinaloa, México, que contiene información de lugares y actividades que se pueden realizar, en los distintos municipios del estado.
+</description>
+
+<author href="" email="joel.r@live.com.mx">
+Gobierno del Estado de Sinaloa
+</author>
+<gap:platforms>
+		<gap:platform name="ios" />
+	</gap:platforms>
+<preference name="splash-screen-duration" value="50000" />
+<preference name="load-url-timeout" value="60000" />
+<preference name="webviewbounce" value="true" />
+ <preference name="orientation" value="portrait" />
+
+	<icon src="icon.png" gap:role="default" width="57" height="57"/>
+	<Icon src="icons/ios/57.png" gap:platform="ios" width="57" height="57" />
+	<Icon src="icons/ios/72.png" gap:platform="ios" width="72" height="72" />
+	<Icon src="icons/ios/114.png" gap:platform="ios" width="114" height="114" />
+	<Icon src="icons/ios/144.png" gap:platform="ios" width="144" height="144" />
+
+    <gap:splash src="splash.png" />
+	
+	<gap:splash src="splash/ios/320x480.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="splash/ios/640x960.png" gap:platform="ios" width="640" height="960" />
+	<gap:splash src="splash/ios/640x1136.png" gap:platform="ios" width="640" height="1136" />
+	<gap:splash src="splash/ios/768x1024.png" gap:platform="ios" width="768" height="1024" />
+
+	<gap:splash src="splash/ios/1496x2048.png" gap:platform="ios" width="1496" height="2048" />
+	<gap:splash src="splash/ios/1536x2008.png" gap:platform="ios" width="1536" height="2008" />
+	
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	
+	<access origin="*"/>
+</widget>

@@ -1,0 +1,265 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aplic. Web de jQuery Mobile</title>
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.3.1.min.css" />
+<link rel="stylesheet" href="jquery-mobile/style.css" />
+<script src="jquery-mobile/clave.js"></script>
+    <script src="jquery-mobile/jquery-1.9.1.min.js"></script>
+	<script src="jquery-mobile/jquery.mobile-1.3.1.min.js"></script>
+    
+<script src="phonegap.js"></script>
+<script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+          var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        db.transaction(
+        function(tx) {
+            var diver="D"+identificacor;
+            var gastr="G"+identificacor;
+            var histo="H"+identificacor;
+            var emerg="E"+identificacor;
+        tx.executeSql('SELECT * FROM diversion where clave=?',['D01E'],writediversion);
+        tx.executeSql('SELECT * FROM gastronomia where clave=?',[gastr],writegastronomia);
+        tx.executeSql('SELECT * FROM historicos where clave=?',[histo],writehistoricos);
+        tx.executeSql('SELECT * FROM emergencias where clave=?',[emerg],writeemergencias);
+         
+    });
+       navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+         var placediversion = new Array();
+    var placediversiondescr =new Array();
+function writediversion(tx, results){
+    
+    var len = results.rows.length;
+    console.log('registros de diversion encontrados '+len);
+    for (var i=0; i<len; i++){        
+    placediversion.push(results.rows.item(i).coordenadas);    
+    placediversiondescr.push("['"+results.rows.item(i).actividad+"',"+results.rows.item(i).coordenadas+","+i+",'<h3>"+results.rows.item(i).actividad+"</h3>"+results.rows.item(i).descripcion+"']");
+    }
+}
+//function writegastronomia(tx, results){
+//    var len = results.rows.length;
+//    $('#scripts').append("var placegastronomia = [");
+//    for (var i=0; i<len; i++){
+//    $('#scripts').append("new google.maps.LatLng("+results.rows.item(i).coordenadas+"),");
+//    }
+//    $('#scripts').append("];");
+//    $('#scripts').append("var placegastronomiadescr = [");
+//    for (var x=0; x<len; x++){
+//    $('#scripts').append("['"+results.rows.item(i).restaurante+"',"+results.rows.item(i).coordenadas+","+x+",'<h3>"+results.rows.item(i).restaurante+"</h3>"+results.rows.item(i).descripcion+"'],");
+//    }
+//    $('#scripts').append("];");
+//}
+//function writehistoricos(tx, results){
+//    var len = results.rows.length;
+//    $('#scripts').append("var placehistoricos = [");
+//    for (var i=0; i<len; i++){
+//    $('#scripts').append("new google.maps.LatLng("+results.rows.item(i).coordenadas+"),");
+//    }
+//    $('#scripts').append("];");
+//    $('#scripts').append("var placehistoricosdescr = [");
+//    for (var x=0; x<len; x++){
+//    $('#scripts').append("['"+results.rows.item(i).restaurante+"',"+results.rows.item(i).coordenadas+","+x+",'<h3>"+results.rows.item(i).restaurante+"</h3>"+results.rows.item(i).especialidad+"'],");
+//    }
+//    $('#scripts').append("];");
+//}
+//function writeemergencias(tx, results){
+//    var len = results.rows.length;
+//    $('#scripts').append("var placeemergencias = [");
+//    for (var i=0; i<len; i++){
+//    $('#scripts').append("new google.maps.LatLng("+results.rows.item(i).coordenadas+"),");
+//    }
+//    $('#scripts').append("];");
+//    $('#scripts').append("var placeemergenciasdescr = [");
+//    for (var x=0; x<len; x++){
+//    $('#scripts').append("['"+results.rows.item(i).servicio+"',"+results.rows.item(i).coordenadas+","+x+",'<h3>"+results.rows.item(i).servicio+"</h3>"+results.rows.item(i).domicilio+"'],");
+//    }
+//    $('#scripts').append("];");
+//}
+//results.rows.item(i)
+function onSuccess(position) {     
+		var latitude = position.coords.latitude; // Latitud
+		var longitude = position.coords.longitude; // Longitud
+		var initialLocation = new google.maps.LatLng(latitude, longitude);
+        var image="img/fuerte/smiley_happy.png";
+		var marker = new google.maps.Marker({
+			position: initialLocation,
+			map: map,            
+			title: "Estás aquí",
+            icon: image
+		});
+	}
+
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+   
+    </script>
+    <style>
+    #content {
+    padding: 0;
+    position : absolute !important; 
+    top : 40px !important;  
+    right : 0; 
+    bottom : 40px !important;  
+    left : 0 !important;     
+}</style>
+</head> 
+<body style="width:100%;margin:0;padding:0;"> 
+
+<div data-role="page" id="page">
+
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="fuerte.html" rel="external" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Mapa</h1>
+    </div>
+	<div data-role="content" id="content">
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script id="scripts">
+    
+   
+        var markers = [];
+      var iterator = 0;
+      var map;
+      function initialize() {
+       var haightAshbury = new google.maps.LatLng(26.416931451456314,-108.61680507659912);
+        var mapOptions = {
+          zoom: 1,
+          center: haightAshbury,
+          mapTypeId: google.maps.MapTypeId.ROADMAPs
+        };
+        map = new google.maps.Map(document.getElementById('map_canvas'),
+            mapOptions);
+	   infowindow = new google.maps.InfoWindow({
+                content: "loading..."
+            });
+        
+      }
+      function actividades() {
+        deleteOverlays();       
+        for (var i = 0; i < placediversion.length; i++) {
+            var sss=placediversion[i].split(',');
+            var lat=parseFloat(sss[0]);
+            var lon=parseFloat(sss[1]);
+            
+           marker = new google.maps.Marker({
+                       position: new google.maps.LatLng(lat,lon),                                           
+                       map: map,
+                        title:placediversiondescr[i][0],
+                        zIndex:parseInt(placediversiondescr[i][3]),
+                        html: placediversiondescr[i][4],
+                       animation: google.maps.Animation.DROP                       
+                     });
+                     markers.push(marker);
+                     var contentString = "Some content";
+
+            google.maps.event.addListener(marker, "click", function () {
+                infowindow.setContent(this.html);
+                infowindow.open(map, this);
+            });
+                     
+            }   
+      }
+      
+ //     function restaurantes() {
+//        deleteOverlays();
+//        for (var i = 0; i < placegastronomia.length; i++) {
+//           marker = new google.maps.Marker({
+//                       position: placegastronomia[i],
+//                       map: map,
+//                        title:placegastronomiadescr[i][0],
+//                        zIndex: placegastronomiadescr[i][3],
+//                        html: placegastronomiadescr[i][4],
+//                       animation: google.maps.Animation.DROP                       
+//                     });
+//                     
+//                     markers.push(marker);
+//                     var contentString = "Algunos contenidos";
+//
+//            google.maps.event.addListener(marker, "click", function () {
+//                infowindow.setContent(this.html);
+//                infowindow.open(map, this);
+//            });
+//                     
+//            }   
+//      }
+//       function historicos() {
+//        deleteOverlays();
+//        for (var i = 0; i < placehistoricos.length; i++) {
+//           marker = new google.maps.Marker({
+//                       position: placehistoricos[i],
+//                       map: map,
+//                        title:placehistoricosdescr[i][0],
+//                        zIndex: placehistoricosdescr[i][3],
+//                        html: placehistoricosdescr[i][4],
+//                       animation: google.maps.Animation.DROP                       
+//                     });
+//                     
+//                     markers.push(marker);
+//                     var contentString = "Algunos contenidos";
+//
+//            google.maps.event.addListener(marker, "click", function () {
+//                infowindow.setContent(this.html);
+//                infowindow.open(map, this);
+//            });
+//                     
+//            }   
+//      }
+//      function emergencias() {
+//        deleteOverlays();
+//        for (var i = 0; i < placeemergencias.length; i++) {
+//           marker = new google.maps.Marker({
+//                       position: placeemergencias[i],
+//                       map: map,
+//                        title:placeemergenciasdescr[i][0],
+//                        zIndex: placeemergenciasdescr[i][3],
+//                        html: placeemergenciasdescr[i][4],
+//                       animation: google.maps.Animation.DROP                       
+//                     });
+//                     
+//                     markers.push(marker);
+//                     var contentString = "Algunos contenidos";
+//
+//            google.maps.event.addListener(marker, "click", function () {
+//                infowindow.setContent(this.html);
+//                infowindow.open(map, this);
+//            });
+//                     
+//            }   
+//      }
+
+      
+      function setAllMap(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+       function deleteOverlays() {
+               setAllMap(null);
+               markers = [];
+             }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <div id="map_canvas" style="height: 100%;"></div>
+    </div>
+    
+    <div data-role="footer" style="overflow:hidden;" data-position="fixed">
+    <h4 style="text-align:center;">Lugares</h4>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#" onclick="actividades()">Actividades</a></li>
+            <li><a href="#" onclick="historicos()">Historicos</a></li>
+            <li><a href="#" onclick="restaurantes()">Restaurantes</a></li>
+            <li><a href="#" onclick="emergencias()">Emergencias</a></li>
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+
+
+
+</body>
+</html>

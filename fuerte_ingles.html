@@ -1,0 +1,398 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Turismo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.3.1.min.css" />
+<link rel="stylesheet" href="jquery-mobile/style.css" />
+    <script src="jquery-mobile/jquery-1.9.1.min.js"></script>
+	<script src="jquery-mobile/jquery.mobile-1.3.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+<script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+		document.addEventListener("offline", onOffline, false);
+        document.addEventListener("online", onOnline, false);
+		      onOnline();  
+    }
+
+	function alertDismissed() {
+	   $('#fiel').hide();
+   $('#tiempo').remove();
+}
+
+
+function onOnline() {
+	 $('#fiel').show();
+    $('#fiel').append("<script id='tiempo' src='http:www.tutiempo.net/widget/eltiempo_tCBArBdxYhhBEeDA4fVzzjzDzWuATfC11jjzDDDrj1k'><\/script>");
+   }
+	
+	 function onOffline() {
+		navigator.notification.alert(
+    'No Internet connection was found, some features are not available!',     // mensaje (message)
+    alertDismissed,         // funci&oacute;n 'callback' (alertCallback)
+	'Conexion',            // titulo (title)
+    'Cerrar'                // nombre del bot&oacute;n (buttonName)
+); 
+    }
+	
+    </script>
+
+</head> 
+<body> 
+<div data-role="page" id="page">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="index.html#municipios_ingles" rel="external" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Back" class="ui-li-icon"/></a>
+		<h1 style="margin: 0.1em 6% .8em!important;"><img src="img/fuerte.png" height="56"/></h1>
+        </div>
+	<div data-role="content" id="inicio">
+    <img src="img/fuerte/portada_el_fuerte.jpg" />
+    <fieldset id="fiel"><legend>Weather</legend>
+    <div id="TT_tCBArBdxYhhBEeDA4fVzzjzDzWuATfC11jjzDDDrj1k"></div>
+</fieldset>
+		<a href="#gastronomia" data-transition="flip" data-inline="true"><img src="img/fuerte/gastronomia.png" /></a>
+        <a href="#diversion" data-transition="flip" data-inline="true"><img src="img/fuerte/dirversion.png" /></a>
+        <a href="#lugares_historicos" data-transition="flip" data-inline="true"><img src="img/fuerte/lugares_historicos.png" /></a>
+        <a href="mapa_fuerte_ingles.html" rel="external" data-transition="flip"><img src="img/fuerte/mapa.png" /></a>
+        <a href="#actividades_24_horas" data-transition="flip" data-inline="true"><img src="img/fuerte/act_24_horas.png" /></a>
+        <a href="#emergencias" data-transition="flip" data-inline="true"><img src="img/fuerte/emergencias.png" /></a>
+        </div>	
+	</div>
+
+<!-- gastronomia -->
+<div data-role="page" id="gastronomia">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Back" class="ui-li-icon"/></a>
+		<h1>Gastronomy</h1>
+        </div>
+	<div data-role="content" id="gga">
+    <hr />	
+    <img src="img/fuerte/cauques.jpg" />
+    <p class="tit"> Ther is a lot of typical saucers</p>
+    <p class="tex">It is plenty of  traditional dishes:  machaca, caldillo, picadillo, rice, pineapple tamales,meat, corn and sweet tamales; guacabaqui and barbacoa.   In El Fuerte Magic Town it has become a tradition the typical dishes made of Black Bass:  fish chicharrones,  scallops, fishball soup, fish sarandeado style, seafood mixed cocktails and freshwater lobster.</p>		
+	<p class="tex">As a dessert you can find: pepitorias, jamoncillos, cocadas, capirotada, tacuarines (coricos), coyotas, semitas, melcocha, bu&ntilde;uelos, gorditas de queso.</p>
+    <p class="azul">Restaurants and specialty</p>
+    <div data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+    <div data-role="collapsible">
+        <h3 ><span style="left: -30px;" data-icon="star" data-role="button" data-theme="b"></span><span>Mes&oacute;n del general</span></h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Flamed Fillet</h2></li> 
+        <li><p>Address: <b>Street Benito Ju&aacute;rez #202</b></p><p>Phone: <b>698 89 30 260</b></p></li></ul>
+    </div>
+<div data-role="collapsible"  data-icon="arrow-r">
+        <h3><span style="left: -30px;" data-icon="star" data-role="button" data-theme="b"></span><span>El Supremo</span></h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Bass Fillet</h2></li> 
+        <li><p>Address: <b>Constitucion and Rosales # 108</b></p><p>Phone: <b>698 89 30 021</b></p></li></ul>
+    </div>
+<div data-role="collapsible" >
+        <h3 ><span style="left: -30px;" data-icon="star" data-role="button" data-theme="b"></span><span>Paseo de las aves</span></h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>freshwater lobster</h2></li> 
+        <li><p>Address: <b>Road to La Galera S/N</b></p><p>Phone: <b>698 86 01 861</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Diligencias</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Sarandeado Fish Style</h2></li> 
+        <li><p>Address: <b>Street 5 de mayo #101 Col. Centro</b></p><p>Phone: <b>698 89 31 274</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Restaurante del r&iacute;o</h3>        
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Flamed Fillet</h2></li> 
+        <li><p>Address: <b>Blvd. Paso to El Fuerte (Road El Fuerte-Choix)</b></p><p>Phone: <b>698 10 47 899</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >El pollo de oro</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Roast Chicken</h2></li> 
+        <li><p>Address: <b>Road El Fuerte-Choix</b></p><p>Phone: <b>698 89 31 706</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Tacos de camaron las glorias</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Shrimp Tacos</h2></li> 
+        <li><p>Address: <b>Road El Fuerte-Ahome</b></p><p>Phone: <b>698 10 32 279</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Tacos tanny</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Tacos</h2></li> 
+        <li><p>Address: <b>Street Domingo Rubi and Donato Guerra</b></p><p>Phone: <b>698 89 31 708</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Los portales</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Soda Fountain</h2></li> 
+        <li><p>Address: <b>Street Degollado #203</b></p><p>Phone: <b>698 89 30 415</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >El andador caf&eacute; y reposteria</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Pastry Desserts</h2></li> 
+        <li><p>Address: <b>Street Rosales #104</b></p><p>Phone: <b>698 89 30 054</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Mariscos tony</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Flamed Fillet</h2></li> 
+        <li><p>Address: <b>Exit to Baroten next to the Hotel Montesclaro</b></p><p>Phone: <b>698 10 65 238</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Pizzas martitas</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Pizzas</h2></li> 
+        <li><p>Address: <b>Street Antonio Rosales #101 Col. Centro</b></p><p>Phone: <b>698 89 31 299</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Tortas locas</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Tortas</h2></li> 
+        <li><p>Address: <b>Street Ju&aacute;rez</b></p><p>Phone: <b>698 89 31 006</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >La parrilla steak and burger</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Barbecue</h2></li> 
+        <li><p>Address: <b>Andador Orrantia #110 Between StreetS Rosales and Ju&aacute;rez</b></p><p>Phone: <b>698 89 30 054</b></p></li></ul>
+    </div>
+    <div data-role="collapsible" >
+        <h3 >Chinaloa</h3>
+        <ul data-role="listview">   
+        <li style="background:url(img/fuerte/especialidad.png) no-repeat 50%,#E97A61 ;background-size: 100%; text-align: center;color: #FFF;"><h1>Specialty:</h1><h2>Chinese Food</h2></li> 
+        <li><p>Address: <b>Benito Ju&aacute;rez #200</b></p><p>Phone: <b>698 89 31 782</b></p></li></ul>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+
+<!-- diversion -->
+
+<div data-role="page" id="diversion">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Back" class="ui-li-icon"/></a>
+		<h1>Fun activities</h1>
+        </div>
+	<div data-role="content" id="dda">
+    <hr />	
+	<img src="img/fuerte/Paseo-en-balsa-por-el-rio-fuerte.jpg"/>
+	<p class="verde">Fun activities</p>
+    <div data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d" >
+    <div data-role="collapsible">
+        <h3>Walk by the River</h3>
+        <p>The Constituci&oacute;n Street,  walking towards the west, take us directly to wide staircase that take us directly to the Malecon beside the R&iacute;o Fuerte.  Place where you can enjoy an early morning run or admire the nature.</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Take a Tour to La Galera</h3>
+        <p>Site of familiar recreation on the beside the Fuerte River,  there are seafood Restaurants, walking trail,  shade trees, wide traffic parking lot and a suspension bridge to cross the broad river admiring the flow of the calm waters and, if it is interested to know the history of this region, it will be able to continue the way towards the Cerro de la M&aacute;scara: archaeological site that encloses the major number of petroglyphs of Sinaloa.</p>
+     </div>
+    <div data-role="collapsible">
+        <h3>Raft Rides</h3>
+        <p>Ride on the Fuerte River, watch the birds and enjoy pure nature. It is the source of the life and of the development of all the Sinaloa's north. It is born in Chihuahua and does a tour of more than six hundred kilometres feeding three dams that control his waters to irrigate thousands of hectares creating the richest agricultural zone of the field sinaloense. There are two dams that are a very important attraction: Miguel Hidalgo and the Josefa Ortiz de Dom&iacute;nguez.</p>
+        <p> Information at Hotel Posada del Hidalgo Phone number . (698) 89 3 02 42 / Fax  89 3 11 94 </p><p>And Hotel R&iacute;o Vista   Phone number / Fax (698) 89 3 04 13</p>
+        </div>
+       <div data-role="collapsible">
+        <h3>Bass Fishing</h3>
+        <p>Information at Hotel Posada del Hidalgo Phone number. 698) 89 3 02 42 / Fax  89 3 11 94 </p><p>and Hotel R&iacute;o Vista   Phone number / Fax (698) 89 3 04 13</p>
+        </div>
+        <div data-role="collapsible">
+        <h3>Visit the archeological Site  Cerro de la M&aacute;scara</h3> 
+        <p> It is an archeological zone with the most examples of carved rocks in the state of Sinaloa. The cerro de la mascara has been declared a natural protected area.</p>       
+        </div>
+        <div data-role="collapsible">
+        <h3>Take a train to Copper Canyon</h3>
+        <p>Copper Canyon system in the middle of legendary Sierra Madre mountain range. Many Visitors prefer to spend the night here and then begin their Copper Canyon Train journey in the morning after a hearty breakfast.<br />Information:<br /> Tel. 01 614 4397211 y 614 4397212</p></p>
+        <ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Route Los Mochis-Chihuahua<span class="ui-li-count">Check Out</span></li>
+    <li><h2>Los Mochis, Sin.</h2><p></p><span class="ui-li-aside" data-position="right"><strong>6:00 Hrs.</strong></span></li>
+    <li><h2>El Fuerte, Sin.</h2><p></p><span class="ui-li-aside" data-position="right"><strong>8:16  Hrs.</strong></span></li>
+    <li><h2>T&eacute;moris</h2><p></p><span class="ui-li-aside" data-position="right"><strong>11:20 Hrs.</strong></span></li>
+    <li><h2>Bahuichivo</h2><p></p><span class="ui-li-aside" data-position="right"><strong>12:20 Hrs.</strong></span></li>
+    <li><h2>Cuiteco</h2><p></p><span class="ui-li-aside" data-position="right"><strong>12:31 Hrs.</strong></span></li>    
+    <li><h2>San Rafael</h2><p></p><span class="ui-li-aside" data-position="right"><strong>13:25 Hrs.</strong></span></li>
+    <li><h2>Posada Barrancas</h2><p></p><span class="ui-li-aside" data-position="right"><strong>13:43 Hrs.</strong></span></li>
+    <li><h2>Divisadero</h2><p></p><span class="ui-li-aside" data-position="right"><strong>14:22 Hrs.</strong></span></li>
+    <li><h2>Pitorreal</h2><p></p><span class="ui-li-aside" data-position="right"><strong>14:49 Hrs.</strong></span></li>
+    <li><h2>Creel</h2><p></p><span class="ui-li-aside" data-position="right"><strong>15:44 Hrs.</strong></span></li>
+    <li><h2>San Juanito</h2><p></p><span class="ui-li-aside" data-position="right"><strong>16:20 Hrs.</strong></span></li>
+    <li><h2>Cuauht&eacute;moc</h2><p></p><span class="ui-li-aside" data-position="right"><strong>18:37 Hrs.</strong></span></li>
+    <li><h2>Chihuahua</h2><p></p><span class="ui-li-aside" data-position="right"><strong>20:54 Hrs.</strong></span></li>
+</ul>
+
+        </div>
+        <div data-role="collapsible">
+        <h3>The  Zorro Show</h3>
+        <p>Visit Zorro's birthplace and enjoy being the guest of the Zorro's Show.</p>
+        </div>
+        <div data-role="collapsible">
+        <h3>The Arches</h3>
+        <p>They are located on the west  side of the central square. It is a place where you can find handicraft and traditional food.</p>
+        </div>
+         
+       
+</div>
+	</div>
+	
+</div>
+
+<!-- lugares historicos -->
+<div data-role="page" id="lugares_historicos">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Back" class="ui-li-icon"/></a>
+		<h1>Historical places</h1>
+        </div>
+	<div data-role="content" id="lgh">
+    <hr /> 	
+	<img src="img/fuerte/Interior-el-fuerte.jpg" />	
+    <p class="tex">The historical center of El Fuerte is a beautiful sample of the colonial architecture and of the 19th century.   The buildings preserve the neoclassic style. Where it is possible to observe his different attractions as El Fuerte's  Foundation Mural at the City Hall, Plaza de Armas, The Church of Jesus' Sacred Heart, Los Portales,  The House of The Culture or House of The Vault, The Constitution's  House, El Fuerte Museum and Observation Point, The Orrantia Mansion and the traditional Alleys.</p>	
+<div id="ilh">
+<div><a href="#plaza_de_armas" data-rel="popup" data-position-to="window" data-transition="fade">   
+    <img class="popphoto" src="img/fuerte/im1.jpg" style="max-height:300px;" alt="Plaza de armas El Fuerte"/></a>
+    </div>    
+<div><a href="#palacio" data-rel="popup" data-position-to="window" data-transition="fade">    
+    <img class="popphoto" src="img/fuerte/im2.jpg" style="max-height:300px;" alt="Palacio de El Fuerte"/></a>
+    </div>
+<div><a href="#museo" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im3.jpg" style="max-height:300px;" alt="Museo El Fuerte"/></a>
+    </div>
+<div><a href="#mansion" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im4.jpg" style="max-height:300px;" alt="Mansion Orrantia"/></a>
+    </div>
+<div><a href="#portales" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im5.jpg" style="max-height:300px;" alt="Los portales"/></a>
+    </div>
+<div><a href="#iglesia" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im6.jpg" style="max-height:300px;" alt="Iglesia del sagrado corazon de jesus"/></a>
+    </div>
+<div><a href="#casa-cons" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im7.jpg" style="max-height:300px;" alt="Casa del constituyente"/></a>
+    </div>
+<div><a href="#casa-cultura" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im8.jpg" style="max-height:300px;" alt="Casa de la cultura"/></a>
+    </div>
+<div><a href="#casa-antigua" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im9.jpg" style="max-height:300px;" alt="Casa mas antigua de El fuerte"/></a>
+    </div>
+<div><a href="#Streetjon" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im10.jpg" style="max-height:300px;" alt="Streetjon del burro"/></a>
+    </div>
+    </div>
+       
+       
+       <div data-role="popup" id="plaza_de_armas" data-overlay-theme="a" data-theme="d" data-corners="false">    
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>"Constitutional Square"</h1>
+    <p>The Central Square is the meeting point of  El Fuerte's society.  It is a perfect space to walk and enjoy the cultural events.</p>
+    </div>
+    <div data-role="popup" id="palacio" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>"City Hall"</h1>
+    <p>It was built in 1907. Two floors building, constructed almost in his entired of brick,  with some quarry only in the back, has a central court surrounded of portals with a series of arches.</p>
+    </div>
+<div data-role="popup" id="museo" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>"Museum-Fort-Obresvation Point"</h1>
+    <p>It is located on the hill's highest part,  where you can observe El Fuerte River and the Magic Town.</p>
+    </div>
+<div data-role="popup" id="mansion" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>"The Orrantia Mansion"</h1>
+    <p>Historical building constructed in 1800.  Building known by its murals.</p>
+    </div>
+<div data-role="popup" id="portales" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1> "The arches"</h1>
+    <p>They are located on the west  side of the central square. It is a place where you can find handicraft and traditional food.</p>
+    </div>
+<div data-role="popup" id="iglesia" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1> "The church of Jesus' Sacred heart"</h1>
+    <p>In 1760 the church was under construction to replace the modest adobe temple that was located on Montesclaros's Hill.</p>
+    </div>
+<div data-role="popup" id="casa-cons" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>"The Constitution House"</h1>
+    <p>Ancient 17th century stone building. The original structure has  been divided into various living spaces and continues to be occupied by families.</p>
+    </div>
+<div data-role="popup" id="casa-cultura" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>"The House of the Vauit"</h1>
+    <p>This beautiful building was built at the end the 18th century. </p>
+    </div>
+<div data-role="popup" id="casa-antigua" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>"The oldest House in "El Fuerte"</h1>
+    <p>It is the oldest house in town.  It was built in the middle of the 18th century.</p>
+    </div>
+<div data-role="popup" id="Streetjon" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>"Donkey Alley"</h1>
+    <p>The alley is an excellent example of ancient houses with their fronts of quarry stone with architectural details.</p>
+    </div>
+     
+    </div>
+
+</div>
+
+<!-- actividades en 24 horas -->
+<div data-role="page" id="actividades_24_horas">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>24 Hours activities</h1>
+       </div>
+	<div data-role="content" id="a24">
+    <hr />	
+    <img src="img/fuerte/zorro.jpg" />
+		<p class="tex">El Fuerte is located at the northwest of Sinaloa's State;  It has a lot of natural resources, historical, architectural and cultural attractions and indigenous traditions (yoremes), beside Ecoturistic Mar de Cortes . The colonial city of El Fuerte, founded in 1564 like the villa of San Juan Bautista de Carapoa for the Spanish captain Francisco de Ibarra known as "The Phoenix of the Conquerors". </p>		
+	
+    </div><a href="#dia_zorro" data-inline="true">
+    <div data-role="footer" data-theme="d">
+    <h2>Zorro's 24 Hours activities</h2>
+    </div> </a>   
+	
+</div>
+<div data-role="page" id="dia_zorro">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#actividades_24_horas" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Back" class="ui-li-icon"/></a>
+		<h1>24 Hours activities</h1>
+        </div>
+	<div data-role="content">
+    <ul data-role="listview">
+    <li><h2>07:00 hrs</h2><h6>I go for a run by the River Walk to have condition and be able to catch the bad boys.</h6></li>
+    <li><h2>08:30 hrs</h2><h6>I have two fried eggs with chilaquiles and a juice of fruit  for  breakfast at the Hotel Posada del Hidalgo (it is necessary to be fed well for my work)</h6></li>
+    <li><h2>09:00 hrs</h2><h6>I use the raft to cross the Fuerte River and enjoy the variety of flora and fauna and take the oportunity to visit the archeological site "Cerro de la Máscara" and analize the petroglyphs.</h6></li>
+    <li><h2>11:30 hrs</h2><h6>I go for a walk along the historical center of our Magic Town. (Municipal palace, House of the Culture, Mansion Orrantia, etc.)</h6></li>
+    <li><h2>13:00 hrs</h2><h6>I have for lunch fresh Bass Scallops and a delicious freshwater lobster at Diligencias Restaurant.</h6></li>
+    <li><h2>15:00 hrs</h2><h6>I visit  the Fuerte Museum and return to live the historical characters of our magic town and take panoramic photographies of the fuerte river.</h6></li>
+    <li><h2>16:30 hrs</h2><h6>I enjoy an ice cream at Los Portales and take a look of the new crafts on sale.</h6></li>
+    <li><h2>17:00 hrs</h2><h6>I take a tour for the hotels  to check that the tourists are well.</h6></li>
+    <li><h2>18:30 hrs</h2><h6>I prepare myself because I have a show every day in my house "Hotel Posada del Hidalgo"</h6></li>
+    <li><h2>20:30 hrs</h2><h6>I have dinner at the Mes&oacute;n del General Restaurant and have a delicious flamed black bass fillet.</h6></li>
+    <li><h2>21:30 hrs</h2><h6>Time to rest.</h6></li>   
+</ul>
+    </div> 	
+</div>
+<!-- emergencias -->
+<div data-role="page" id="emergencias">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Emergencies</h1>
+       </div>
+	<div data-role="content" id="eem" class="mara">	
+   <ul data-role="listview" >
+    <li><img src="img/fuerte/ico_emer1.png" /><h1>Hospital No.12 IMSS Antonio Cece&ntilde;a</h1><p>Torres Centro, El Fuerte, Sinaloa, M&eacute;xico.</p></li>
+    <li><img src="img/fuerte/ico_emer1.png" style="padding-top: 23px;" /><h1>Sinaloa Health Services</h1><p>road Mochis Sanblaz Kilometro 35<br /> 8 de Octubre, 81700 El Fuerte, Sinaloa, Mexico.<br /> Tel: <b>01 698 894 0462</b></p></li>
+    <li><img src="img/fuerte/ico_emer2.png" style="padding-top: 23px;"/><h1>Ministerial Police of Sinaloa</h1><p>Jos&eacute; Mar&iacute;a Morelos 501 Centro, 81820<br />El Fuerte, Sinaloa, Mexico.<br />Tel: <b>01 698 893 0654</b></p></li>
+    <li><img src="img/fuerte/ico_emer3.png" /><h1>Tourist offices</h1><p>Tel: <b>698 893 0145</b></p></li>
+    </ul>
+	</div>
+</div>
+
+
+</body>
+</html>

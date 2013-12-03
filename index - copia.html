@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+<meta charset="utf-8">
+<title>Aplic. Turismo</title>
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.3.1.min.css" />
+    <script src="jquery-mobile/jquery-1.9.1.min.js"></script>
+	<script src="jquery-mobile/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+<style>
+#menu{margin: 0;background: url(img/fondo.png) no-repeat 50% 4%,#292929}
+footer{width: 100%;height:100px;bottom: 0;position: absolute;text-align: center;}
+footer img{bottom: 0;position: relative;}
+footer div{width: 100%;height: 30px;}
+footer div a{text-decoration: none;color: #FFFFFF;}
+</style>
+<script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+		navigator.splashscreen.hide(); 
+		document.addEventListener("offline", onOffline, false);
+ }
+		
+	 function onOffline() {
+		navigator.notification.alert(
+    'No se encontro conexion a internet, algunas caracteristicas no estaran disponibles!',     // mensaje (message)
+	'Conexion',            // titulo (title)
+    'Cerrar'                // nombre del botón (buttonName)
+);
+    }
+	
+    </script>
+</head> 
+<body> 
+
+<div data-role="page" id="menu" data-theme="d">
+
+	<footer data-role="footer" data-theme="c" data-position="fixed">
+<div><a href="#municipios" data-rel="pop" data-transition="slideup" data-inline="true"><h1 style="width: 50%;background: #C72945;margin: 0;font-size: 140%;color: #FFFFFF;">ESPA&Ntilde;OL</h1></a></div>
+<div><a href="#municipios_ingles" data-rel="pop" data-transition="slideup" data-inline="true"><h1 style="float: right;width: 50%;background: #89BD6A;font-size: 140%;margin: 0;color: #FFFFFF;">ENGLISH</h1></a></div>
+<img src="img/logos_pie.png" />
+	</footer>
+</div>
+
+<div data-role="page" id="municipios" >
+	<div data-role="header" data-theme="c" style="text-align: center;">
+    <img src="img/encabezado.png" height="80"/>
+		<h1 style="background: #6DB8DD;color: #FFFFFF;">Elige un municipio:</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview" >
+    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
+</ul>
+	</div>
+</div>
+<div data-role="page" id="municipios_ingles" >
+	<div data-role="header" data-theme="c" style="text-align: center;">
+    <img src="img/encabezado.png" height="80"/>
+		<h1 style="background: #6DB8DD;color: #FFFFFF;">Choose a city:</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview">
+    <li><a href="fuerte_ingles.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
+</ul>
+	</div>
+</div>
+<!-- el fuerte -->
+
+
+</body>
+</html>

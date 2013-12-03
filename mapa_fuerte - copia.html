@@ -1,0 +1,183 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aplic. Web de jQuery Mobile</title>
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.3.1.min.css" />
+<link rel="stylesheet" href="jquery-mobile/style.css" />
+    <script src="jquery-mobile/jquery-1.9.1.min.js"></script>
+	<script src="jquery-mobile/jquery.mobile-1.3.1.min.js"></script>
+<script src="phonegap.js"></script>
+<script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+function onSuccess(position) {
+		var latitude = position.coords.latitude; // Latitud
+		var longitude = position.coords.longitude; // Longitud
+		var initialLocation = new google.maps.LatLng(latitude, longitude);
+        var image="img/fuerte/smiley_happy.png";
+		var marker = new google.maps.Marker({
+			position: initialLocation,
+			map: map,            
+			title: "Estás aquí",
+            icon: image
+		});
+	}
+
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+   
+    </script>
+    <style>
+    #content {
+ /*   padding: 0;
+    position : absolute !important; 
+    top : 40px !important;  
+    right : 0; 
+    bottom : 40px !important;  
+    left : 0 !important;  */   
+}</style>
+</head> 
+<body style="width:100%;margin:0;padding:0;"> 
+
+<div data-role="page" id="page">
+
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="fuerte.html" rel="external" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Mapa</h1>
+    </div>
+	<div data-role="content" id="content">
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script>
+    var lugares_his = [new google.maps.LatLng(26.421533207117303,-108.61990034580231),
+    new google.maps.LatLng( 26.421124859972117,-108.62027049064636),new google.maps.LatLng( 26.420975933006375,-108.62079083919525)
+    ,new google.maps.LatLng( 26.42142751740666,-108.62053334712982),new google.maps.LatLng( 26.4230608930239,-108.62075328826904)
+    ,new google.maps.LatLng( 26.42038502734354,-108.62010955810547),new google.maps.LatLng( 26.42038502734354,-108.62010955810547)
+    ,new google.maps.LatLng( 26.42340501988693,-108.6182427406311),new google.maps.LatLng( 26.41978451035643,-108.62006664276123)
+    ,new google.maps.LatLng( 26.419850006884655,-108.62062454223633),new google.maps.LatLng( 26.421598702652307,-108.61856460571289)];
+    var l_his = [
+	['Palacio Municipal', 26.421533207117303,-108.61990034580231, 0, '<h3>Palacio Municipal</h3>Fue construído en 1907. Edificio de dos plantas casi en su totalidad de ladrillo, con un patio central circundado de portales con arque'],
+	['Plaza de la Constitución', 26.421124859972117,-108.62027049064636, 1, '<h3>Plaza de la Constitución</h3>La plazuela es el punto de reunión de la sociedad fuertense que suele pasear los fines de semana para disfrutar los domingos culturales.'],
+	['Los Portales', 26.420975933006375,-108.62079083919525, 2, '<h3>Los Portales</h3>Se localizan al costado poniente de la plaza de armas, adosadas a dos cosntrucciones del siglo XVIII.'],
+	['Iglesia del Sagrado Corazon de Jesus', 26.42142751740666,-108.62053334712982, 3, '<h3>Iglesia del Sagrado Corazon de Jesus</h3>En 1760 el templo estaba en construcción sustituyendo a la modesta iglesia de adobe que se ubicaba en el cerro de Montesclaros'],
+    ['Museo Fuerte-Mirador', 26.4230608930239,-108.62075328826904, 4, '<h3>Museo Fuerte-Mirador</h3>En la parte alta de la llamada Loma de la Pila en 2001 se construyó una gran mole de piedra de cantera como una remembranza de El Fuerte.'],
+    ['Casa de la Cultura o Casa de la Boveda', 26.42038502734354,-108.62010955810547, 5, '<h3>Casa de la Cultura o Casa de la Boveda</h3>Bella edificación construída de piedra a fines del siglo XVIII.'],
+    ['Callejón del Burro', 26.42038502734354,-108.62010955810547, 6, '<h3>Callejón del Burro</h3>En este callejón se pueden apreciar varias casas antiguas con sus fachadas de cantera y con hermosos botaguas de cantera talladas con detalles arquitectonicos.'],
+    ['La Casa mas antigua', 26.42340501988693,-108.6182427406311, 7, '<h3>La Casa mas antigua</h3>El uso del ladrillo le ha dado su resistencia al tiempo. Puede asegurarse que fue levantada a mediados del siglo XVIII.'],
+    ['El Meson del General', 26.41978451035643,-108.62006664276123, 8, '<h3>El Meson del General</h3>Construído alrededor de 1850 como residencia privada, hoy funciona como restaurant "Meson del General"'],
+    ['Mansión Orrantia', 26.419850006884655,-108.62062454223633, 9, '<h3>Mansión Orrantia</h3>Histórico construído en 1800. Conocido por los murales elaborados que fueron pintados en algunas de las paredes.'],
+    ['Casa del Constituyente', 26.421598702652307,-108.61856460571289, 10, '<h3>Casa del Constituyente</h3>Finca de piedra que data del siglo XVII; Actualmente está fragmentada en varias viviendas estucadas, pero que aun conservan los portales, ventanas y rejas originales.']
+];
+var actividad=[new google.maps.LatLng(26.424577029243284,-108.62180471420288)
+,new google.maps.LatLng(26.434319025642257,-108.62246990203857),new google.maps.LatLng(26.4331277408805,-108.62380027770996)
+,new google.maps.LatLng(26.448817127077724,-108.70302200317383),new google.maps.LatLng(26.43516156393355,-108.62499117851257)
+,new google.maps.LatLng(26.364989800787942,-108.59212338924408),new google.maps.LatLng(26.4222853827673,-108.61948192119598)];
+var activ = [
+	['Caminata sobre el malecón',26.424577029243284,-108.62180471420288, 0, '<h3>Caminata sobre el malecón</h3>La calle Constitución, caminando hacia el oeste, nos lleva directamente a una amplia escalinata que nos coloca donde inicia el Malecón adoquinado franqueado por un vistoso muro de cantera y a su izquierda, corre dadivoso el Rio Fuerte.'],
+    ['Refréscate en La Galera',26.434319025642257,-108.62246990203857, 1, '<h3>Refréscate en La Galera</h3>Sitio de recreación familiar a orillas del Rio Fuerte, cuenta con  los servicios de restaurante de mariscos , andador por caminatas, asadores para preparar comidas a la sobra de frondosos arboles y un puente colgante para cruzar el ancho río admirando el caudal de las tranquilas aguas.'],
+    ['Tour en balsa sobre el Río Fuerte', 26.4331277408805,-108.62380027770996, 2, '<h3>Tour en balsa sobre el Río Fuerte</h3>Es la fuente de la vida y del desarrollo de todo el norte de Sinaloa. Nace en Chihuahua y hace un recorrido de mas de seiscientos kilómetros alimentando tres presas que controlan sus aguas para irrigar miles de hectáreas.'],
+    ['Pesca de lobina en la presa', 26.448817127077724,-108.70302200317383, 3, '<h3>Pesca de lobina en la presa</h3>Esta presa recibe las aguas del arroyo de Alamos y de la presa Hidalgo para el control del gran caudal y para el riego del Valle de El Carrizo.'],
+    ['Visita los petroglifos en el cerro de la máscara', 26.43516156393355,-108.62499117851257, 4, '<h3>Visita los petroglifos en el cerro de la máscara</h3>Todo amante de la cultura se verá atraído por esta zona arqueológica, la mas rica en petrograbados en Sinaloa, distribuídos desde la base del cerro, en sus faldas y hasta la cuspide.'],
+    ['Súbete al chepe', 26.364989800787942,-108.59212338924408, 5, '<h3>Súbete al chepe</h3>Vive uno de los viajes mas espectaculares por la Sierra Tarahumara cruzando bosques, cañones, barrancas, ríos, túneles y pueblos encantadores.'],
+    ['El show del zorro', 26.4222853827673,-108.61948192119598, 6, '<h3>El show del zorro</h3>Conoce el sitio donde vivió el legendario personaje que viajó a la Alta California, que ahora es Baja California, para defender a los más débiles y desprotegidos, Don Diego de la Vega, mejor conocido como "El Zorro".'],
+    ['', , 1, ''],
+
+];
+
+        var markers = [];
+      var iterator = 0;
+      var map;
+      function initialize() {
+       var haightAshbury = new google.maps.LatLng(26.416931451456314,-108.61680507659912);
+        var mapOptions = {
+          zoom: 14,
+          center: haightAshbury,
+          mapTypeId: google.maps.MapTypeId.ROADMAPs
+        };
+        map = new google.maps.Map(document.getElementById('map_canvas'),
+            mapOptions);
+	   infowindow = new google.maps.InfoWindow({
+                content: "loading..."
+            });
+        
+      }
+       function historicos() {
+        deleteOverlays();
+        for (var i = 0; i < lugares_his.length; i++) {
+           marker = new google.maps.Marker({
+                       position: lugares_his[i],
+                       map: map,
+                        title:l_his[i][0],
+                        zIndex: l_his[i][3],
+                        html: l_his[i][4],
+                       animation: google.maps.Animation.DROP                       
+                     });
+                     
+                     markers.push(marker);
+                     var contentString = "Some content";
+
+            google.maps.event.addListener(marker, "click", function () {
+                infowindow.setContent(this.html);
+                infowindow.open(map, this);
+            });
+                     
+            }   
+      }
+      function actividades() {
+        deleteOverlays();
+        for (var i = 0; i < actividad.length; i++) {
+           marker = new google.maps.Marker({
+                       position: actividad[i],
+                       map: map,
+                        title:activ[i][0],
+                        zIndex: activ[i][3],
+                        html: activ[i][4],
+                       animation: google.maps.Animation.DROP                       
+                     });
+                     
+                     markers.push(marker);
+                     var contentString = "Some content";
+
+            google.maps.event.addListener(marker, "click", function () {
+                infowindow.setContent(this.html);
+                infowindow.open(map, this);
+            });
+                     
+            }   
+      }
+
+      
+      function setAllMap(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+       function deleteOverlays() {
+               setAllMap(null);
+               markers = [];
+             }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <div id="map_canvas" style="height: 100%;"></div>
+    </div>
+    
+    <div data-role="footer" style="overflow:hidden;" data-position="fixed">
+    <h4 style="text-align:center;">Lugares</h4>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#" onclick="actividades()">Actividades</a></li>
+            <li><a href="#" onclick="historicos()">Historicos</a></li>
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+
+
+
+</body>
+</html>

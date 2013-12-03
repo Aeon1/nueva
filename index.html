@@ -1,0 +1,307 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="iso-5489-1">
+<title>Aplic. Turismo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.3.1.min.css" />
+<link rel="stylesheet" href="jquery-mobile/style.css" />
+    <script src="jquery-mobile/jquery-1.9.1.min.js"></script>
+	<script src="jquery-mobile/jquery.mobile-1.3.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script src="jquery-mobile/bd.js"></script>
+    <script src="jquery-mobile/clave.js"></script>
+<style>
+#menu{margin: 0;background: url(img/fondo.png) no-repeat 50% 4%,#292929}
+footer{width: 100%;height:100px;bottom: 0;position: absolute;text-align: center;}
+footer img{bottom: 0;position: relative;}
+footer div{width: 100%;height: 30px;}
+footer div a{text-decoration: none;color: #FFFFFF;}
+</style>
+<script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+	//	navigator.splashscreen.hide(); 
+        
+		//document.addEventListener("offline", onOffline, false);
+    
+        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        db.transaction(populateDB);
+        checkConnection();
+ }
+ var online;
+ function checkConnection() {
+        var networkState = navigator.network.connection.type;
+
+        var states = {};
+    states[Connection.UNKNOWN]  = '1';
+    states[Connection.ETHERNET] = '1';
+    states[Connection.WIFI]     = '1';
+    states[Connection.CELL_2G]  = '1';
+    states[Connection.CELL_3G]  = '1';
+    states[Connection.CELL_4G]  = '1';
+    states[Connection.NONE]     = '0';
+    online=states[networkState];
+    if (online=='0'){showAlert();}
+    }
+        
+function showAlert() {
+    navigator.notification.alert(
+    'Algunas caracteristicas no estaran disponibles',     // mensaje (message)
+    //alertDismissed,         // función 'callback' (alertCallback)
+    'Sin internet',            // titulo (title)
+    'Cerrar'                // nombre del botón (buttonName)
+    );
+    }
+	
+    </script>
+</head> 
+<body> 
+
+<div data-role="page" id="menu" data-theme="d">
+
+	<footer data-role="footer" data-theme="c" data-position="fixed">
+<div><a href="#municipios" data-rel="pop" data-transition="slideup" data-inline="true"><h1 style="width: 50%;background: #C72945;margin: 0;font-size: 140%;color: #FFFFFF;">ESPA&Ntilde;OL</h1></a></div>
+<div><a href="#municipios_ingles" data-rel="pop" data-transition="slideup" data-inline="true"><h1 style="float: right;width: 50%;background: #89BD6A;font-size: 140%;margin: 0;color: #FFFFFF;">ENGLISH</h1></a></div>
+<img src="img/logos_pie.png" />
+	</footer>
+</div>
+
+<div data-role="page" id="municipios" >
+	<div data-role="header" data-theme="c" style="text-align: center;">
+    <img src="img/encabezado.png" height="80"/>
+		<h1 style="background: #6DB8DD;color: #FFFFFF;">Elige un municipio:</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview" >
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01E','C01');clavecomp('01E');"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07E','C07');clavecomp('07E');"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11E','C11');clavecomp('11E');"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
+    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
+    
+</ul>
+	</div>
+</div>
+<div data-role="page" id="municipios_ingles" >
+	<div data-role="header" data-theme="c" style="text-align: center;">
+    <img src="img/encabezado.png" height="80"/>
+		<h1 style="background: #6DB8DD;color: #FFFFFF;">Choose a city:</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview">
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01I','C01');clavecomp('01I'); "><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07I','C07');clavecomp('07I'); "><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11I','C11');clavecomp('11I'); "><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
+    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
+    </ul>
+	</div>
+</div>
+
+
+
+
+
+<!-- cuerpo -->
+<div data-role="page" id="page">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="index.html#municipios" rel="external" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1 style="margin: 0.1em 6% .8em!important;"><img src="img/fuerte.png" height="50" /></h1>
+        	</div>
+	<div data-role="content" id="inicio">
+    <img id="imgprincipal" src="img/fuerte/portada_el_fuerte.jpg" />
+    <fieldset id="fiel"><legend>Tiempo</legend></fieldset>
+		<a data-inline="true" onclick="$.mobile.navigate( '#gastronomia',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/gastronomia.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#diversion',{transition : 'flip'} );loaddiversion()"><img src="img/fuerte/dirversion.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#lugares_historicos',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/lugares_historicos.png" /></a>
+        <a href="mapa_fuerte.html" rel="external" onclick=""><img src="img/fuerte/mapa.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#actividades_24_horas',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/act_24_horas.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#emergencias',{transition : 'flip'} );loademergencia()"><img src="img/fuerte/emergencias.png" /></a>
+        </div>	
+	</div>
+
+<!-- gastronomia -->
+<!-- falta la imagen principal de seccion -->
+<div data-role="page" id="gastronomia">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Gastronom&iacute;a</h1>
+      </div>
+	<div data-role="content" id="gga">
+    <hr />	
+    <img id="imggastronomia" src="img/fuerte/cauques.jpg" />
+    <p class="tit">Platillos t&iacute;picos</p>
+    <p class="tex">Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per.</p> 
+    <p class="azul">Restaurantes y especialidades</p>
+    <div id="contgas" data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+    </div>
+    </div>
+</div>
+
+
+
+<!-- diversion -->
+
+<div data-role="page" id="diversion">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Diversi&oacute;n</h1>
+        </div>
+	<div data-role="content" id="dda">
+    <hr />	
+	<img id="imgdiversion" src="img/fuerte/Paseo-en-balsa-por-el-rio-fuerte.jpg"/>
+	<p class="verde">Actividades</p>
+    <div id="contdiv" data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d" ></div>
+	</div>
+	
+</div>
+
+<!-- lugares historicos -->
+<div data-role="page" id="lugares_historicos">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Lugares Hist&oacute;ricos</h1>
+       </div>
+	<div data-role="content" id="lgh">
+    <hr /> 	
+	<img src="img/fuerte/Interior-el-fuerte.jpg" />	
+    <p class="tex">El centro hist&oacute;rico de El Fuerte es una bella muestra de la arquitectura colonial del siglo XIX, caracterizado por el trazo ordenado de sus calles, edificios de muros lisos rematados por cornisas, casas de ventanas sim&eacute;tricas y enmarcadas con portadas de estilo neocl&aacute;sico. Se puede observar estos diferentes atractivos en el Mural del Palacio Municipal, Plaza de Armas, Iglesia Sagrado Coraz&oacute;n de Jes&uacute;s, Los Portales, Casa de La Cultura o Casa de La B&oacute;veda, Casa del Constituyente, Museo El Fuerte-Mirador, Mansi&oacute;n Orrantia y el Callej&oacute;n del Burro.</p>	
+<div id="ilh">
+<div><a href="#plaza_de_armas" data-rel="popup" data-position-to="window" data-transition="fade">   
+    <img class="popphoto" src="img/fuerte/im1.jpg" style="max-height:300px;" alt="Plaza de armas El Fuerte"/></a>
+    </div>    
+<div><a href="#palacio" data-rel="popup" data-position-to="window" data-transition="fade">    
+    <img class="popphoto" src="img/fuerte/im2.jpg" style="max-height:300px;" alt="Palacio de El Fuerte"/></a>
+    </div>
+<div><a href="#museo" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im3.jpg" style="max-height:300px;" alt="Museo El Fuerte"/></a>
+    </div>
+<div><a href="#mansion" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im4.jpg" style="max-height:300px;" alt="Mansion Orrantia"/></a>
+    </div>
+<div><a href="#portales" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im5.jpg" style="max-height:300px;" alt="Los portales"/></a>
+    </div>
+<div><a href="#iglesia" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im6.jpg" style="max-height:300px;" alt="Iglesia del sagrado corazon de jesus"/></a>
+    </div>
+<div><a href="#casa-cons" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im7.jpg" style="max-height:300px;" alt="Casa del constituyente"/></a>
+    </div>
+<div><a href="#casa-cultura" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im8.jpg" style="max-height:300px;" alt="Casa de la cultura"/></a>
+    </div>
+<div><a href="#casa-antigua" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im9.jpg" style="max-height:300px;" alt="Casa mas antigua de El fuerte"/></a>
+    </div>
+<div><a href="#callejon" data-rel="popup" data-position-to="window" data-transition="fade">  
+    <img class="popphoto" src="img/fuerte/im10.jpg" style="max-height:300px;" alt="Callejon del burro"/></a>
+    </div>
+    </div>
+       
+       
+       <div data-role="popup" id="plaza_de_armas" data-overlay-theme="a" data-theme="d" data-corners="false">    
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Plaza de la Constituci&oacute;n</h1>
+    <p>La plazuela es el punto de reuni&oacute;n de la sociedad fuertense que suele pasear los fines de semana para disfrutar los domingos culturales.</p>
+    </div>
+    <div data-role="popup" id="palacio" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Palacio Municipal</h1>
+    <p>Fue construido en 1907. Edificio de dos plantas construido casi en su totalidad de ladrillo, pues solo en la parte posterior tiene pare de cantera, con un patio central circundado de portales con arquer&iacute;as que se corresponden con los del piso superior.</p>
+    </div>
+<div data-role="popup" id="museo" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Museo Fuerte-Mirador</h1>
+    <p>En la parte alta de la llamada Loma de la Pila en 2001 se constru&oacute;o una gran mole de piedra de cantera como una remembranza de El Fuerte.</p>
+    </div>
+<div data-role="popup" id="mansion" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Mansi&oacute;n Orrantia</h1>
+    <p>Hist&oacute;rico constru&iacute;do en 1800. Conocido por los murales elaborados que fueron pintados en algunas de las paredes.</p>
+    </div>
+<div data-role="popup" id="portales" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Los Portales</h1>
+    <p>Se localizan al costado poniente de la plaza de armas, adosadas a dos construcciones del siglo XVIII.</p>
+    </div>
+<div data-role="popup" id="iglesia" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Iglesia del Sagrado Coraz&oacute;n de Jes&uacute;s</h1>
+    <p>En 1760 el templo estaba en construcci&oacute;n sustituyendo a la modesta iglesia de adobe que se ubicaba en el cerro de Montesclaros</p>
+    </div>
+<div data-role="popup" id="casa-cons" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Casa del Constituyente</h1>
+    <p>Finca de piedra que data del siglo XVII; Actualmente est&aacute; fragmentada en varias viviendas estucadas, pero que aun conservan los portales, ventanas y rejas originales</p>
+    </div>
+<div data-role="popup" id="casa-cultura" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Casa de la Cultura o Casa de la B&oacute;veda</h1>
+    <p>Bella edificaci&oacute;n constru&iacute;da de piedra a fines del siglo XVIII.</p>
+    </div>
+<div data-role="popup" id="casa-antigua" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>La Casa m&aacute;s antigua</h1>
+    <p>El uso del ladrillo le ha dado su resistencia al tiempo. Puede asegurarse que fue levantada a mediados del siglo XVIII.</p>
+    </div>
+<div data-role="popup" id="callejon" data-overlay-theme="a" data-theme="d" data-corners="false">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <h1>Callej&oacute;n del Burro</h1>
+    <p>En este callej&oacute;n se pueden apreciar varias casas antiguas con sus fachadas de cantera y con hermosos botaguas de cantera talladas con detalles arquitect&oacute;nicos.</p>
+    </div>
+     
+    </div>
+
+</div>
+
+<!-- actividades en 24 horas -->
+<div data-role="page" id="actividades_24_horas">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Actividades en 24 Hrs</h1>
+      </div>
+	<div data-role="content" id="a24">
+    <hr />	
+    <img src="img/fuerte/zorro.jpg" />
+		<p class="tex">El Fuerte se localiza en la parte noroeste del Estado de Sinaloa; posee grandes atractivos naturales, hist&oacute;ricos, arquitect&oacute;nicos, culturales y arraigadas tradiciones ind&iacute;genas (yoremes), adem&aacute;s de ubicarse dentro del Circuito Ecotur&iacute;stico Mar de Cort&eacute;s - Barrancas del Cobre. La ciudad colonial de El Fuerte, fue fundada en 1564 como la villa de San Juan Bautista de Carapoa por el capit&aacute;n espa&ntilde;ol Francisco de Ibarra, conocido como "El F&eacute;nix de los Conquistadores". El origen de su actual nombre se deriva del "Recinto Fortificado" construido por el capit&aacute;n criollo Diego Mart&iacute;nez de Hurdaide durante el virreinato de Don Juan de Mendoza y Luna, Marqu&eacute;s de Montesclaros.</p>		
+	
+    </div><a href="#dia_zorro" data-inline="true">
+    <div data-role="footer" data-theme="d">
+    <h2>Un d&iacute;a en El Fuerte seg&uacute;n El Zorro</h2>
+    </div> </a>   
+	
+</div>
+<div data-role="page" id="dia_zorro">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#actividades_24_horas" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Actividades en 24 Hrs</h1>
+       </div>
+	<div data-role="content">
+    <ul data-role="listview">
+    <li><h2>07:00 hrs</h2><h6>Voy a correr por el malecon para tener condici&oacute;n y poder atrapar a los chicos malos.</h6></li>
+    <li><h2>08:30 hrs</h2><h6>Desayuno 2 huevos estrellados con chilaquiles y un jugo de fruta de la regi&oacute;n en el hotel posada hidalgo (Se necesita estar bien nutrido para hacer mi trabajo) </h6></li>
+    <li><h2>09:00 hrs</h2><h6>Me subo a la balsa que recorre el R&iacute;o Fuerte y disfruto de la variedad de flora y fauna, aprovecho para visitar el cerro de la m&aacute;scara y analizar los petrograbados.</h6></li>
+    <li><h2>11:30 hrs</h2><h6>Doy un paseo por el centro hist&oacute;rico de nuestro pueblo m&aacute;gico (Palacio municipal, Casa de la cultura, mansi&oacute;n orrantia, etc..) </h6></li>
+    <li><h2>13:00 hrs</h2><h6>Como unos ricos callos de lobina y cauques a la mantequilla en el restaurante Diligencias.</h6></li>
+    <li><h2>15:00 hrs</h2><h6>Visito el museo del mirador y vuelvo a vivir la historia de grandes personajes de nuestro pueblo m&aacute;gico y tomo fotograf&iacute;as panor&aacute;micas del R&iacute;o Fuerte.</h6></li>
+    <li><h2>16:30 hrs</h2><h6>Paso a los portales a tomar una nieve  y veo las nuevas artesanias que estan en venta</h6></li>
+    <li><h2>17:00 hrs</h2><h6>Hago un recorrido por los hoteles que son edificios hist&oacute;ricos para verificar que se encuentren bien todos los turistas.</h6></li>
+    <li><h2>18:30 hrs</h2><h6>Me preparo porque tengo show todos los d&iacute;as en mi casa "Hotel posada Hidalgo"</h6></li>
+    <li><h2>20:30 hrs</h2><h6>Ceno en el mes&oacute;n del general una rica lobina flameada.</h6></li>
+    <li><h2>21:30 hrs</h2><h6>Descansar</h6></li>   
+</ul>
+    </div> 	
+</div>
+<!-- emergencias -->
+<div data-role="page" id="emergencias">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Emergencias</h1>
+       </div>
+	<div data-role="content" id="eem" class="mara"><ul id="conteme" data-role="listview" ></ul></div>
+</div>
+<!-- fin del cuerpo -->
+
+
+</body>
+</html>
