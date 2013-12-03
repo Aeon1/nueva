@@ -1,4 +1,4 @@
-var identificacor;
+
 function clavecomp(clvcom){
-    identificacor='01E';//clvcom;
+    window.identificador=clvcom;
 }

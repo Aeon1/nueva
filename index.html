@@ -21,18 +21,19 @@ footer div a{text-decoration: none;color: #FFFFFF;}
 <script type="text/javascript" charset="utf-8">
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-	//	navigator.splashscreen.hide(); 
-        
-		//document.addEventListener("offline", onOffline, false);
-    
+	//	navigator.splashscreen.hide();         
+		//document.addEventListener("offline", onOffline, false);    
         var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
         db.transaction(populateDB);
         checkConnection();
+        
  }
+
+
+
  var online;
  function checkConnection() {
         var networkState = navigator.network.connection.type;
-
         var states = {};
     states[Connection.UNKNOWN]  = '1';
     states[Connection.ETHERNET] = '1';
@@ -48,12 +49,11 @@ footer div a{text-decoration: none;color: #FFFFFF;}
 function showAlert() {
     navigator.notification.alert(
     'Algunas caracteristicas no estaran disponibles',     // mensaje (message)
-    //alertDismissed,         // función 'callback' (alertCallback)
     'Sin internet',            // titulo (title)
     'Cerrar'                // nombre del botón (buttonName)
     );
     }
-	
+
     </script>
 </head> 
 <body> 
@@ -113,9 +113,9 @@ function showAlert() {
 		<a data-inline="true" onclick="$.mobile.navigate( '#gastronomia',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/gastronomia.png" /></a>
         <a data-inline="true" onclick="$.mobile.navigate( '#diversion',{transition : 'flip'} );loaddiversion()"><img src="img/fuerte/dirversion.png" /></a>
         <a data-inline="true" onclick="$.mobile.navigate( '#lugares_historicos',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/lugares_historicos.png" /></a>
-        <a href="mapa_fuerte.html" rel="external" onclick=""><img src="img/fuerte/mapa.png" /></a>
+        <a href="javascript:document.location.href ='mapa.html?valor='+clave;" rel="external" data-inline="true"><img src="img/fuerte/mapa.png" /></a>
         <a data-inline="true" onclick="$.mobile.navigate( '#actividades_24_horas',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/act_24_horas.png" /></a>
-        <a data-inline="true" onclick="$.mobile.navigate( '#emergencias',{transition : 'flip'} );loademergencia()"><img src="img/fuerte/emergencias.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#emergencias',{transition : 'flip'});loademergencia()"><img src="img/fuerte/emergencias.png" /></a>
         </div>	
 	</div>
 
@@ -301,7 +301,6 @@ function showAlert() {
 	<div data-role="content" id="eem" class="mara"><ul id="conteme" data-role="listview" ></ul></div>
 </div>
 <!-- fin del cuerpo -->
-
 
 </body>
 </html>

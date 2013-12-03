@@ -1,51 +1,6 @@
-//var db;
-//var dbCreated = false;
-
-//var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
-
-//document.addEventListener("deviceready", onDeviceReady, false);
-//
-//function onDeviceReady() {
-//    db = window.openDatabase("municipios", "1.0", "Viva Sinaloa", 200000);
-//    if (dbCreated)
-//    	db.transaction(getEmployees, transaction_error);
-//    else
-//    	db.transaction(populateDB, transaction_error, populateDB_success);
-//}
-
 function transaction_error(tx, error) {
     alert("Database Error: " + error);
 }
-//
-//function populateDB_success() {
-//	dbCreated = true;
-//    db.transaction(getEmployees, transaction_error);
-//}
-//
-//function getEmployees(tx) {
-//	var sql = "select e.id, e.firstName, e.lastName, e.title, e.picture, count(r.id) reportCount " + 
-//				"from employee e left join employee r on r.managerId = e.id " +
-//				"group by e.id order by e.lastName, e.firstName";
-//	tx.executeSql(sql, [], getEmployees_success);
-//}
-
-//function getEmployees_success(tx, results) {
-//	$('#busy').hide();
-//    var len = results.rows.length;
-//    for (var i=0; i<len; i++) {
-//    	var employee = results.rows.item(i);
-//		$('#employeeList').append('<li><a href="employeedetails.html?id=' + employee.id + '">' +
-//				'<img src="pics/' + employee.picture + '" class="list-icon"/>' +
-//				'<p class="line1">' + employee.firstName + ' ' + employee.lastName + '</p>' +
-//				'<p class="line2">' + employee.title + '</p>' +
-//				'<span class="bubble">' + employee.reportCount + '</span></a></li>');
-//    }
-////	setTimeout(function(){
-////		scroll.refresh();
-////	},100);
-////	db = null;
-//}
-
 function populateDB(tx) {
     tx.executeSql('DROP TABLE IF EXISTS clima');
 	tx.executeSql('DROP TABLE IF EXISTS gastronomia');
@@ -248,7 +203,16 @@ tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipi
 
 
 }
-var clave;
+  var clave;
+if(!clave){
+    
+//var url=location;
+var valor=String(location).split('?');
+clave=valor[1];
+
+}
+
+
 function loadclave(clv,clvcl){
     clave=clv;
     console.log(clvcl);
@@ -267,6 +231,7 @@ function showclima(tx, results){
     $('#fiel').html(results.rows.item(i).iframe+"<br>"+results.rows.item(i).js).show();
 }
 }
+
 //gastronomia
 function loadgastronomia(){
     console.log(clave);
