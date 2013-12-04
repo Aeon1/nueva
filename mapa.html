@@ -22,7 +22,7 @@
             var emerg="E"+clave;
         tx.executeSql('SELECT * FROM diversion where clave=?',[diver],writediversion);
         tx.executeSql('SELECT * FROM gastronomia where clave=?',[gastr],writegastronomia);
-       // tx.executeSql('SELECT * FROM historicos where clave=?',[histo],writehistoricos);
+       tx.executeSql('SELECT * FROM historicos where clave=?',[histo],writehistoricos);
         tx.executeSql('SELECT * FROM emergencia where clave=?',[emerg],writeemergencias);
          
     });
@@ -39,38 +39,63 @@ function getURLvar(var_name){
     var placediversiondescr =new Array();
 function writediversion(tx, results){    
     var len = results.rows.length;
-    console.log('registros de diversion encontrados '+len);
-    for (var i=0; i<len; i++){        
-    placediversion.push(results.rows.item(i).coordenadas);    
-    placediversiondescr.push("['"+results.rows.item(i).actividad+"',"+results.rows.item(i).coordenadas+","+i+",'<h3>"+results.rows.item(i).actividad+"</h3>"+results.rows.item(i).descripcion+"']");
+    var nuevo=[];
+    for (var i=0; i<len; i++){
+        placediversiondescr.push(new Array());
+    placediversion.push(results.rows.item(i).coordenadas);
+    placediversiondescr[i] = new Array();
+    nuevo=[results.rows.item(i).actividad,results.rows.item(i).coordenadas,i,"<h3>"+results.rows.item(i).actividad+"</h3>"+results.rows.item(i).descripcion];
+      for(j=0;j<len;j++){
+    placediversiondescr[i].push(nuevo[j]);
+        }
     }
+    
 }
     var placegastronomia = new Array();
     var placegastronomiadescr =new Array();
 function writegastronomia(tx, results){
     var len = results.rows.length;
+    var nuevo=[];
     for (var i=0; i<len; i++){
+        placegastronomiadescr.push(new Array());
     placegastronomia.push(results.rows.item(i).coordenadas);
-    placegastronomiadescr.push("['"+results.rows.item(i).restaurante+"',"+results.rows.item(i).coordenadas+","+i+",'<h3>"+results.rows.item(i).restaurante+"</h3>"+results.rows.item(i).descripcion+"']");
-    }    
+    placegastronomiadescr[i] = new Array();
+    nuevo=[results.rows.item(i).restaurante,results.rows.item(i).coordenadas,i,"<h3>"+results.rows.item(i).restaurante+"</h3>"+results.rows.item(i).especialidad];
+      for(j=0;j<len;j++){
+    placegastronomiadescr[i].push(nuevo[j]);
+        }
+    }
+    
 }
     var placehistoricos = new Array();
     var placehistoricosdescr = new Array();
-//function writehistoricos(tx, results){
-//    var len = results.rows.length;
-//    for (var i=0; i<len; i++){
-//    placehistoricos.push(results.rows.item(i).coordenadas);
-//    placehistoricosdescr.push("['"+results.rows.item(i).restaurante+"',"+results.rows.item(i).coordenadas+","+i+",'<h3>"+results.rows.item(i).restaurante+"</h3>"+results.rows.item(i).especialidad+"']");
-//    }
-//  
-//}
+function writehistoricos(tx, results){
+    var len = results.rows.length;
+    var nuevo=[];
+    for (var i=0; i<len; i++){
+        placehistoricosdescr.push(new Array());
+     placehistoricos.push(results.rows.item(i).coordenadas);
+    placehistoricosdescr[i] = new Array();
+    nuevo=[results.rows.item(i).lugar,results.rows.item(i).coordenadas,i,"<h3>"+results.rows.item(i).lugar+"</h3>"+results.rows.item(i).descripcion];
+      for(j=0;j<len;j++){
+    placehistoricosdescr[i].push(nuevo[j]);
+        }
+    }
+    
+}
     var placeemergencias = new Array();
     var placeemergenciasdescr = new Array();
 function writeemergencias(tx, results){
     var len = results.rows.length;
+    var nuevo=[];
     for (var i=0; i<len; i++){
+        placeemergenciasdescr.push(new Array());
     placeemergencias.push(results.rows.item(i).coordenadas);
-    placeemergenciasdescr.push("['"+results.rows.item(i).servicio+"',"+results.rows.item(i).coordenadas+","+i+",'<h3>"+results.rows.item(i).servicio+"</h3>"+results.rows.item(i).domicilio+"'],");
+    placeemergenciasdescr[i] = new Array();
+    nuevo=[results.rows.item(i).servicio,results.rows.item(i).coordenadas,i,"<h3>"+results.rows.item(i).servicio+"</h3>"+results.rows.item(i).domicilio];
+      for(j=0;j<len;j++){
+    placeemergenciasdescr[i].push(nuevo[j]);
+        }
     }
     
 }
@@ -145,8 +170,8 @@ function onSuccess(position) {
                        position: new google.maps.LatLng(lat,lon),                                           
                        map: map,
                         title:placediversiondescr[i][0],
-                        zIndex:parseInt(placediversiondescr[i][3]),
-                        html: placediversiondescr[i][4],
+                        zIndex:placediversiondescr[i][2],
+                        html: placediversiondescr[i][3],
                        animation: google.maps.Animation.DROP                       
                      });
                      markers.push(marker);
@@ -170,8 +195,8 @@ function onSuccess(position) {
                        position: new google.maps.LatLng(lat,lon),
                        map: map,
                         title:placegastronomiadescr[i][0],
-                        zIndex: parseInt(placegastronomiadescr[i][3]),
-                        html: placegastronomiadescr[i][4],
+                        zIndex:placegastronomiadescr[i][2],
+                        html: placegastronomiadescr[i][3],
                        animation: google.maps.Animation.DROP                       
                      });
                      
@@ -185,43 +210,43 @@ function onSuccess(position) {
                      
             }   
       }
-      // function historicos() {
-//        deleteOverlays();
-//        for (var i = 0; i < placehistoricos.length; i++) {
-//                var sss=placehistoricos[i].split(',');
-//                var lat=parseFloat(sss[0]);
-//                var lon=parseFloat(sss[1]);
-//           marker = new google.maps.Marker({
-//                       position: new google.maps.LatLng(lat,lon),
-//                       map: map,
-//                        title:placehistoricosdescr[i][0],
-//                        zIndex: parseInt(placehistoricosdescr[i][3]),
-//                        html: placehistoricosdescr[i][4],
-//                       animation: google.maps.Animation.DROP                       
-//                     });
-//                     
-//                     markers.push(marker);
-//                     var contentString = "Algunos contenidos";
-//
-//            google.maps.event.addListener(marker, "click", function () {
-//                infowindow.setContent(this.html);
-//                infowindow.open(map, this);
-//            });
-//                     
-//            }   
-//      }
-      function emergencias() {
+       function historicos() {
         deleteOverlays();
-        for (var i = 0; i < placeemergencias.length; i++) {
-            var sss=placeemergencias[i].split(',');
+        for (var i = 0; i < placehistoricos.length; i++) {
+                var sss=placehistoricos[i].split(',');
                 var lat=parseFloat(sss[0]);
                 var lon=parseFloat(sss[1]);
            marker = new google.maps.Marker({
                        position: new google.maps.LatLng(lat,lon),
                        map: map,
+                        title:placehistoricosdescr[i][0],
+                        zIndex: placehistoricosdescr[i][2],
+                        html: placehistoricosdescr[i][3],
+                       animation: google.maps.Animation.DROP                       
+                     });
+                     
+                     markers.push(marker);
+                     var contentString = "Algunos contenidos";
+
+            google.maps.event.addListener(marker, "click", function () {
+                infowindow.setContent(this.html);
+                infowindow.open(map, this);
+            });
+                     
+            }   
+      }
+      function emergencias() {
+        deleteOverlays();
+        for (var i = 0; i < placeemergencias.length; i++) {
+            var sss=placeemergencias[i].split(',');
+                var lat=parseFloat(sss[0]);
+                var lon=parseFloat(sss[1]);             
+           marker = new google.maps.Marker({
+                       position: new google.maps.LatLng(lat,lon),
+                       map: map,
                         title:placeemergenciasdescr[i][0],
-                        zIndex: parseInt(placeemergenciasdescr[i][3]),
-                        html: placeemergenciasdescr[i][4],
+                        zIndex: placeemergenciasdescr[i][2],
+                        html: placeemergenciasdescr[i][3],
                        animation: google.maps.Animation.DROP                       
                      });
                      
