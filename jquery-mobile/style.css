@@ -1,10 +1,9 @@
-#inicio,#gga,#dda,#lgh, #a24{text-align: center;}
+#inicio,#gga,#dda, #a24{text-align: center;}
 #emm li p{text-align: left;}
-#inicio img, #gga img,#dda img,#lgh img,#a24 img{width: 100%;}
+#inicio img, #gga img,#dda img,#a24 img{width: 100%;}
 #inicio a img{width: 31%;margin: 1px;}
 #inicio #fiel{text-align: left;border-top: 1px solid #C0C0C0;border-bottom: 1px solid #C0C0C0;margin-bottom: 10px;display: none;padding: 15px 0px 0px 10px;}
 .atras{background: white;border: 0;}
-#ilh div{width: 33%;float: left;}
 #gga .tit,#dda .tit,#a24 .tit{font-weight: 700;color: #638FBE;text-align: center;}
 #gga .tex, #lgh .tex,#a24 .tex{text-align: justify;color: #5b5b5f;}
 #gga,#dda div[data-role='collapsible'] p{text-align: left;padding: 10px;}

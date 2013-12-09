@@ -10,7 +10,7 @@
 	<script src="jquery-mobile/jquery.mobile-1.3.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <script src="jquery-mobile/bd.js"></script>
-    <script src="jquery-mobile/clave.js"></script>
+    
 <style>
 #menu{margin: 0;background: url(img/fondo.png) no-repeat 50% 4%,#292929}
 footer{width: 100%;height:100px;bottom: 0;position: absolute;text-align: center;}
@@ -18,43 +18,28 @@ footer img{bottom: 0;position: relative;}
 footer div{width: 100%;height: 30px;}
 footer div a{text-decoration: none;color: #FFFFFF;}
 </style>
-<script type="text/javascript" charset="utf-8">
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-	//	navigator.splashscreen.hide();         
-		//document.addEventListener("offline", onOffline, false);    
-        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-        db.transaction(populateDB);
-        checkConnection();
-        
+  <style>
+ #pagehis{
+    padding: 0;
+    position : absolute !important; 
+    top : 40px !important;  
+    right : 0; 
+    bottom : 40px !important;  
+    left : 0 !important;   
  }
-
-
-
- var online;
- function checkConnection() {
-        var networkState = navigator.network.connection.type;
-        var states = {};
-    states[Connection.UNKNOWN]  = '1';
-    states[Connection.ETHERNET] = '1';
-    states[Connection.WIFI]     = '1';
-    states[Connection.CELL_2G]  = '1';
-    states[Connection.CELL_3G]  = '1';
-    states[Connection.CELL_4G]  = '1';
-    states[Connection.NONE]     = '0';
-    online=states[networkState];
-    if (online=='0'){showAlert();}
-    }
-        
-function showAlert() {
-    navigator.notification.alert(
-    'Algunas caracteristicas no estaran disponibles',     // mensaje (message)
-    'Sin internet',            // titulo (title)
-    'Cerrar'                // nombre del botón (buttonName)
-    );
-    }
-
-    </script>
+  div.box {
+    width: 100%;
+    height: 100%;
+    background-color: #108040;
+     
+  }
+  div.box.swiperight {
+    background-color: #7ACEF4;
+  }
+  div.box.swipeleft {
+    background-color: #00FF00;
+  }
+  </style>
 </head> 
 <body> 
 
@@ -74,10 +59,10 @@ function showAlert() {
 	</div>
 	<div data-role="content">	
 		<ul data-role="listview" >
-    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01E','C01');clavecomp('01E');"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
-    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07E','C07');clavecomp('07E');"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
-    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11E','C11');clavecomp('11E');"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
-    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01E','C01');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07E','C07');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11E','C11');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
+    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
     
 </ul>
 	</div>
@@ -89,10 +74,10 @@ function showAlert() {
 	</div>
 	<div data-role="content">	
 		<ul data-role="listview">
-    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01I','C01');clavecomp('01I'); "><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
-    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07I','C07');clavecomp('07I'); "><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
-    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11I','C11');clavecomp('11I'); "><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
-    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/logo_fuerte.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01I','C01'); "><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07I','C07');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11I','C11');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
+    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
     </ul>
 	</div>
 </div>
@@ -104,7 +89,7 @@ function showAlert() {
 <!-- cuerpo -->
 <div data-role="page" id="page">
 	<div data-role="header" data-position="fixed" data-theme="c">
-    <a href="index.html#municipios" rel="external" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+    <a class="atras" data-transition="pop" data-inline="true" onclick="back();"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
 		<h1 style="margin: 0.1em 6% .8em!important;"><img src="img/fuerte.png" height="50" /></h1>
         	</div>
 	<div data-role="content" id="inicio">
@@ -157,101 +142,11 @@ function showAlert() {
 
 <!-- lugares historicos -->
 <div data-role="page" id="lugares_historicos">
-	<div data-role="header" data-position="fixed" data-theme="c">
-    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
-		<h1>Lugares Hist&oacute;ricos</h1>
-       </div>
-	<div data-role="content" id="lgh">
-    <hr /> 	
-	<img src="img/fuerte/Interior-el-fuerte.jpg" />	
-    <p class="tex">El centro hist&oacute;rico de El Fuerte es una bella muestra de la arquitectura colonial del siglo XIX, caracterizado por el trazo ordenado de sus calles, edificios de muros lisos rematados por cornisas, casas de ventanas sim&eacute;tricas y enmarcadas con portadas de estilo neocl&aacute;sico. Se puede observar estos diferentes atractivos en el Mural del Palacio Municipal, Plaza de Armas, Iglesia Sagrado Coraz&oacute;n de Jes&uacute;s, Los Portales, Casa de La Cultura o Casa de La B&oacute;veda, Casa del Constituyente, Museo El Fuerte-Mirador, Mansi&oacute;n Orrantia y el Callej&oacute;n del Burro.</p>	
-<div id="ilh">
-<div><a href="#plaza_de_armas" data-rel="popup" data-position-to="window" data-transition="fade">   
-    <img class="popphoto" src="img/fuerte/im1.jpg" style="max-height:300px;" alt="Plaza de armas El Fuerte"/></a>
-    </div>    
-<div><a href="#palacio" data-rel="popup" data-position-to="window" data-transition="fade">    
-    <img class="popphoto" src="img/fuerte/im2.jpg" style="max-height:300px;" alt="Palacio de El Fuerte"/></a>
+	<div data-role="header">...</div>
+	<div data-role="content" id="pagehis">
+    <div class="box"></div>
     </div>
-<div><a href="#museo" data-rel="popup" data-position-to="window" data-transition="fade">  
-    <img class="popphoto" src="img/fuerte/im3.jpg" style="max-height:300px;" alt="Museo El Fuerte"/></a>
-    </div>
-<div><a href="#mansion" data-rel="popup" data-position-to="window" data-transition="fade">  
-    <img class="popphoto" src="img/fuerte/im4.jpg" style="max-height:300px;" alt="Mansion Orrantia"/></a>
-    </div>
-<div><a href="#portales" data-rel="popup" data-position-to="window" data-transition="fade">  
-    <img class="popphoto" src="img/fuerte/im5.jpg" style="max-height:300px;" alt="Los portales"/></a>
-    </div>
-<div><a href="#iglesia" data-rel="popup" data-position-to="window" data-transition="fade">  
-    <img class="popphoto" src="img/fuerte/im6.jpg" style="max-height:300px;" alt="Iglesia del sagrado corazon de jesus"/></a>
-    </div>
-<div><a href="#casa-cons" data-rel="popup" data-position-to="window" data-transition="fade">  
-    <img class="popphoto" src="img/fuerte/im7.jpg" style="max-height:300px;" alt="Casa del constituyente"/></a>
-    </div>
-<div><a href="#casa-cultura" data-rel="popup" data-position-to="window" data-transition="fade">  
-    <img class="popphoto" src="img/fuerte/im8.jpg" style="max-height:300px;" alt="Casa de la cultura"/></a>
-    </div>
-<div><a href="#casa-antigua" data-rel="popup" data-position-to="window" data-transition="fade">  
-    <img class="popphoto" src="img/fuerte/im9.jpg" style="max-height:300px;" alt="Casa mas antigua de El fuerte"/></a>
-    </div>
-<div><a href="#callejon" data-rel="popup" data-position-to="window" data-transition="fade">  
-    <img class="popphoto" src="img/fuerte/im10.jpg" style="max-height:300px;" alt="Callejon del burro"/></a>
-    </div>
-    </div>
-       
-       
-       <div data-role="popup" id="plaza_de_armas" data-overlay-theme="a" data-theme="d" data-corners="false">    
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Plaza de la Constituci&oacute;n</h1>
-    <p>La plazuela es el punto de reuni&oacute;n de la sociedad fuertense que suele pasear los fines de semana para disfrutar los domingos culturales.</p>
-    </div>
-    <div data-role="popup" id="palacio" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Palacio Municipal</h1>
-    <p>Fue construido en 1907. Edificio de dos plantas construido casi en su totalidad de ladrillo, pues solo en la parte posterior tiene pare de cantera, con un patio central circundado de portales con arquer&iacute;as que se corresponden con los del piso superior.</p>
-    </div>
-<div data-role="popup" id="museo" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Museo Fuerte-Mirador</h1>
-    <p>En la parte alta de la llamada Loma de la Pila en 2001 se constru&oacute;o una gran mole de piedra de cantera como una remembranza de El Fuerte.</p>
-    </div>
-<div data-role="popup" id="mansion" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Mansi&oacute;n Orrantia</h1>
-    <p>Hist&oacute;rico constru&iacute;do en 1800. Conocido por los murales elaborados que fueron pintados en algunas de las paredes.</p>
-    </div>
-<div data-role="popup" id="portales" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Los Portales</h1>
-    <p>Se localizan al costado poniente de la plaza de armas, adosadas a dos construcciones del siglo XVIII.</p>
-    </div>
-<div data-role="popup" id="iglesia" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Iglesia del Sagrado Coraz&oacute;n de Jes&uacute;s</h1>
-    <p>En 1760 el templo estaba en construcci&oacute;n sustituyendo a la modesta iglesia de adobe que se ubicaba en el cerro de Montesclaros</p>
-    </div>
-<div data-role="popup" id="casa-cons" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Casa del Constituyente</h1>
-    <p>Finca de piedra que data del siglo XVII; Actualmente est&aacute; fragmentada en varias viviendas estucadas, pero que aun conservan los portales, ventanas y rejas originales</p>
-    </div>
-<div data-role="popup" id="casa-cultura" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Casa de la Cultura o Casa de la B&oacute;veda</h1>
-    <p>Bella edificaci&oacute;n constru&iacute;da de piedra a fines del siglo XVIII.</p>
-    </div>
-<div data-role="popup" id="casa-antigua" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>La Casa m&aacute;s antigua</h1>
-    <p>El uso del ladrillo le ha dado su resistencia al tiempo. Puede asegurarse que fue levantada a mediados del siglo XVIII.</p>
-    </div>
-<div data-role="popup" id="callejon" data-overlay-theme="a" data-theme="d" data-corners="false">
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    <h1>Callej&oacute;n del Burro</h1>
-    <p>En este callej&oacute;n se pueden apreciar varias casas antiguas con sus fachadas de cantera y con hermosos botaguas de cantera talladas con detalles arquitect&oacute;nicos.</p>
-    </div>
-     
-    </div>
-
+	
 </div>
 
 <!-- actividades en 24 horas -->
@@ -301,6 +196,27 @@ function showAlert() {
 	<div data-role="content" id="eem" class="mara"><ul id="conteme" data-role="listview" ></ul></div>
 </div>
 <!-- fin del cuerpo -->
-
+<script>
+$(function(){
+    // Bind the swiperightHandler callback function to the swipe event on div.box
+  $( "div.box" ).on( "swiperight", swiperightHandler );
+ 
+  // Callback function references the event target and adds the 'swiperight' class to it
+  function swiperightHandler( event ){
+    $( event.target ).removeClass("swipeleft").addClass( "swiperight" );
+  
+  }
+  
+});
+$(function(){
+  // Bind the swipeleftHandler callback function to the swipe event on div.box
+  $( "div.box" ).on( "swipeleft", swipeleftHandler );
+ 
+  // Callback function references the event target and adds the 'swipeleft' class to it
+  function swipeleftHandler( event ){
+    $( event.target ).removeClass("swiperight").addClass( "swipeleft" );
+  }
+});
+</script>
 </body>
 </html>
