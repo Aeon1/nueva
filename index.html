@@ -18,28 +18,26 @@ footer img{bottom: 0;position: relative;}
 footer div{width: 100%;height: 30px;}
 footer div a{text-decoration: none;color: #FFFFFF;}
 </style>
-  <style>
- #pagehis{
-    padding: 0;
-    position : absolute !important; 
-    top : 40px !important;  
-    right : 0; 
-    bottom : 40px !important;  
-    left : 0 !important;   
- }
-  div.box {
-    width: 100%;
-    height: 100%;
-    background-color: #108040;
-     
-  }
-  div.box.swiperight {
-    background-color: #7ACEF4;
-  }
-  div.box.swipeleft {
-    background-color: #00FF00;
-  }
-  </style>
+<script src="js/imageflip.mini.js"></script>
+<style type="text/css">
+#iGallery		{list-style:none; padding:0px; margin:0px}
+#iGallery li	{list-style:none; padding:2px; margin:2px; border:1px solid #999; float:left;width: 29%;}
+#iGallery li a img{width: 100%;}
+
+/* imageflip CSS. Copy & Paste this to your CSS file */
+#imageflippage	{background-color:#000; margin:0px; padding:0px; border:none; height:100%; width:100%}
+#tadcontent		{padding:0px; margin:0px; position:relative; background:#000; height:100%; width:100%;}
+#imageflipimg	{vertical-align:middle; height:100%; width:100%; z-index:98; background-position:center; background-size:contain; text-align:center; background-repeat:no-repeat }
+#imagefliper	{width:100%; top:45px; bottom:0px; position:absolute; z-index:99}
+#tadnavi		{position:fixed; top:0px; z-index:100; width:100%; opacity:0.7; display:none}
+#tadinfo		{position:fixed; display:none; bottom:0px; width:100%; padding:5px; background-color:#333333; opacity:0.7; color:#FFFFFF; text-align:center; font-size:small; font-family:Verdana, Geneva, sans-serif}
+
+</style>
+<script type="text/javascript">
+$( document ).delegate("#lugares_historicos", "pageinit", function() {
+	$('#iGallery').imageflip()
+})
+</script>
 </head> 
 <body> 
 
@@ -60,6 +58,7 @@ footer div a{text-decoration: none;color: #FFFFFF;}
 	<div data-role="content">	
 		<ul data-role="listview" >
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01E','C01');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('05E','C05');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Cosalá</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07E','C07');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11E','C11');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
     <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
@@ -75,6 +74,7 @@ footer div a{text-decoration: none;color: #FFFFFF;}
 	<div data-role="content">	
 		<ul data-role="listview">
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01I','C01'); "><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('05I','C05'); "><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Cosalá</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07I','C07');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11I','C11');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
     <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
@@ -89,18 +89,18 @@ footer div a{text-decoration: none;color: #FFFFFF;}
 <!-- cuerpo -->
 <div data-role="page" id="page">
 	<div data-role="header" data-position="fixed" data-theme="c">
-    <a class="atras" data-transition="pop" data-inline="true" onclick="back();"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
-		<h1 style="margin: 0.1em 6% .8em!important;"><img src="img/fuerte.png" height="50" /></h1>
+    <a class="atras" data-transition="pop" data-inline="true" onclick="back();"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1 style="margin: 0.1em 6% .8em!important;"><img src="img/fuerte/fuerte.png" height="50" /></h1>
         	</div>
 	<div data-role="content" id="inicio">
     <img id="imgprincipal" src="img/fuerte/portada_el_fuerte.jpg" />
     <fieldset id="fiel"><legend>Tiempo</legend></fieldset>
-		<a data-inline="true" onclick="$.mobile.navigate( '#gastronomia',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/gastronomia.png" /></a>
-        <a data-inline="true" onclick="$.mobile.navigate( '#diversion',{transition : 'flip'} );loaddiversion()"><img src="img/fuerte/dirversion.png" /></a>
-        <a data-inline="true" onclick="$.mobile.navigate( '#lugares_historicos',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/lugares_historicos.png" /></a>
-        <a href="javascript:document.location.href ='mapa.html?valor='+clave;" rel="external" data-inline="true"><img src="img/fuerte/mapa.png" /></a>
-        <a data-inline="true" onclick="$.mobile.navigate( '#actividades_24_horas',{transition : 'flip'} );loadgastronomia()"><img src="img/fuerte/act_24_horas.png" /></a>
-        <a data-inline="true" onclick="$.mobile.navigate( '#emergencias',{transition : 'flip'});loademergencia()"><img src="img/fuerte/emergencias.png" /></a>
+		<a data-inline="true" onclick="$.mobile.navigate( '#gastronomia',{transition : 'flip'} );loadgastronomia()"><img src="img/gastronomia.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#diversion',{transition : 'flip'} );loaddiversion()"><img src="img/dirversion.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#lugares_historicos',{transition : 'flip'} );loadgastronomia()"><img src="img/lugares_historicos.png" /></a>
+        <a href="javascript:document.location.href ='mapa.html?valor='+clave;" rel="external" data-inline="true"><img src="img/mapa.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#actividades_24_horas',{transition : 'flip'} );"><img src="img/act_24_horas.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#emergencias',{transition : 'flip'});loademergencia()"><img src="img/emergencias.png" /></a>
         </div>	
 	</div>
 
@@ -108,7 +108,7 @@ footer div a{text-decoration: none;color: #FFFFFF;}
 <!-- falta la imagen principal de seccion -->
 <div data-role="page" id="gastronomia">
 	<div data-role="header" data-position="fixed" data-theme="c">
-    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
 		<h1>Gastronom&iacute;a</h1>
       </div>
 	<div data-role="content" id="gga">
@@ -128,7 +128,7 @@ footer div a{text-decoration: none;color: #FFFFFF;}
 
 <div data-role="page" id="diversion">
 	<div data-role="header" data-position="fixed" data-theme="c">
-    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
 		<h1>Diversi&oacute;n</h1>
         </div>
 	<div data-role="content" id="dda">
@@ -142,17 +142,35 @@ footer div a{text-decoration: none;color: #FFFFFF;}
 
 <!-- lugares historicos -->
 <div data-role="page" id="lugares_historicos">
-	<div data-role="header">...</div>
-	<div data-role="content" id="pagehis">
-    <div class="box"></div>
-    </div>
-	
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Lugares Hist&oacute;ricos</h1>
+        </div>
+	<div data-role="content" id="content">
+    <hr /> 	
+	<img src="img/fuerte/Interior-el-fuerte.jpg" />	
+    <p class="tex">El centro hist&oacute;rico de El Fuerte es una bella muestra de la arquitectura colonial del siglo XIX, caracterizado por el trazo ordenado de sus calles, edificios de muros lisos rematados por cornisas, casas de ventanas sim&eacute;tricas y enmarcadas con portadas de estilo neocl&aacute;sico. Se puede observar estos diferentes atractivos en el Mural del Palacio Municipal, Plaza de Armas, Iglesia Sagrado Coraz&oacute;n de Jes&uacute;s, Los Portales, Casa de La Cultura o Casa de La B&oacute;veda, Casa del Constituyente, Museo El Fuerte-Mirador, Mansi&oacute;n Orrantia y el Callej&oacute;n del Burro.</p>	
+
+		<div class="content-primary">	
+		<ul id="iGallery">
+			<li><a href="images/4f7d341e82ba1.jpg"><img src="images/_4f7d341e82ba1.jpg" /></a></li>
+			<li><a title="<h1>Add Image discription</h3> to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here" href="images/4f7d363cb2236.jpg"><img src="images/_4f7d363cb2236.jpg" /></a></li>
+			<li><a href="images/4f7d386046e12.jpg"><img src="images/_4f7d386046e12.jpg" /></a></li>
+			<li><a href="images/4f506f7a8ef30.jpg"><img src="images/_4f506f7a8ef30.jpg" /></a></li>
+			<li><a href="images/4f975e2862141.jpg"><img src="images/_4f975e2862141.jpg" /></a></li>
+			<li><a href="images/4f85120f97815.jpg"><img src="images/_4f85120f97815.jpg" /></a></li>
+			<li><a href="images/4f85134ae2c05.jpg"><img src="images/_4f85134ae2c05.jpg" /></a></li>
+			<li><a href="images/4f828774366b1.jpg"><img src="images/_4f828774366b1.jpg" /></a></li>
+			<li><a href="images/4fce4e99213b5.jpg"><img src="images/_4fce4e99213b5.jpg" /></a></li>
+		</ul>
+		</div>
+	</div>
 </div>
 
 <!-- actividades en 24 horas -->
 <div data-role="page" id="actividades_24_horas">
 	<div data-role="header" data-position="fixed" data-theme="c">
-    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
 		<h1>Actividades en 24 Hrs</h1>
       </div>
 	<div data-role="content" id="a24">
@@ -160,63 +178,30 @@ footer div a{text-decoration: none;color: #FFFFFF;}
     <img src="img/fuerte/zorro.jpg" />
 		<p class="tex">El Fuerte se localiza en la parte noroeste del Estado de Sinaloa; posee grandes atractivos naturales, hist&oacute;ricos, arquitect&oacute;nicos, culturales y arraigadas tradiciones ind&iacute;genas (yoremes), adem&aacute;s de ubicarse dentro del Circuito Ecotur&iacute;stico Mar de Cort&eacute;s - Barrancas del Cobre. La ciudad colonial de El Fuerte, fue fundada en 1564 como la villa de San Juan Bautista de Carapoa por el capit&aacute;n espa&ntilde;ol Francisco de Ibarra, conocido como "El F&eacute;nix de los Conquistadores". El origen de su actual nombre se deriva del "Recinto Fortificado" construido por el capit&aacute;n criollo Diego Mart&iacute;nez de Hurdaide durante el virreinato de Don Juan de Mendoza y Luna, Marqu&eacute;s de Montesclaros.</p>		
 	
-    </div><a href="#dia_zorro" data-inline="true">
+    </div><a data-inline="true" onclick="$.mobile.navigate( '#one_day',{transition : 'flip'});loadundia()">
     <div data-role="footer" data-theme="d">
     <h2>Un d&iacute;a en El Fuerte seg&uacute;n El Zorro</h2>
     </div> </a>   
 	
 </div>
-<div data-role="page" id="dia_zorro">
+<div data-role="page" id="one_day">
 	<div data-role="header" data-position="fixed" data-theme="c">
-    <a href="#actividades_24_horas" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+    <a href="#actividades_24_horas" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
 		<h1>Actividades en 24 Hrs</h1>
        </div>
 	<div data-role="content">
-    <ul data-role="listview">
-    <li><h2>07:00 hrs</h2><h6>Voy a correr por el malecon para tener condici&oacute;n y poder atrapar a los chicos malos.</h6></li>
-    <li><h2>08:30 hrs</h2><h6>Desayuno 2 huevos estrellados con chilaquiles y un jugo de fruta de la regi&oacute;n en el hotel posada hidalgo (Se necesita estar bien nutrido para hacer mi trabajo) </h6></li>
-    <li><h2>09:00 hrs</h2><h6>Me subo a la balsa que recorre el R&iacute;o Fuerte y disfruto de la variedad de flora y fauna, aprovecho para visitar el cerro de la m&aacute;scara y analizar los petrograbados.</h6></li>
-    <li><h2>11:30 hrs</h2><h6>Doy un paseo por el centro hist&oacute;rico de nuestro pueblo m&aacute;gico (Palacio municipal, Casa de la cultura, mansi&oacute;n orrantia, etc..) </h6></li>
-    <li><h2>13:00 hrs</h2><h6>Como unos ricos callos de lobina y cauques a la mantequilla en el restaurante Diligencias.</h6></li>
-    <li><h2>15:00 hrs</h2><h6>Visito el museo del mirador y vuelvo a vivir la historia de grandes personajes de nuestro pueblo m&aacute;gico y tomo fotograf&iacute;as panor&aacute;micas del R&iacute;o Fuerte.</h6></li>
-    <li><h2>16:30 hrs</h2><h6>Paso a los portales a tomar una nieve  y veo las nuevas artesanias que estan en venta</h6></li>
-    <li><h2>17:00 hrs</h2><h6>Hago un recorrido por los hoteles que son edificios hist&oacute;ricos para verificar que se encuentren bien todos los turistas.</h6></li>
-    <li><h2>18:30 hrs</h2><h6>Me preparo porque tengo show todos los d&iacute;as en mi casa "Hotel posada Hidalgo"</h6></li>
-    <li><h2>20:30 hrs</h2><h6>Ceno en el mes&oacute;n del general una rica lobina flameada.</h6></li>
-    <li><h2>21:30 hrs</h2><h6>Descansar</h6></li>   
-</ul>
+    <ul data-role="listview" id="contund"></ul>
     </div> 	
 </div>
 <!-- emergencias -->
 <div data-role="page" id="emergencias">
 	<div data-role="header" data-position="fixed" data-theme="c">
-    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/fuerte/back.png" alt="Atras" class="ui-li-icon"/></a>
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
 		<h1>Emergencias</h1>
        </div>
 	<div data-role="content" id="eem" class="mara"><ul id="conteme" data-role="listview" ></ul></div>
 </div>
 <!-- fin del cuerpo -->
-<script>
-$(function(){
-    // Bind the swiperightHandler callback function to the swipe event on div.box
-  $( "div.box" ).on( "swiperight", swiperightHandler );
- 
-  // Callback function references the event target and adds the 'swiperight' class to it
-  function swiperightHandler( event ){
-    $( event.target ).removeClass("swipeleft").addClass( "swiperight" );
-  
-  }
-  
-});
-$(function(){
-  // Bind the swipeleftHandler callback function to the swipe event on div.box
-  $( "div.box" ).on( "swipeleft", swipeleftHandler );
- 
-  // Callback function references the event target and adds the 'swipeleft' class to it
-  function swipeleftHandler( event ){
-    $( event.target ).removeClass("swiperight").addClass( "swipeleft" );
-  }
-});
-</script>
+
 </body>
 </html>
