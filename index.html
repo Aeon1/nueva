@@ -57,11 +57,13 @@ $( document ).delegate("#lugares_historicos", "pageinit", function() {
 	</div>
 	<div data-role="content">	
 		<ul data-role="listview" >
-    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01E','C01');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <!--
+<li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01E','C01');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('05E','C05');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Cosalá</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07E','C07');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11E','C11');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
-    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
+   
+--> <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('12E','C12');"><h1><span style="top: 0px;margin-left: 10px;position: relative;">Mazatlán</span></h1></a></li>
     
 </ul>
 	</div>
@@ -73,11 +75,14 @@ $( document ).delegate("#lugares_historicos", "pageinit", function() {
 	</div>
 	<div data-role="content">	
 		<ul data-role="listview">
-    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01I','C01'); "><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <!--
+<li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01I','C01'); "><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('05I','C05'); "><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Cosalá</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07I','C07');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
     <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11I','C11');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
-    <li><a href="fuerte.html" rel="external" data-transition="pop" style="text-align:center;padding: 0px!important;"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">El Fuerte</span></h1></a></li>
+    
+--><li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('12I','C12');"><h1><span style="top: 0px;margin-left: 10px;position: relative;">Mazatlán</span></h1></a></li>
+    
     </ul>
 	</div>
 </div>
@@ -90,16 +95,16 @@ $( document ).delegate("#lugares_historicos", "pageinit", function() {
 <div data-role="page" id="page">
 	<div data-role="header" data-position="fixed" data-theme="c">
     <a class="atras" data-transition="pop" data-inline="true" onclick="back();"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
-		<h1 style="margin: 0.1em 6% .8em!important;"><img src="img/fuerte/fuerte.png" height="50" /></h1>
+		<h1 style="margin: 0.1em 6% .8em!important;"><img src="img/mazatlan/mazatlan_titulo.jpg" height="50" /></h1>
         	</div>
 	<div data-role="content" id="inicio">
-    <img id="imgprincipal" src="img/fuerte/portada_el_fuerte.jpg" />
+    <img id="imgprincipal" />
     <fieldset id="fiel"><legend>Tiempo</legend></fieldset>
-		<a data-inline="true" onclick="$.mobile.navigate( '#gastronomia',{transition : 'flip'} );loadgastronomia()"><img src="img/gastronomia.png" /></a>
-        <a data-inline="true" onclick="$.mobile.navigate( '#diversion',{transition : 'flip'} );loaddiversion()"><img src="img/dirversion.png" /></a>
-        <a data-inline="true" onclick="$.mobile.navigate( '#lugares_historicos',{transition : 'flip'} );loadgastronomia()"><img src="img/lugares_historicos.png" /></a>
+		<a data-inline="true" onclick="$.mobile.navigate( '#gastronomia',{transition : 'flip'} );loadgastronomia();"><img src="img/gastronomia.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#diversion',{transition : 'flip'} );loaddiversion();"><img src="img/dirversion.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#lugares_historicos',{transition : 'flip'} );loadhis();"><img src="img/lugares_historicos.png" /></a>
         <a href="javascript:document.location.href ='mapa.html?valor='+clave;" rel="external" data-inline="true"><img src="img/mapa.png" /></a>
-        <a data-inline="true" onclick="$.mobile.navigate( '#actividades_24_horas',{transition : 'flip'} );"><img src="img/act_24_horas.png" /></a>
+        <a data-inline="true" onclick="$.mobile.navigate( '#actividades_24_horas',{transition : 'flip'} );loadundia()"><img src="img/act_24_horas.png" /></a>
         <a data-inline="true" onclick="$.mobile.navigate( '#emergencias',{transition : 'flip'});loademergencia()"><img src="img/emergencias.png" /></a>
         </div>	
 	</div>
@@ -113,9 +118,9 @@ $( document ).delegate("#lugares_historicos", "pageinit", function() {
       </div>
 	<div data-role="content" id="gga">
     <hr />	
-    <img id="imggastronomia" src="img/fuerte/cauques.jpg" />
+    <img id="imggastronomia"/>
     <p class="tit">Platillos t&iacute;picos</p>
-    <p class="tex">Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per.</p> 
+    <p class="tex" id="desgas"></p> 
     <p class="azul">Restaurantes y especialidades</p>
     <div id="contgas" data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
     </div>
@@ -133,7 +138,7 @@ $( document ).delegate("#lugares_historicos", "pageinit", function() {
         </div>
 	<div data-role="content" id="dda">
     <hr />	
-	<img id="imgdiversion" src="img/fuerte/Paseo-en-balsa-por-el-rio-fuerte.jpg"/>
+	<img id="imgdiversion"/>
 	<p class="verde">Actividades</p>
     <div id="contdiv" data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d" ></div>
 	</div>
@@ -148,20 +153,11 @@ $( document ).delegate("#lugares_historicos", "pageinit", function() {
         </div>
 	<div data-role="content" id="content">
     <hr /> 	
-	<img src="img/fuerte/Interior-el-fuerte.jpg" />	
-    <p class="tex">El centro hist&oacute;rico de El Fuerte es una bella muestra de la arquitectura colonial del siglo XIX, caracterizado por el trazo ordenado de sus calles, edificios de muros lisos rematados por cornisas, casas de ventanas sim&eacute;tricas y enmarcadas con portadas de estilo neocl&aacute;sico. Se puede observar estos diferentes atractivos en el Mural del Palacio Municipal, Plaza de Armas, Iglesia Sagrado Coraz&oacute;n de Jes&uacute;s, Los Portales, Casa de La Cultura o Casa de La B&oacute;veda, Casa del Constituyente, Museo El Fuerte-Mirador, Mansi&oacute;n Orrantia y el Callej&oacute;n del Burro.</p>	
+	<img id="imgprinhis" />	
+    <p class="tex" id='descriphis'></p>	
 
 		<div class="content-primary">	
-		<ul id="iGallery">
-			<li><a href="images/4f7d341e82ba1.jpg"><img src="images/_4f7d341e82ba1.jpg" /></a></li>
-			<li><a title="<h1>Add Image discription</h3> to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here Add Image discription to Title Attribe of A tag to display in here" href="images/4f7d363cb2236.jpg"><img src="images/_4f7d363cb2236.jpg" /></a></li>
-			<li><a href="images/4f7d386046e12.jpg"><img src="images/_4f7d386046e12.jpg" /></a></li>
-			<li><a href="images/4f506f7a8ef30.jpg"><img src="images/_4f506f7a8ef30.jpg" /></a></li>
-			<li><a href="images/4f975e2862141.jpg"><img src="images/_4f975e2862141.jpg" /></a></li>
-			<li><a href="images/4f85120f97815.jpg"><img src="images/_4f85120f97815.jpg" /></a></li>
-			<li><a href="images/4f85134ae2c05.jpg"><img src="images/_4f85134ae2c05.jpg" /></a></li>
-			<li><a href="images/4f828774366b1.jpg"><img src="images/_4f828774366b1.jpg" /></a></li>
-			<li><a href="images/4fce4e99213b5.jpg"><img src="images/_4fce4e99213b5.jpg" /></a></li>
+		<ul id="iGallery">		
 		</ul>
 		</div>
 	</div>
@@ -175,12 +171,12 @@ $( document ).delegate("#lugares_historicos", "pageinit", function() {
       </div>
 	<div data-role="content" id="a24">
     <hr />	
-    <img src="img/fuerte/zorro.jpg" />
-		<p class="tex">El Fuerte se localiza en la parte noroeste del Estado de Sinaloa; posee grandes atractivos naturales, hist&oacute;ricos, arquitect&oacute;nicos, culturales y arraigadas tradiciones ind&iacute;genas (yoremes), adem&aacute;s de ubicarse dentro del Circuito Ecotur&iacute;stico Mar de Cort&eacute;s - Barrancas del Cobre. La ciudad colonial de El Fuerte, fue fundada en 1564 como la villa de San Juan Bautista de Carapoa por el capit&aacute;n espa&ntilde;ol Francisco de Ibarra, conocido como "El F&eacute;nix de los Conquistadores". El origen de su actual nombre se deriva del "Recinto Fortificado" construido por el capit&aacute;n criollo Diego Mart&iacute;nez de Hurdaide durante el virreinato de Don Juan de Mendoza y Luna, Marqu&eacute;s de Montesclaros.</p>		
+    <img id="imgprincipal24"/>
+		<p class="tex" id="descripcion24"></p>		
 	
-    </div><a data-inline="true" onclick="$.mobile.navigate( '#one_day',{transition : 'flip'});loadundia()">
+    </div><a data-inline="true" onclick="$.mobile.navigate( '#one_day',{transition : 'flip'});">
     <div data-role="footer" data-theme="d">
-    <h2>Un d&iacute;a en El Fuerte seg&uacute;n El Zorro</h2>
+    <h2 id="nomper"></h2>
     </div> </a>   
 	
 </div>

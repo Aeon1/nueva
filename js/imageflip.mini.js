@@ -60,7 +60,7 @@
                                         a("<img />").attr("src", e).load(function(b) {
                                                 if (typeof f !== "undefined" && f !== false && f !== "") {
                                                         a("#tadinfo").html(f).slideDown("slow", function() {
-                                                                a("#tadinfo:visible").delay("4000").slideUp("slow")
+                                                               // a("#tadinfo:visible").delay("4000").slideUp("slow")
                                                         })
                                                 } else {
                                                         a("#tadinfo").html("")

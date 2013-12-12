@@ -44,32 +44,40 @@ function populateDB(tx) {
     tx.executeSql('DROP TABLE IF EXISTS emergencia');
     tx.executeSql('DROP TABLE IF EXISTS historicos');
     tx.executeSql('DROP TABLE IF EXISTS undia');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS clima(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,iframe,js)');
+    tx.executeSql('DROP TABLE IF EXISTS desimggas');
+    tx.executeSql('DROP TABLE IF EXISTS desimghis');
+    tx.executeSql('DROP TABLE IF EXISTS desimgdia');
+    tx.executeSql('DROP TABLE IF EXISTS imgdiv');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS clima(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,iframe,js,imagen)');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS gastronomia(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros)');
     tx.executeSql('CREATE TABLE IF NOT EXISTS diversion(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,actividad,horario,direccion,contactos,coordenadas,descripcion)');
     tx.executeSql('CREATE TABLE IF NOT EXISTS emergencia(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,servicio,telefono,domicilio,municipio,coordenadas,img)');
     tx.executeSql('CREATE TABLE IF NOT EXISTS historicos(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,lugar,horario,direccion,coordenadas,descripcion,imagen)');
     tx.executeSql('CREATE TABLE IF NOT EXISTS undia(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,hora,actividad)');
-    
+    tx.executeSql('CREATE TABLE IF NOT EXISTS desimggas(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,descripcion,imagen)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS desimghis(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,descripcion,imagen)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS desimgdia(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,titulo,descripcion,imagen)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS imgdiv(id INTEGER PRIMARY KEY AUTOINCREMENT,clave,imagen)');
+
 ////clima
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C01','<div id="TT_RyBkEkkEEffcdQGA7AqzjzjjDWlALfI16jhjxjcikEe"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RyBkEkkEEffcdQGA7AqzjzjjDWlALfI16jhjxjcikEe"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C02','<div id="TT_tChkk1kEkBUc88IU7AqzjjDzzWuU1zD16jhjBDZyE1e"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tChkk1kEkBUc88IU7AqzjjDzzWuU1zD16jhjBDZyE1e"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C03','<div id="TT_vCeEEEEkEMrBnQGKKfqjDzzDDWaK1ptEpzhzxjZiEku"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vCeEEEEkEMrBnQGKKfqjDzzDDWaK1ptEpzhzxjZiEku"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C04','<div id="TT_RihE1kEkkBB9YFsUKAVjzjDDzWnUTz11JzxDxzsC11W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RihE1kEkkBB9YFsUKAVjzjDDzWnUTz11JzxDxzsC11W"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C05','<div id="TT_vCBEEkE1kCjBEFGA7AqjDjzzjWaALf11JjxzxzsyEEu"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vCBEEkE1kCjBEFGA7AqjDjzzjWaALf11JjxzxzsyEEu"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C06','<div id="TT_vihEEE1k1B8BYFhU7fVDjjDzD6aU1zWE6zhjhDciE1W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vihEEE1k1B8BYFhU7fVDjjDzD6aU1zWE6zhjhDciE1W"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C07','<div id="TT_tCeEk1kkknKa4FhK7AVjjjjzD6uK1pl1JjBDxzsyk1W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tCeEk1kkknKa4FhK7AVjjjjzD6uK1pl1JjBDxzsyk1W"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C08','<div id="TT_Ryh11kkk18U9YFsUjfqDjjzzjWlUMzz1pjxzxjciEkW"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_Ryh11kkk18U9YFsUjfqDjjzzjWlUMzz1pjxzxjciEkW"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C09','<div id="TT_tCBEkkEkEhA9EehAKfVzjjzDDWuATfd1pzhjhjsik1W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tCBEkkEkEhA9EehAKfVzjjzDDWuATfd1pzhjhjsik1W"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C10','<div id="TT_Rie11EEkkrrB48hK7AqDzDjzD6aK1pM1pDxDBzZCEke"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_Rie11EEkkrrB48hK7AqDzDjzD6aK1pM1pDxDBzZCEke"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C11','<div id="TT_vihE1kkEkcY9Y8GUjAVzzzzzzWuULz8EpzBDxjcCkkW"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vihE1kkEkcY9Y8GUjAVzzzzzzWuULz8EpzBDxjcCkkW"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C12','<div id="TT_vihk1k11kaDBYFsUKAqjDjzjD6uULzzkJjBDBzcC11W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vihk1k11kaDBYFsUKAqjDjzjD6uULzzkJjBDBzcC11W"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C13','<div id="TT_RCe1EE1EEQMc4esKKAVjjDDjDWaK1pQE6jhjBjZC11W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RCe1EE1EEQMc4esKKAVjjDDjDWaK1pQE6jhjBjZC11W"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C14','<div id="TT_tieEEkkkEtSc4eGKjfqjDzzjzWlKLpM1pzBjhjsyEku"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tieEEkkkEtSc4eGKjfqjDzzjzWlKLpM1pzBjhjsyEku"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C15','<div id="TT_Rih1kkkkkaYaYeGUKfVDzjzzz6lUMz8kJDhjxDZyEke"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_Rih1kkkkkaYaYeGUKfVDzjzzz6lUMz8kJDhjxDZyEke"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C16','<div id="TT_vihkEkkE1a1aYeIU7AVzzDjjz6nUMzD1pDxjxDcC11u"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vihkEkkE1a1aYeIU7AVzzDjjz6nUMzD1pDxjxDcC11u"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C17','<div id="TT_RCekk1EEkQ4Bp8sKKfVjjjjDjWlKMplEpzhDBzZykkW"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RCekk1EEkQ4Bp8sKKfVjjjjDjWlKMplEpzhDBzZykkW"></script>']);
-tx.executeSql('INSERT INTO clima(clave,iframe,js) VALUES(?,?,?)',['C18','<div id="TT_vCeEE1E11KQc48GK7fVzzDzjzWlKTpQkpzhzBDsCkku"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vCeEE1E11KQc48GK7fVzzDzjzWlKTpQkpzhzBDsCkku"></script>']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C01','<div id="TT_RyBkEkkEEffcdQGA7AqzjzjjDWlALfI16jhjxjcikEe"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RyBkEkkEEffcdQGA7AqzjzjjDWlALfI16jhjxjcikEe"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C02','<div id="TT_tChkk1kEkBUc88IU7AqzjjDzzWuU1zD16jhjBDZyE1e"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tChkk1kEkBUc88IU7AqzjjDzzWuU1zD16jhjBDZyE1e"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C03','<div id="TT_vCeEEEEkEMrBnQGKKfqjDzzDDWaK1ptEpzhzxjZiEku"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vCeEEEEkEMrBnQGKKfqjDzzDDWaK1ptEpzhzxjZiEku"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C04','<div id="TT_RihE1kEkkBB9YFsUKAVjzjDDzWnUTz11JzxDxzsC11W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RihE1kEkkBB9YFsUKAVjzjDDzWnUTz11JzxDxzsC11W"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C05','<div id="TT_vCBEEkE1kCjBEFGA7AqjDjzzjWaALf11JjxzxzsyEEu"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vCBEEkE1kCjBEFGA7AqjDjzzjWaALf11JjxzxzsyEEu"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C06','<div id="TT_vihEEE1k1B8BYFhU7fVDjjDzD6aU1zWE6zhjhDciE1W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vihEEE1k1B8BYFhU7fVDjjDzD6aU1zWE6zhjhDciE1W"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C07','<div id="TT_tCeEk1kkknKa4FhK7AVjjjjzD6uK1pl1JjBDxzsyk1W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tCeEk1kkknKa4FhK7AVjjjjzD6uK1pl1JjBDxzsyk1W"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C08','<div id="TT_Ryh11kkk18U9YFsUjfqDjjzzjWlUMzz1pjxzxjciEkW"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_Ryh11kkk18U9YFsUjfqDjjzzjWlUMzz1pjxzxjciEkW"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C09','<div id="TT_tCBEkkEkEhA9EehAKfVzjjzDDWuATfd1pzhjhjsik1W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tCBEkkEkEhA9EehAKfVzjjzDDWuATfd1pzhjhjsik1W"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C10','<div id="TT_Rie11EEkkrrB48hK7AqDzDjzD6aK1pM1pDxDBzZCEke"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_Rie11EEkkrrB48hK7AqDzDjzD6aK1pM1pDxDBzZCEke"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C11','<div id="TT_vihE1kkEkcY9Y8GUjAVzzzzzzWuULz8EpzBDxjcCkkW"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vihE1kkEkcY9Y8GUjAVzzzzzzWuULz8EpzBDxjcCkkW"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C12','<div id="TT_vihk1k11kaDBYFsUKAqjDjzjD6uULzzkJjBDBzcC11W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vihk1k11kaDBYFsUKAqjDjzjD6uULzzkJjBDBzcC11W"></script>','img/mazatlan/portada_mazatlan.jpg']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C13','<div id="TT_RCe1EE1EEQMc4esKKAVjjDDjDWaK1pQE6jhjBjZC11W"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RCe1EE1EEQMc4esKKAVjjDDjDWaK1pQE6jhjBjZC11W"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C14','<div id="TT_tieEEkkkEtSc4eGKjfqjDzzjzWlKLpM1pzBjhjsyEku"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tieEEkkkEtSc4eGKjfqjDzzjzWlKLpM1pzBjhjsyEku"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C15','<div id="TT_Rih1kkkkkaYaYeGUKfVDzjzzz6lUMz8kJDhjxDZyEke"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_Rih1kkkkkaYaYeGUKfVDzjzzz6lUMz8kJDhjxDZyEke"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C16','<div id="TT_vihkEkkE1a1aYeIU7AVzzDjjz6nUMzD1pDxjxDcC11u"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vihkEkkE1a1aYeIU7AVzzDjjz6nUMzD1pDxjxDcC11u"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C17','<div id="TT_RCekk1EEkQ4Bp8sKKfVjjjjDjWlKMplEpzhDBzZykkW"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RCekk1EEkQ4Bp8sKKfVjjjjDjWlKMplEpzhDBzZykkW"></script>','']);
+tx.executeSql('INSERT INTO clima(clave,iframe,js,imagen) VALUES(?,?,?,?)',['C18','<div id="TT_vCeEE1E11KQc48GK7fVzzDzjzWlKTpQkpzhzBDsCkku"></div>','<script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vCeEE1E11KQc48GK7fVzzDzjzWlKTpQkpzhzBDsCkku"></script>','']);
 
 ////gastronomia  
 //ahome español
@@ -145,6 +153,55 @@ tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,
 tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G11E','Restaurante Palomas Mar ','Av. Del Mar   S/N Playa Las Glorias ','25.291665,-108.515376','9:00 AM a 6:00 PM','Tel: 01 (687) 136 4279','Camarones palomas ','Filete Helpy']);
 tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G11E','Restaurante Mr. Moro','Blvd. Tiburon  S/N Playa Las Glorias Guasave ','25.296922,-108.524549','9:00 AM a 6:00 PM','Tel: 01 (687) 857 9969','Migñon de camaron ','Camarones rellenos']);
 tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G11E','Mar de Cortez','Av. Del Mar   S/N Playa Las Glorias ','25.291587,-108.515269','9:00 AM a 6:00 PM','Tel:01 (687) 129 7454','Chicharrones de Botete ','Pescado zarandeados']);
+
+//mazatlan español
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Angelo´s','Av. Camarón Sábalo 2121 Nte. Sábalo Country Int. Hotel Pueblo Bonito Mazatlán','23.264342823527294,-106.46537429511125','Lun a Dom 18:00 hrs -23:30 hrs','(669) 9 89 89 00 ','Internacional, Italiana','Langosta  con Filete, Festival de Pescado, Cortes T- bone, R-bay, Festival del Camarón. ']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Casa Loma ','Av. Gaviotas 104, Fracc. Las Gaviotas ','23.248157902951846,-106.44971892607691','Lun a Dom 13:30 hrs - 23:00 hrs','(669) 9 13 53 98 ','Internacional, Pato a la Naranja ','Filete  mignon, Camarones Casa Loma , Pescado Blanca Rosa.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Costa Marinera ','Privada del Camarón  y de la Florida s/n, Sábalo Country Club ','23.260918964613364,-106.46560764729554','Lun a Dom 10:00 hrs - 23:00 hrs','(669) 914 19 28 ','Mariscada','Fiesta de Camarón, Camarones Costa Marinera, Filete de Pescado Costa Marinera.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','El Shirmp Bucket ','Olas Altas 11, Centro ','23.19858275758222,-106.42728974767266','Lun a Dom 7:00 hrs - 23:00 hrs','(669) 9 82 80 19 ','Mariscos, Barco de Camarón ','Camaron Empanizado, Camarón al Coco  Camarón a la Plancha,Camaro a la Cerveza']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','El Presidio','Niños Héroes No. 1511 Col. Centro','23.198413661440917,-106.42495756693421','Lun a Dom 17:00 hrs','044 (669) 149 50 54  / 136 06 93 ','Cocina Mexicana','Hamachi, Tacos de Camarón al Albañil, Pollo Glaseado con Chipotle y Vainilla, Chamorro de Puerco, Fideos secos con camarón. ']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','IL Mosto','Sixto Osuna 510 - B Centro Histórico ','23.198113820334566,-106.42337372251092','Lun a Dom 16:00 hrs','(669) 9 85 43 66','Mediterránea ','Carpaccio de Salmón, Berenjenas a la Mamma Mía, Lasagna casera a la Nona, Fusilli con Camarones, Raviole, Ensalada Griega, Fetuccini a la Marinara.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Los Arcos','Av. Camarón Sábalo 1019, Zona Dorada','23.2550450557348,-106.45766830861146','Lun a Dom 11:00 hrs a 23:00 hrs','(669) 9 13 95 77','Pescados y Mariscos','Pescado Zarandeado, Camarón en Aguachile, Camarones Culichi ']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','La Casa Country ','Av. Camarón Sábalo s/n Sábalo Country Club','','Lun a Dom 12:oo hrs 24:00 hrs','(669) 9 16 53 00','Cortes Finos, Arrachera  ','New York, T-bone.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','La Puntilla','Int. Muelle Turístico La Puntilla','23.18768520722534,-106.41800930448113','Lun a Dom 8:00 hrs -20:00 hrs','(669) 9 82 88 77','Pescado Zarandeado ','Aguachile, Ceviche de Camarón, Surtido Puntilla ']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Los Panchos','Av. Playa Gaviotas 408, Int. 11 B Zona Dorada','23.263786996941135,-106.46479762017304','Lun a Dom 7:00 hrs - 23:00 hrs','(669) 9 14 09 11','Mariscos y Carnes ','Parrillada de Mariscos, Parrillada Sacanta, Langosta a la Parrilla, Camarones Especiales Panchos, ']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Panamá','Av. Camarón Sábalo No. 400 Zona Dorada','23.243699018849213,-106.45106336891229','Lun a Dom 7:00 hrs - 22:30 hrs','(669) 9 14 06 12 ','Regional, Nacional e Internacional','Super Tri Panamá, R-bay La Parrilla , Pellizcada Sinaloense, Pechuga Cordon Blue .']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Pedro y Lola ','Carnaval 1313, Centro Histórico','23.198662075801636,-106.42300760098038','Lun a Dom 18:00 hrs - 1:00 hrs','(669) 9 82 25 89','Internacional, Camarón Pedro y Lola','Camaron Pedro Infante, Ostiones Rockefeller, Medallones de Lengua, Chamorro Pedro y Lola, Camarón Lola La Grande.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','El Mesón de Los Laureanos ','Carretera Libre 15 Km 33 El Quelite.','','Lun a Dom 8:00 hrs - 18:00 hrs','(669) 9 65 44 65','Carnes, Lengua de Res','Arrachera, Lengua de Res, Codornices, Pozole, Birria, Barbacoa de Res y Borrego, Higado Bistek Ranchero']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Mariscos "El Cuchupetas"','Jesús Carranza No. 301, Esq. Con Reforma Col. Centro, Villa Unión, Sin.','23.19007976455003,-106.21741588772886','Lun a Dom 10:00 hrs - 19:00 hrs','(669) 9 67 04 60','Pescados y Mariscos, Kauques a la Cuchupetas ','Camarón a la Cuchupetas, Ostion a la Cuchupetas, Pescado Asado, Pescado Zarandeado, Kauques al Mojo de Ajo']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Diego´s Beach House ','Privada Florida 100, Sábalo Country Club','23.2607447200774,-106.4654561024862','Lun a Juev 11:00  a 23:00 hrs/ Vier & Sab 11:00 a 14:00 hrs Dom 11:00 a 23:00 hrs','(669) 9 86 18 16 ','Costillas a la BBQ ','Chamorro, Pecho de Ternera ']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','El Parador Español','Av. Camarón Sábalo 714 Zona Dorada','23.251776972308992,-106.45541530674592','Lun  a Dom  12:00  -23:30 hrs','(669) 9 13 07 67 ','Paella, comida española e internacional','Ensalada Parador, Paella Valencia, Camarones Estilo Portugal']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Ernie´s Restaurant','Av. Camarón Sábalo 1712 Sábalo Country Club ','23.266147937139923,-106.46535551964814','Lun a Dom 14:00 a 1:00 hrs','(669) 9 14 02 02','Cocina Internacional','Filete de Res deluxe, La Pasta Ernie´s, Arrachera']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Mr. Lionso Playa Bruja ','Camarón Sábalo s/n Cerritos','23.30461578207877,-106.49168475389058','Mon to Sun 8:00 a 22:00 hrs','(669) 9 88 04 25 ','Langosta con Camarón','Camaron Tequila, Camaron Bruja, Molcajete , Filete Relleno']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Señor Frog´s ','Av. Camarón Sábalo s/n Zona Dorada','23.252464357161877,-106.45573711812074','Juev a Dom 16:00 hrs- 23:00 hrs','(669) 9 85 11 10','Cocina Internacional','Chimichangas, Filete Mignon , New York Steak']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Topolo','Constitución 629 Centro ','23.199005496999803,-106.42147203631936','Lun a Dom 15:00 a 22:0 hrs','(669) 136 06 60','Chamorro de Cerdo en Salsa de Adobo','Filete de pescado al Cilantro, Atún Sellado']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','Alagua ','Av. Camarón Sábalo s/n Zona Dorada','23.251861431864068,-106.4568100017267','Lun a Dom a partir de las 11:00hrs','(669) 9 14 01 40','Pescado Zarandeado marinado a las brasas con una salsa especial de la casa','Aguachiles verde y rojo, variedad de platillos a base de camarón, atún, langosta y rica coctelería']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12E','La Tramoya ','Constitución 509 Centro Histórico','23.198594088759315,-106.42337908692895','Lun a Dom a partid de la 13:00 hrs','(669) 9 85 50 33','Fusion, Internacional','Filete Chemitas, Camaron Coco, Pechuga en Salsa Holandesa']);
+//mazatlan ingles
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Angelo´s','Av. Camarón Sábalo 2121 Nte. Sábalo Country Int. Hotel Pueblo Bonito Mazatlán','23.264342823527294,-106.46537429511125',' 18:00 hrs -23:30 hrs','(669) 9 89 89 00','International, Italian','Lobster with Fillet, Fish Festival, Cortes T - bone, R-bay, Shrimp Festival.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Casa Loma','Av. Gaviotas 104, Fracc. Las Gaviotas','23.248157902951846,-106.44971892607691','Mon to Sun 13:30 hrs - 23:00 hrs','(669) 9 13 53 98 ','International, Orange Duck','Filet mignon, Shrimp Casa Loma, White-Pink Fish.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Costa Marinera','Privada del Camarón y de la Florida s/n, Sábalo Country Club ','23.260918964613364,-106.46560764729554','Mon to Sun 10:00 hrs - 23:00 hrs','(669) 914 19 28 ','Seafood','Feast of shrimp, Shrimp Costa Marinera, Fish Fillet Costa Marinera']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','El Shirmp Bucket','Olas Altas 11, Centro','23.19858275758222,-106.42728974767266','Mon to Sun 7:00 hrs - 23:00 hrs ','(669) 9 82 80 19 ','Seafood, Shrimp Boat','Breaded Shrimp, Coconut Shrimp,  Shrimp on the Grill, Beer  Shrimp']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','El Presidio','Niños Héroes No. 1511 Col. Centro','23.198413661440917,-106.42495756693421','Mon to Sun  17:00 hrs','044 (669) 149 50 54 / 136 06 93','Mexican Cusine','Hamachi, Tacos de Camarón al Albañil, Pollo Glaseado con Chipotle y Vainilla, Chamorro de Puerco, Fideos secos con camarón. ']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','IL Mosto','Sixto Osuna 510 - B Centro Histórico ','23.198113820334566,-106.42337372251092','Mon to Sun 16:00 hrs','(669) 9 85 43 66','Mediterránea','Carpaccio de Salmón, Berenjenas a la Mamma Mía, Lasagna casera a la Nona, Fusilli con Camarones, Raviole, Ensalada Griega, Fetuccini a la Marinara.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Los Arcos','Av. Camarón Sábalo 1019, Zona Dorada','23.2550450557348,-106.45766830861146','Mon to Sun 11:00 hrs a 23:00 hrs','(669) 9 13 95 77','Fish and Seafood','Zarandeado Fish, Shrimp in Aguachile, Shrimp Culichi']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','La Casa Country','Av. Camarón Sábalo s/n Sábalo Country Club','','Mon to Sun 12:oo hrs 24:00 hrs','(669) 9 16 53 00','Steaks, Flank Steak','New York, T-bone.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','La Puntilla','Int. Muelle Turístico La Puntilla','23.18768520722534,-106.41800930448113','Mon to Sun 8:00 hrs - 20:00 hrs','(669) 9 82 88 77','Zarandeado Fish','Aguachile, Ceviche de Camarón, Surtido Puntilla']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Los Panchos','Av. Playa Gaviotas 408, Int. 11 B Zona Dorada','23.263786996941135,-106.46479762017304','Mon to Sun 7:00 hrs - 23:00 hrs','(669) 9 14 09 11','Seafood and Steaks','Sea Food BBQ, Scampi Shrimp, Special Shrimp Panchos, Broiled Lobster']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Panamá','Av. Camarón Sábalo No. 400 Zona Dorada','23.243699018849213,-106.45106336891229','Mon to Sun 7:00 hrs - 22:30 hrs','(669) 9 14 06 12 ','Regional, National and International','Super Tri Panamá, R-bay La Parrilla, Pellizcada Sinaloense, Pechuga Cordon Blue .']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Pedro y Lola','Carnaval 1313, Centro Histórico ','23.198662075801636,-106.42300760098038','Mon to Sun 18:00 hrs - 1:00 hrs ','(669) 9 82 25 89','International, Camarón Pedro y Lola','Pedro Infante, Beef longue Medallions, Grilled Lamps Chops, Pedro y Lola Shrimp, Lola La Grande Shrimp, Grilled Arrachera']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','El Mesón de Los Laureanos','Carretera Libre 15 Km 33 El Quelite.','','Mon to Sun 8:00 hrs - 18:00 hrs','(669) 9 65 44 65','Meat, Beef tongue','Arrachera, Beef tougue, Codornices, Pozole, Birria, Barbacoa de Res y Borrego, Higado Bistek Ranchero']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Mariscos "El Cuchupetas"','Jesús Carranza No. 301, Esq. Con Reforma Col. Centro,  Villa Unión, Sin.','23.19007976455003,-106.21741588772886','Mon to Sun 10:00 hrs - 19:00 hrs ','(669) 9 67 04 60','Fish and Seafood, Kauques a la Cuchupetas','Cuchupetas Shrimp, Cuchupetas Oysters, Roast Fish, Zarandeado Fish, Garlic Sauce Kauques']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Diego´s Beach House','Calle Florida 100, Sábalo Country Club','23.2607447200774,-106.4654561024862','Mon to Thu 11:00 - 23:00 hrs/ Fri & Sat 11:00  -14:00 hrs, Sun 11:00 - 23:00 hrs','(669) 9 86 18 16','BBQ Ribs','Pork Shank, Brisket, Grilled steaks, Burgers and fresh local seafood']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','El Parador Español','Av. Camarón Sábalo 714 Zona Dorada','23.251776972308992,-106.45541530674592','Mon to Sun 12:00  -23:30 hrs ','(669) 9 13 07 67 ','Seafood paella , Spanish and International Food','Parador Saland, Valencia Paella, Sea food Catalunya style']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Ernie´s Restaurant','Av. Camarón Sábalo 1712 Sábalo Country Club ','23.266147937139923,-106.46535551964814','Mon to Sun 14:00 a 1:00 hrs','(669) 9 14 02 02','International ','Beef Fillet Deluxe, Ernie´s Pasta, Arrachera.']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Mr. Lionso Playa Bruja','Camarón Sábalo s/n Cerritos','23.30461578207877-106.49168475389058','Mon to Sun 8:00 a 22:00 hrs ','(669) 9 88 04 25 ','Lobster with Shrimp',' Tequila Shirmp, Devil Camaron, Mixed Molcajete']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Señor Frog´s','Av. Camarón Sábalo s/n Zona Dorada','23.252464357161877,-106.45573711812074','Thu to Sun 16:00 - 23:00 hrs','(669) 9 85 11 10','International ','Filete Mignon, Mexican Platter,Fettuccini Alfredo']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Topolo','Constitución 629 Centro ','23.199005496999803,-106.42147203631936','Mon to Sun 15:00 a 22:0 hrs','(669) 136 06 60','Pork Shank In Adobo Sauce','Cilantro Fish Filet, Grilled Tuna Steak']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','Alagua','Av. Camarón Sábalo s/n Zona Dorada','23.251861431864068,-106.4568100017267','Mon  to Sun 11:00hrs ','(669) 9 14 01 40 ','Zarandeado Fish','Aguachile green and red, variety of dishes with shrimp, tuna, lobster and rich cocktail bar']);
+tx.executeSql('INSERT INTO gastronomia (clave,restaurante,direccion,coordenadas,horario,telefono,especialidad,otros) VALUES (?,?,?,?,?,?,?,?)', ['G12I','La Tramoya','Constitución 509 Centro Histórico ','23.198594088759315,-106.42337908692895','Mon to Sun 13:00 hrs','(669) 9 85 50 33','International','Filete Chemitas, Coconut Shrimp, Pechuga en Salsa Holandesa']);
+
+
 //fin gastronomia
 ////diversion
 //ahome español
@@ -216,6 +273,50 @@ tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contacto
 tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D11I','Rivera del Río Sinaloa','N/A','Malecon de Guasave','','25.56964,-108.457761','It is also attractive riverside walk the Sinaloa or Petatlán as can be seen in this way the natural landscape.']);
 tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D11I','Oyster farmer - La Pitahaya','Lunes a sábado -  9:00 a 18:00 Hrs','Salida de La Pitahaya Guasave Sinaloa ','','25.386837,-108.725395','Small summary about oysters, a tour between the farmer and the process of harverst at the end you can try one!']);
 
+//mazatlan español
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','City Tour ','Mar, Vier, Sáb, Dom 8:30 pick up lobby del Hotel, duración 3 hrs','Av. Camarón Sabalo 333-3 Zona Dorada','Playa Sol Tours: (669) 9 13 77 77</br>Viajes El Sábalo: (669) 9 86 86 00</br>Pronatours: (669) 9 16 77 20</br>King David: (669) 9 14 14 44</br>Vista Tours: (669) 9 86 86 10','23.24404406691465,-106.45128733336503','En este tour podrá disfrutar de  los lugares más bellos y panoramas que el destino tiene reservado para usted desde  el Centro Histórico al Nuevo Mazatlán.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Acuario Mazatlán','Lun a Vie 9:30 hrs  a 17:00 hrs','Av. De los Deportes No. 111 Fracc. Telleria ','Ing. Jorge del Rincón Jarero: (669) 9 81 78 15 / 16/17','23.228802725434374, -106.42765328640405','Cuenta con 34  peceras de agua salada de diferentes volúmenes en donde se exhiben diferentes especies, en la sección de agua dulce hay 17 peceras de varios tamaños y se pueden admirar un mundo ajeno y prácticamente desconocido a través de sus 52 estanques de exhibición, su museo del mar, su auditorio, su jardín botánico y sus espectaculares shows en vivo.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Paseos por la bahía','Mar a Dom pick up 9:30 hrs lobby del Hotel ','Av. Camarón Sabalo 333-3 Zona Dorada','Playa Sol Tours: (669) 9 13 77 77</br>Yate Fiesta: (669) 9 82 31 30 ','23.24404406691465,-106.45128733336503','En este recorrido podra disfrutar y admirar la vista de una de las mas hermosas bahias del pais y en el recorrido vera el Faro, las Islas Hermanas y la roca de los lobos marinos (los cuales unicamente podra ver en los meses de invierno)']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Paseo al atardecer','Mar. Juev y Sab Invierno: 16:00 hrs, Verano 18:00 hrs','Calzada Joel Montes Camarena No. 7 Zona Faro Mazatlán','Yate Fiesta:(669) 9 82 31 30</br>Vista Tours: (669) 9 86 86 10</br>Pronatours: (669) 9 16 77 20','23.181139042616618,-106.42502997175825','Disfrute un recorrido por la bahía y admire unos de los atardeceres más bellos del mundo.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Paseo Isla de la Piedra','Lun a Dom a las 10:00 hrs','Calle Demeter s/n Local 23 Fracc  Alameda','Viajes El Sábalo:(669) 9 86 86 00</br>Yate Fiesta: (669) 9 82 31 30</br>Pronatours: (669) 9 16 77 20</br>King David: (669) 9 14 14 44</br>Iguana Tours: (669) 9 81 73 44</br>Playa Sol Tours: (669) 9 13 77 77</br>Puesta del Sol: (669) 9 13 94 25</br>Playa Sur: (669) 9 14 24 77</br>Catamaran Titanic: (669) 9 16 78 70','23.239412858460035,-106.43935442323152','Disfrute de un recorrido por la bahía y además  visite la isla de la piedra,  una preciosa playa virgen en donde disfrutaras 3 horas y media de diversión. Podrás disfrutar de paseos en banana, kayak, bucear, windsurfing o jet ski o simplemente relajarte en estas preciosas playas.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Recorrido al Faro(Cerro del Crestón)','Lun a Sab 10:00 hrs y 15:00 hrs sujeto a disponibilidad min 8 ','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours: (669) 9 86 86 10</br>Viajes El Sábalo: (669) 9 86 86 00 ','23.24039235405309,-106.44634245439227','Es uno de los faros naturales más altos del mundo. Está construido en lo más alto del Cerro del Crestón a 157 mts de altura. Comenzó a funcionar en 1879. Subir el faro le tomará aproximadamente 30 minutos pero no los sentirá ya que en sus 360° de recorrido, la vista es espectacular y la diversidad de flora que tiene le encantará, además que es ideal para las personas que gustan del ejercicio.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Liberación de Tortugas ','Mar y Juev 9:15 hrs en Campamento Verde Camacho ','Av. Camarón Sabalo s/n Centro Comercial El Cid ','Pronatours: (669) 9 16 77 20','23.253696337660877,-106.45670673667962','En Mazatlán por más de 20 años, sea logrado proteger a 4,400 nidos y a liberado a más de 270,000 crías. La especie más común en nuestras playas es la tortuga golfina y anida de junio  a noviembre.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Paseo Isla de Venados','Mar a Dom 9:00 hrs','Av. Camarón Sabalo s/n Centro Comercial El Cid ','Pronatours: (669) 9 16 77 20</br>Bula: (669) 9 14 02 00-( 669)1 20 06 71 Cel.</br>Playa Sol Tours: (669) 9 13 77 77','23.253696337660877,-106.45670673667962','Disfrute la naturaleza visitando la Isla de Venados, ideal para practicar diferentes actividades acuáticas  y de senderismo, como el windsurf, buceo, vela, caminata de exploración.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Paseo a El Quelite','Lun a Sab 10:00 hrs','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours: (669) 9 86 86 10</br>Pronatours: (669) 9 16 77 20','23.24039235405309,-106.44634245439227','Recorrido por la historia y la vida rural Mexicana. Este es un poblado hermoso y tranquilo a la orilla del río Quelite. El Quelite es muy famoso por su colorido estilo de vida y sus casas coloniales hechas con adobe y techos de teja roja. Visitará usted una panadería tradicional, una fábrica de quesos y el único rancho de entrenamiento de gallos de pelea en México, ¡verá miles de gallos!']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Paseo a Copala','Lun a Sab 10:00 hrs','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours:(669) 9 86 86 10</br>Pronatours: (669) 9 16 77 20</br>Viajes El Sábalo: (669) 9 86 86 00 ','23.24039235405309,-106.44634245439227','Viste las ciudades coloniales Concordia y Copala, donde los nativos se dedican a la fabricación de muebles, cerámica, tejas.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','La Noria y Agave Azul','Lun a Sab 10:00 hrs','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours: (669) 9 86 86 10</br>Pronatours: (669) 9 16 77 20</br>King David: (669) 9 14 14 44 ','23.24039235405309,-106.44634245439227','Visitará usted el poblado de La Noria y una planta elaboradora de Tequila. La Noria pequeño pueblo de elegante arquitectura colonial, es famoso porque aquí se trabaja con gran esmero la talabartería, además de producir todo tipo de objetos de piel como cinturores, adornos, huaraches y otras artesanías. ']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Picachos Tour','Lun a Sab 10:00 hrs','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours: (669) 9 86 86 10 ','23.24039235405309,-106.44634245439227','Sensacional actividad rural a través de la presa Picachos. Durante el recorrido visitaremos el pueblo de San Marcos, que muestra  un paisaje mexicano de una ciudad vieja.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Tecatours','Lun a Dom 9:00 hrs a 16:00 hrs','Teacapán, Escuinapa, Sin.','Victor Mendez: (695) 95 1 22  24 cel','','En Teacapán, Escuinapa, realiza recorridos en lancha a la Isla de Pájaros, estero La Cruz, la pirámide de conchas, en los cuales vivirás la experiencia de conocer flora y fauna como manglares rojos, blancos  y negros, Garzas patas amarillas, Garza Azul, Espátula Rosada, Ibis, Tildios Playeros, Cigüeñas, Águilas Pescadoras, entre otras; así como vestigios arqueológicos de antiguas culturas prehispánicas.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Observacion de Ballenas y Delfines Temporada Ballenas: del 01 dic al 01 abril / Temporada Delfines: Resto del año  ','Observacion de Ballenas: Todos los dias salidas a las 8:00 hrs  y 13:00 hrs / Observación de Delfines: salidas a las 9:00 hrs y 14:00 hrs, min 4 personas ','Rio de la Plata 409 Gaviotas ','Onca Explorations: (669) 9 13 40 50','23.2482413,-106.45152180000002','Únete a la verdadera aventura en las aguas tropicales del mar de Mazatlán en busca de las espectaculares ballenas jorobadas. Durante el recorrido observarás de cerca a estos gentiles y acrobáticos gigantes. También tendrás encuentro con grandes manadas de delfines manchados y nariz de botella, además de visitar la colonia de lobos marinos y aves mientras recorres las majestuosas islas de la bahía de Mazatlán. ']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Huanacoa Canopy Adventure','Lun a Dom Pick up 9:00 hrs y 12:00 hrs  ','Av. Del Mar No. 1111 Local 10 Hotel Don Pelayo','Huanacoa Canopy Adventure: (669) 9 90 11 00','23.236429707887524,-106.44069916434859','Ubicado en las faldas de la Sierra Madre Occidental se encuentra La Noria, en Mazatlán. Aquí encontraras el lugar ideal para practicar deportes de aventura, como tirolesa, paseos en cuatrimotos por la selva tropical y montar a caballo, para finalizar tu recorrido puedes visitar la Vinata de Los Osuna, una vieja hacienda que data del siglo XIX donde se produce un mezcal proveniente de la cosecha de Agave Azul de la región.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Veraneando Adventures','Lun a Dom 9:00 hrs ','Av. Camarón Sabalo s/n Zona Cerritos','Veraneado Adventures: (669) 9 88 04 25 ','23.30461578207877-106.49168475389058','¡Ven y disfruta de nuestras actividades y la naturaleza!  En el pueblo de Veranos tenemos las siguientes actividades: Temazcal, baño indígena con exfoliación de barro, descenso por el Rio Presidio, paseo a kayak por el Río, tirolesa de 12 líneas por la selva de la Sierra Madre Occidental, y paseo a Caballo.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Ecotours Chara Pinta','Sujeto a disponibilidad','Ejido el Palmito, Concordia','Aracely Torrecillas Esquivel: (669) 1 34 01 66 cel ','','En el municipio de Concordia, adentrado en la Sierra Madre Occidental, encontraras la comunidad de El Palmito, hermoso lugar donde podrás practicar el senderismo, observación de aves, conocerás a la Chara Pinta, ave endémica de esta región, así como también Pájaro Bandera, Guacamaya Verde, Aguililla coliroja, Halcón peregrino, entre otros. al finalizar tu día te relajaras en las cabañas rodeadas de la maravillosa vegetación. Ésto será la experiencia única en el contacto con el medio ambiente.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Sitio Arqueológico Las Labradas','Jueves 9:15 hrs sujeto a disponibilidad','Av. Camarón Sabalo s/n Centro Comercial El Cid ','Pronatours ','23.253696337660877,-106.45670673667962','Esta zona Arqueológica de gran riqueza de petroglifos en la Playa de Las Labradas, a solo 35 minutos de Mazatlán, son formaciones geológicas de acantilados únicas en México. Estos petroglifos son viva voz de un antiguo legado, de tradiciones mitológicsa, grabados en las rocas por los primeros pobladores del continente americano. De una incleíble belleza abstracta y simbólica de las primeras expresiones artísticas por los antiguos pobladores de la región.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Pesca deportiva','5:30 - 6:00 sujeto disponibilidad','Av. Camarón Sabalo s/n Centro Comercial El Cid ','Pronatours: (669) 9 16 77 20</br>Picachos Bass Club: (669) 9 10 18 91</br>Flota Anna Mar: (669) 9 82 38 30</br>Flota Bibi: (669) 9 13 10 60</br>Flota Neptuno: (669) 982 45 65</br>Flota Sabalo: (669) 9 81 27 61</br>Flota Aries: (669) 9 16 34 68</br>Flota Escualo: (669) 9 13 03 03</br>Viking´s Fleet: (669) 9 86 34 84</br>Nautica Fishing Fleet: (669) 9 88 12 51','23.253696337660877,-106.45670673667962','Las costas de Sinaloa, lugar privilegiado para practicar la pesca deportiva de Marlín azul, marlín negro, marlín rayado, pez vela, pez espada, dorado, atún aleta amarilla y tiburón, entre otras especies. Mazatlán y Topolobampo están entre los mejores lugares del mundo para obtener estos preciados trofeos. Otra opción, es la pesca de agua dulce, para ello Sinaloa cuenta con 12 presas frecuentadas por aficionados a la pesca deportiva, ya que en ellas abundan especies de lobina, tilapia y bagre, entre otras.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12E','Golf ','Lun a Dom de 7:00 a 18:00 hrs','Bahía Acapulco s/n ','Club Campestre Mazatlán: (669) 9 80 15 70</br>Estrella de Mar Golf Course:(669) 9 82 33 00</br>El Cid Golf and Country Club: (669) 9 13 33 33 ext. 3271</br>Marina Mazatlán: (669) 176 97 33</br>Pacific Golf Center: (669) 1 80 09 19','23.23481300256597,-106.38316771293637','Practicar Golf sobre el mar, siempre es un aliciente y los campos de Mazatlán son especiales en ese aspecto. Terminar de jugar y encontrarte  rodeado de una bella Casa Club, con una piscina y terrazas con vista al mar, mezclan una perfecta armonía que hacen de este deporte toda una experiencia.']);
+//mazatlan ingles
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','City Tour ','Tue, Fri, Sat, Sun 8:30 pick up lobby del Hotel, duration 3 hrs','Av. Camarón Sabalo 333-3 Zona Dorada','Playa Sol Tours: (669) 9 13 77 77</br>Viajes El Sábalo: (669) 9 86 86 00 </br>Pronatours: (669) 9 16 77 20</br>King David: (669) 9 14 14 44</br>Vista Tours: (669) 9 86 86 10','23.24404406691465,-106.45128733336503','A 3 hour guided tour of Mazatlán Famouos Landmarks. Visit our world famous Historical Center in ""Old Mazatlán"". Ride along  our world famous beach boulevard.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Aquarium Mazatlán ','Mon to Sun 9:30 hrs  a 17:00 hrs','Av. De los Deportes No. 111 Fracc. Telleria ','Ing. Jorge del Rincón Jarero: (669) 9 81 78 15 / 16/17 ','23.228802725434374, -106.42765328640405','It has 34 tanks of salt water in different volumes where different species are exhibited, In the freshwater section there are 17 tanks of various sizes and you can admire a stranger and virtually unknown world through its 52 ponds of display, its Museum of the sea, its auditorium, its botanical garden and its spectacular live shows.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Bay Cruise','Tue to Sat pick up 9:30 hrs lobby del Hotel ','Av. Camarón Sabalo 333-3 Zona Dorada','Playa Sol Tours: (669) 9 13 77 77</br>Yate Fiesta: (669) 9 82 31 30 ','23.24404406691465,-106.45128733336503','During this tour you’ll be able to admire and enjoy one of the most beautiful bays in the country . Get a close glimpse of the Creston Hill, where the lighthouse is located, the Sister islands and during the winter season, take a look at the families of sea wolves that visit the area.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Sunset Tour ','Tue, Thu y Sat  Winter: 16:00 hrs , Summer 18:00 hrs','Calzada Joel Montes Camarena No. 7 Zona Faro Mazatlán','Yate Fiesta:(669) 9 82 31 30</br>Vista Tours: (669) 9 86 86 10</br>Pronatours: (669) 9 16 77 20','23.181139042616618,-106.42502997175825','Enjoy one of the most beautiful atttactions; oursunsets.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Stone Island','Mon to Sun at 10:00 hrs ','Calle Demeter s/n Local 23 Fracc  Alameda','Viajes El Sábalo:(669) 9 86 86 00</br>Yate Fiesta: (669) 9 82 31 30</br>Pronatours: (669) 9 16 77 20</br>King David: (669) 9 14 14 44</br>Iguana Tours: (669) 9 81 73 44</br>Playa Sol Tours: (669) 9 13 77 77</br>Puesta del Sol: (669) 9 13 94 25</br>Playa Sur: (669) 9 14 24 77</br>Catamaran Titanic: (669) 9 16 78 70','23.239412858460035,-106.43935442323152','Enjoy a tour of the Bay and also visit the  stone island , a beautiful virgin beach where you will enjoy 3 and a half hours of fun. You can enjoy banana boat, kayaking, scuba diving, windsurfing or jet ski or just relax in these beautiful beaches.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Lightouse Tour (Crestón Hill)','Mon to Sat 10:00 hrs y 15:00 hrs Subject to availability min 8 ','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours: (669) 9 86 86 10</br>Viajes El Sábalo: (669) 9 86 86 00 ','23.24039235405309,-106.44634245439227','It is one of the highest natural lighthouses in the world. It is built at the top of the Cerro de Creston 157 meters in height. Climb the lighthouse will take you approximately 30 minutes but it will not feel them in their 360 ° tour, the view is spectacular and will love the diversity of  vegetation, in addition that it is ideal for people that like to exercise.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Turtle Release','Tue &  Thu 9:15 hrs Verde Camacho Camp','Av. Camarón Sabalo s/n Centro Comercial El Cid ','Pronatours: (669) 9 16 77 20','23.253696337660877,-106.45670673667962','In Mazatlan for over 20 years, to be managed to protect 4,400 nests and released more than 270,000 pups. The most common species on our beaches is the olive ridley turtle and nests from June to November.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Deer Island Tour ','Tue  to Sun 9:00 hrs','Av. Camarón Sabalo s/n Centro Comercial El Cid ','Pronatours: (669) 9 16 77 20</br>Bula: (669) 9 14 02 00-( 669)1 20 06 71 Cel.</br>Playa Sol Tours: (669) 9 13 77 77','23.253696337660877,-106.45670673667962','Enjoy the nature visiting Deer Island, ideal for different activities, aquatic and hiking, including windsurfing, diving, sailing, exploration hiking.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','El Quelite Rural Tour ','Mon to Sat 10:00 hrs','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours: (669) 9 86 86 10</br>Pronatours: (669) 9 16 77 20','23.24039235405309,-106.44634245439227','Taking a tour at El Quelite is walking thru history and mexican rural lifestyle. This is a beautiful and peaceful small viallage . You will visit a traditional bakery,a  cheese factory and the only cock-fight rooster training ranch in Mexico you will see thousands of them!']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Copala Colonial Tour ','Mon to  Sat 10:00 hrs','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours:(669) 9 86 86 10</br>Pronatours: (669) 9 16 77 20</br>Viajes El Sábalo: (669) 9 86 86 00 ','23.24039235405309,-106.44634245439227','Visit the two colonial towns of Concordia and Copala, two quanty colorful villages where natives hand make furniture, pottery, roof tiles and bread. Be impress of the two stone temple of San Jose and San Sebastian as a well as riding on a donkey (kids offers the rides for a small quote).']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','La Noria, Blue Agave Tour  ','Mon to Sat10:00 hrs','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours: (669) 9 86 86 10</br>Pronatours: (669) 9 16 77 20</br>King David: (669) 9 14 14 44 ','23.24039235405309,-106.44634245439227','La Noria is a distinguished "pueblo" (town) of old artisans technique within iron / leather workshops and touch rustic making liquor of la Vinata´s blue agave. Los Osuna is a famous local drink available in this hilly zone full of vegetation. Once you will also see people making leather sandals, leather belts and see family making pottery in a very old technique.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Picachos Tour ','Mon  to Sat 10:00 hrs','Av. Camaron Sábalo No. 51 Local 2 y 3 Lomas de Mazatlán','Vista Tours: (669) 9 86 86 10 ','23.24039235405309,-106.44634245439227','Enjoy the greatest attraction in Mazatlán, "The Picachos Lake tour" a sensational rural activity thru Picachos Dam. During the tour we will visit San Marcos village, an abandoned town which is now known as a "ghost town" it really shows an old Mexican town scenery. Then time to visit the Dam Curtain.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Tecatours ','Mon to Sun 9:00 hrs a 16:00 hrs ','Teacapán, Escuinapa, Sin.','Victor Mendez: (695) 95 1 22  24 cel','','Enjoy a tour by boat to the island of birds, estero La Cruz, the pyramid of shells, in which you will live the experience of wildlife such as red, black, and white mangroves herons yellow legs, Blue Heron, Roseate spoonbill, Ibis, Tildios Sandpipers, storks, Eagles fisherwomen, among others; as well as archaeological vestiges of ancient pre-Hispanic cultures.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Whale & Dolphin Watching Season: December thru april / Dolphin Season : april to november ','Whale Watching: Daily departures  at 8:00 hrs  & 13:00 hrs / Dolphin Watching :  Daily departures at  9:00 hrs & 14:00 hrs, min 4 pax','Rio de la Plata 409 Gaviotas ','Onca Explorations: (669) 9 13 40 50','23.2482413,-106.45152180000002','Join us on this exciting adventure while we cruise the coast of Mazatlán in search of one of the most fascinating creatures on earth: the humback whale. Join us on an exciting adventures to meet-up close with dolphins in their natural habitats as you help search and document their ecology and behavior in Mazatlán waters.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Canopy Adventure','Mon to Sun Pick up 9:00 hrs & 12:00 hrs  ','Av. Del Mar No. 1111 Local 10 Hotel Don Pelayo','Huanacoa Canopy Adventure: (669) 9 90 11 00','23.236429707887524,-106.44069916434859','Our park is located in the foothills of the Sierra Madre mountains in the land of the Los Osuna Vinata near the village La Noria, 45 minutes from the resort of Mazatlan. The Tour consists of twelve platforms mounted in trees and hills of the semi-desert tropical jungle.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Veraneando Adventures','Mon  to Sun  9:00 hrs ','Av. Camarón Sabalo s/n Zona Cerritos','Veraneado Adventures: (669) 9 88 04 25 ','23.30461578207877-106.49168475389058','We offer the activities below to know and to enjoy Mazatlan of the best way. Knowing its jungle, towns, cuisine and how we live in Mazatlan. Zip line/ Tirolesa, River Ride / Descenso en el Rìo Temazcal Puerta de Canoas & Palma Sola tour']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Ecotours Chara Pinta','Subject to availability','Ejido el Palmito, Concordia','Aracely Torrecillas Esquivel: (669) 1 34 01 66 cel ','','In the municipality of Concordia, ventured into the Sierra Madre Occidental, you will find the community of El Palmito, beautiful place where you can practice hiking, bird watching, you will know the Chara Pinta, endemic bird of this region. At the end of your day you trips you in cabins surrounded by wonderful vegetation. This will be the unique experience in contact with the environment.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Las Labradas, Archaelogical Site ','Thursday 9:15 hrs  Subject to availability','Av. Camarón Sabalo s/n Centro Comercial El Cid ','Pronatours ','23.253696337660877,-106.45670673667962','Very close to the small town named Chicayota and the beautiful Barras de Piaxtla, along the beach there is a magnificent group of engravings known as: Las Labradas. Big black volcanic rocks, show all types of forms of plants, fish, human beings and earth animals knnown as petroglyphs made by the first inhabitants hundreds of years ago. Experience the sensation of being in one of the most enigmatic places in Northen Mexico.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Sport Fishing','5:30 - 6:00 Subject to availability','Av. Camarón Sabalo s/n Centro Comercial El Cid ','Pronatours: (669) 9 16 77 20</br>Picachos Bass Club: (669) 9 10 18 91</br>Flota Anna Mar: (669) 9 82 38 30</br>Flota Bibi: (669) 9 13 10 60</br>Flota Neptuno: (669) 982 45 65</br>Flota Sabalo: (669) 9 81 27 61</br>Flota Aries: (669) 9 16 34 68</br>Flota Escualo: (669) 9 13 03 03</br>Viking´s Fleet: (669) 9 86 34 84</br>Nautica Fishing Fleet: (669) 9 88 12 51','23.253696337660877,-106.45670673667962','The coasts of Sinaloa, privileged to practice the sport fishing Blue Marlin, black marlin, striped marlin, sailfish, swordfish, dorado, yellowfin tuna and shark, among other species.']);
+tx.executeSql('INSERT INTO diversion (clave,actividad,horario,direccion,contactos,coordenadas,descripcion) VALUES (?,?,?,?,?,?,?)', ['D12I','Golf ','Mon to Sun 7:00 to 18:00 hrs ','Bahía Acapulco s/n ','Club Campestre Mazatlán: (669) 9 80 15 70</br>Estrella de Mar Golf Course:(669) 9 82 33 00</br>El Cid Golf and Country Club: (669) 9 13 33 33 ext. 3271</br>Marina Mazatlán: (669) 176 97 33</br>Pacific Golf Center: (669) 1 80 09 19','23.23481300256597,-106.38316771293637','Practice Golf on the sea, always it is an incentive and Mazatlán are special in that regard. End of play and find yourself surrounded by a beautiful clubhouse, a swimming pool and terraces overlooking the sea, mixed perfect harmony that make this sport a unique experience.']);
+
+
 ////emergencias
 //ahome español
 tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E01E','Cruz Roja','812-6117','Guillermo Prieto 701  Centro, 81200 Los Mochis, Sinaloa','Ahome','25.793587946254974,-108.98969650268555','<img src="img/ico_emer1.png" />']);
@@ -279,17 +380,45 @@ tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipi
 tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E11I','Bomberos ','687 872-0422','Francisco González Bocanegra y López Mateos, colonia Ángel Flores, C.P. 81000','Guasave','25.560416,-108.467857','<img src="img/ico_emer2.png" />']);
 tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E11I','Policía Municipal de Tránsito','(687) 872 1818','Adolfo López Mateos y F. Ángeles','Guasave','25.565091,-108.471365','<img src="img/ico_emer2.png" />']);
 
+//mazatlan español
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Cruz Roja','(669) 9 85 15 14 ','Calle Gral. I Zaragoza No. 1801 ','Mazatlán','23.207468833781363,-106.41213425103456','<img src="img/ico_emer1.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Hospital','(669) 9 86 56 76 ','Av. Kumate y Rafael Buelna','Mazatlán','23.24281635743909,-106.44077197069589','<img src="img/ico_emer1.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Policía Ministerial Turística ','(669) 9 14 32 22 ','Av.  Playa Gaviotas No. 202 Local 9 Zona Dorada','Mazatlán','23.24159781958606,-106.44963956354599','<img src="img/ico_emer2.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Turismo','(669) 9 15 66 00 ','Av. Del Mar No. 882 Fracc. Tellerías ','Mazatlán','23.229120797697032,-106.43068082982961','<img src="img/ico_emer3.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Farmacias','(669) 9 13 42 77 ','Av. Camarón Sábalo N0. 100','Mazatlán','23.245250870512052,-106.45315238650818','<img src="img/ico_emer1.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Taxis','(669) 9 86 11 11','Eduardo Valdez Vizcarra 820 Estadio ','Mazatlán','23.238481368568813,-106.43234715218011','<img src="img/ico_emer4.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Taxis','(669) 9 85 28 28 ','Rio Pánuco 129 Col Ferrocarrilera','Mazatlán','23.2154572,-106.41720750000002','<img src="img/ico_emer4.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Pulmonías ','(669) 9 85 07 01 ','Angel Flores 1113 - A Entre Carvajal Tte. Azueta Col. Centro ','Mazatlán','23.200616208297795,-106.41868697546312','<img src="img/ico_emer4.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Aurigas ','(669) 9 81 35 35 ','Calle Los Delfines s/n Fracc. Alarcon ','Mazatlán','','<img src="img/ico_emer4.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Emergencias ','066','','Mazatlán','','<img src="img/ico_emer1.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Profeco','(669) 9 82 36 70/  9 82 52 08','Calle 21 de marzo No. 208 Col. Centro.','Mazatlán','23.20058518239806,-106.42140028722815','<img src="img/ico_emer2.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12E','Angeles Verdes','078,  9 82 2416 ','Emilio Barragan y Prolongación  Carnaval  s/n  2do Piso.','Mazatlán','23.18694262638797,-106.42127863735658','<img src="img/ico_emer2.png" />']);
+//mazatlan ingles
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Red Cross','(669) 9 85 15 14 ','Calle Gral. I Zaragoza No. 1801 ','Mazatlán','23.207468833781363,-106.41213425103456','<img src="img/ico_emer1.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Hospital','(669) 9 86 56 76 ','Av. Kumate y Rafael Buelna','Mazatlán','23.24281635743909,-106.44077197069589','<img src="img/ico_emer1.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Tourist Police','(669) 9 14 32 22 ','Av.  Playa Gaviotas No. 202 Local 9 Zona Dorada','Mazatlán','23.24159781958606,-106.44963956354599','<img src="img/ico_emer2.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Tourist Office','(669) 9 15 66 00 ','Av. Del Mar No. 882 Fracc. Tellerías ','Mazatlán',' 23.229120797697032,-106.43068082982961','<img src="img/ico_emer3.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Drugstore','(669) 9 13 42 77 ','Av. Camarón Sábalo N0. 100','Mazatlán','23.245250870512052,-106.45315238650818','<img src="img/ico_emer1.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Taxis','(669) 9 86 11 11','Eduardo Valdez Vizcarra 820 Estadio ','Mazatlán','23.238481368568813,-106.43234715218011','<img src="img/ico_emer4.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Taxis','(669) 9 85 28 28 ','Rio Pánuco 129 Col Ferrocarrilera','Mazatlán','23.2154572,-106.41720750000002','<img src="img/ico_emer4.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Pulmonías /(typical transport of Mazatlán )','(669) 9 85 07 01 ','Angel Flores 1113 - A Entre Carvajal Tte. Azueta Col. Centro ','Mazatlán','23.200616208297795,-106.41868697546312','<img src="img/ico_emer4.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Aurigas (typical transport of Mazatlán ) ','(669) 9 81 35 35 ','Calle Los Delfines s/n Fracc. Alarcon ','Mazatlán','','<img src="img/ico_emer4.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Emergency','066','','Mazatlán','','<img src="img/ico_emer1.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Profeco (Federal Attorney´s Office of Consumer)','(669) 9 82 36 70/  9 82 52 08','Calle 21 de marzo No. 208 Col. Centro.','Mazatlán','23.20058518239806,-106.42140028722815','<img src="img/ico_emer2.png" />']);
+tx.executeSql('INSERT INTO emergencia(clave,servicio,telefono,domicilio,municipio,coordenadas,img) VALUES(?,?,?,?,?,?,?)',['E12I','Angeles Verdes (roadside assistance)','078,  9 82 2416 ','Emilio Barragan y Prolongación  Carnaval  s/n  2do Piso.','Mazatlán','23.18694262638797,-106.42127863735658','<img src="img/ico_emer2.png" />']);
+
+
 ////historicos
 //ahome español
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Jardín Botánico Benjamín F. Johnston ','Lunes a Domingo de 05:00 a 21:00 horas','Rosales sin numero. Col. Americana Los Mochis Sinaloa','25.78837406424281,-109.00188446044922','La apertura de este bello lugar al publico fue el 6 de mayo de 1963, desde entonces cuenta con un magnifico centro de observación, estudio y esparcimiento.','imagen']);
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Iglesia Sagrado Corazón de Jesus ','-','Gral. Alvaro Obregón s/n','25.790344753105945,-108.99885892868042','Construcción de estilo ecléctico semi-clásico, se encuentra ubicada frente a la Plazuela 27 de Septiembre.','imagen']);
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Plazuela 27 de Septiembre','-','Gral. Alvaro Obregón s/n','25.790228831138283,-108.99797916412354','La plazuela cuenta con un kiosco en el centro, donde podemos escuchar grupos de rock y músicos diversos durante los fines de semana. Por su ubicación en el corazón mismo de Los Mochis, es la sede de diversos espectáculos y celebraciones culturales, cívicas y religiosas. ','imagen']);
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Casa de la Cultura de Conrado Espinoza ','Mar a Sáb 9 a 19 hr, Dom 10 a 13 hr (cierra Lun)','Cerro de la memoria s/n','25.80572272975189,-108.97098541259766','Histórico edificio ubicado al pie del cerro de La Memoria, en La Pérgola, construido bajo la dirección del Profesor Conrado Espinoza, con la ayuda de la ciudadanía integrada en la Sociedad Fomentadora de Instrucción y Educación, y por la United Sugar Company, a fin de fomentar la educación entre la niñez de la región.','imagen']);
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Museo del Valle del Fuerte ','Mar a Sáb 9 a 19 hr, Dom 10 a 13 hr (cierra Lun)','Alvaro Obregón y Antonio Rosales','25.79024815147408,-108.99969577789307','El Museo Regional del Valle del Fuerte inició sus funciones el 3 de marzo de 1990. Fue construida en 1903 por el arquitecto Ascencio López.','imagen']);
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','La Casa Azul','Mar a Sáb 9 a 19 hr, Dom 10 a 13 hr (cierra Lun)','Benito Juarez y Carretera Ahome - La Florida','25.92241363730155,-109.17648553848267','Construida por su propietario el Sr. Demetrio Peiro Y Aragón, quien a inicios de 1913 habita la casa y ponen una tienda, a la cual denominan “El Conejo Azul','imagen']);
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','San Miguel Zapotitlán','-','A 15 km de Los Mochis  por la carretera internacional al norte. ','25.947770107019252,-109.05346870422363','Es uno de las mas grandes centros ceremoniales de la comunidad indígena en el Estado de Sinaloa y el más grande en el municipio de Ahome,  San Miguel Zapotitlán es famosa por sus grandes fiestas ceremoniales indígenas, celebradas entre los meses de Marzo y Abril.','imagen']);
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Ahome Pueblo Señorial','-','A 20 Km de Los Mochis por la carretera estatal Los Mochis - Ahome','25.9189880597865,-109.16849255561829','Pueblo Señorial, con una gran historia de más de 400 años, cercano a la Ciudad de Los Mochis, La fundación del poblado de Ahome fue el 15 de agosto de 1605','imagen']);
-tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Centro Ceremonial Yoreme','-','A 3 Km de Ahome Pueblo Señorial ','25.931975778964215,-109.19010043144226','El Centro Ceremonial Yoreme se encuentra ubicado en el poblado la Florida, el centro Ceremonial es muy famoso en época de Cuaresma, donde cada viernes se reúnen un grupo de judíos,  para representar la pasión y muerte de Jesucristo','imagen']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Jardín Botánico Benjamín F. Johnston ','Lunes a Domingo de 05:00 a 21:00 horas','Rosales sin numero. Col. Americana Los Mochis Sinaloa','25.78837406424281,-109.00188446044922','La apertura de este bello lugar al publico fue el 6 de mayo de 1963, desde entonces cuenta con un magnifico centro de observación, estudio y esparcimiento.','img/ahome/personaje_portada.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Iglesia Sagrado Corazón de Jesus ','-','Gral. Alvaro Obregón s/n','25.790344753105945,-108.99885892868042','Construcción de estilo ecléctico semi-clásico, se encuentra ubicada frente a la Plazuela 27 de Septiembre.','img/ahome/personaje_portada.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Plazuela 27 de Septiembre','-','Gral. Alvaro Obregón s/n','25.790228831138283,-108.99797916412354','La plazuela cuenta con un kiosco en el centro, donde podemos escuchar grupos de rock y músicos diversos durante los fines de semana. Por su ubicación en el corazón mismo de Los Mochis, es la sede de diversos espectáculos y celebraciones culturales, cívicas y religiosas. ','img/ahome/personaje_portada.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Casa de la Cultura de Conrado Espinoza ','Mar a Sáb 9 a 19 hr, Dom 10 a 13 hr (cierra Lun)','Cerro de la memoria s/n','25.80572272975189,-108.97098541259766','Histórico edificio ubicado al pie del cerro de La Memoria, en La Pérgola, construido bajo la dirección del Profesor Conrado Espinoza, con la ayuda de la ciudadanía integrada en la Sociedad Fomentadora de Instrucción y Educación, y por la United Sugar Company, a fin de fomentar la educación entre la niñez de la región.','img/ahome/personaje_portada.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Museo del Valle del Fuerte ','Mar a Sáb 9 a 19 hr, Dom 10 a 13 hr (cierra Lun)','Alvaro Obregón y Antonio Rosales','25.79024815147408,-108.99969577789307','El Museo Regional del Valle del Fuerte inició sus funciones el 3 de marzo de 1990. Fue construida en 1903 por el arquitecto Ascencio López.','img/ahome/personaje_portada.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','La Casa Azul','Mar a Sáb 9 a 19 hr, Dom 10 a 13 hr (cierra Lun)','Benito Juarez y Carretera Ahome - La Florida','25.92241363730155,-109.17648553848267','Construida por su propietario el Sr. Demetrio Peiro Y Aragón, quien a inicios de 1913 habita la casa y ponen una tienda, a la cual denominan “El Conejo Azul','img/ahome/personaje_portada.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','San Miguel Zapotitlán','-','A 15 km de Los Mochis  por la carretera internacional al norte. ','25.947770107019252,-109.05346870422363','Es uno de las mas grandes centros ceremoniales de la comunidad indígena en el Estado de Sinaloa y el más grande en el municipio de Ahome,  San Miguel Zapotitlán es famosa por sus grandes fiestas ceremoniales indígenas, celebradas entre los meses de Marzo y Abril.','img/ahome/personaje_portada.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Ahome Pueblo Señorial','-','A 20 Km de Los Mochis por la carretera estatal Los Mochis - Ahome','25.9189880597865,-109.16849255561829','Pueblo Señorial, con una gran historia de más de 400 años, cercano a la Ciudad de Los Mochis, La fundación del poblado de Ahome fue el 15 de agosto de 1605','img/ahome/personaje_portada.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01E','Centro Ceremonial Yoreme','-','A 3 Km de Ahome Pueblo Señorial ','25.931975778964215,-109.19010043144226','El Centro Ceremonial Yoreme se encuentra ubicado en el poblado la Florida, el centro Ceremonial es muy famoso en época de Cuaresma, donde cada viernes se reúnen un grupo de judíos,  para representar la pasión y muerte de Jesucristo','img/ahome/personaje_portada.jpg']);
 //ahome ingles
 tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01I','Benjamin F. Botanical Garden Johnston','Lunes a Domingo de 05:00 a 21:00 horas','Rosales sin numero. Col. Americana Los Mochis Sinaloa','25.78837406424281,-109.00188446044922','The opening of this beautiful place to the public was the May 6, 1963, since then has a magnificent center of observation, study and recreation.','imagen']);
 tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H01I','Church of the Sacred Heart','-','Gral. Alvaro Obregón s/n','25.790344753105945,-108.99885892868042','Construction with a semi eclectic classic style, is located in front of the Plaza September 27','imagen']);
@@ -324,131 +453,201 @@ tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,
 tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H11E','Old Pueblo Archaeological Site','N/A','Carretera a Bamoa, a 8 km de la cabecera municipal','25.615176,-108.414924','Temple built by the Jesuits between 1750 and 1758 probably. A El Fuerte Sinaloa River flood affected thereby building the foundations of almost collapsed, so the monks decided to move to a nearby town called El Nio, where they built another temple.','imagen']);
 tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H11E','The Museum','Martes a domingo, de 10:00 a 6:00','Francisco I. Madero 2014','25.557745,-108.458027','Is located in the building where the first school for girls "Antonia Nava Heroin". This cultural center was founded on December 28, 1996.','imagen']);
 
+//mazatlan español
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Catedral Basílica de la Inmaculada Concepcion ','Lun a Dom 6:30 a 20:00 hrs ','Guillermo Nelson Esq. 21 de Marzo ','23.20098438192419,-106.42182944067054','Ubicada en el centro de la ciudad en la Plazuela República se encuentra La Catedral de Mazatlán, dedicada a la Inmaculada Concepción. Desde 1899 es el principal templo religioso de la ciudad. Sentada junto a una bella plaza, da la bienvenida al visitante para ofrecer la hermosa vista de un arte con fuerte acento neogótico y algunas influencias neoclásicas, una mezcla de estilos muy de moda en esa época. Destaca por sus espléndidas torres y la majestuosidad del diseño del edificio, que contrasta con los alrededores; sin embargo, la joya de Catedral es un grandioso órgano construido en París por el fabricante Aristide Cavaillie.','img/mazatlan/Catedral-Basílica-de-la-Inmaculada-Concepcion.jpg']);
+//tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Mercado Pino Suárez','Lun a Sab 5:00 hrs a 19:0 hrs Dom hasta las 14:00 hrs','Esq. Benito Juárez y Leandro Valle','23.202283079558153,-106.42115888841681','Lleno de tradición y cultura en Mazatlán. Es el más surtido, muy pintoresco y atractivo para sus compras, preferido por locales y turistas. Ahí puede encontrar desde tiendas de artesanías locales, hasta fruterías y carnicerías, además de tiendas de ropa.','IMAGEN']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Teatro Ángela Peralta','Lun a Dom 9:00 a 13:00 hrs  / 15:00 a 18:00 hrs','Entre Constitución y Calle Libertad','23.1980801345798,-106.42245841868453','Ubicado en la calle Carnaval, el más antiguo de Mazatlán. Hasta 1936 se llamó Teatro Rubio, posteriormente llevó el nombre de Cine o Teatro Ángela Peralta, en honor a la famosa diva del mismo nombre que murió en Mazatlán en el año de 1883. Actualmente esta bella reliquia es sede de los Eventos Culturales como el Festival Cultural Sinaloa  y el Festival Cultural de Mazatlán. Su reconstrucción fue gracias al esmero y donativos de la ciudadanía local.','img/mazatlan/Teatro-Ángela-Peralta.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Museo Arqueológico ','Lun a Dom 10:00 a 15:00 hrs','Calle Sixto Osuna No. 76 Centro Histórico','23.196622757397417,-106.42561940200858','Visitarlo es una magnífica oportunidad para aprender las costumbres, tradiciones y formas de vida de las culturas prehispánicas.','img/mazatlan/Museo-Arqueológico.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Museo de Arte','Martes a Sab 10:00 a 14:00 y 17:00 a 20:00 hrs hrs / Dom 10:00 a 14:00 hrs','Calle Sixto Osuna y Venustiano Carranza','23.196214828402667,-106.42568042226367','Sede de obras de famosos artistas plásticos nacionales e internacionales.','img/mazatlan/Museo-de-Arte.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Museo Casa Machado','Lun a Dom 9:00 a 18:00 hrs','Constitución No. 79 Centro Histórico','23.19836777293607,-106.42369692869715','Experimente la sensación de vivir en el pasado, visite esta  antigua construcción  totalmente decorada al estilo de las familias mazatlecas del siglo XIX.','img/mazatlan/Museo-Casa-Machado.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Centro Histórico ','','','23.19832419140673,-106.42414955146842','Área de Mazatlán donde el visitante puede observar el paso de los años al caminar por las calles con edificios del siglo XIX. Las construcciones poseen una marcada influencia española, francesa y alemana que recientemente han sido restauradas en sus fachadas.','img/mazatlan/Centro-Histórico.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Plazuela Machado','','Calle Constitución Esq. Carnaval','23.198364286414243,-106.42319401450686','Es una de las plazuelas más antiguas y populares de Mazatlán, se construyó en 1837 en lo que hoy conocemos como El Viejo Mazatlán, Lugar predilecto para los festejos de la máxima fiesta de los mazatlecos, El Carnaval Internacional de Mazatlán. Allí se celebra año con alo una muestra gastronómica excepcional con los mejores restaurantes y bares de la región y por las noches se convierte en la entrada perfecta para empezar la celebración en Olas Altas.','img/mazatlan/Plazuela-Machado.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12E','Portales de Cannobio','','Calle Heriberto Frías y Constitución','23.19821262262686,-106.42361914463572','Conocido en otros tiempos como la casa que albergaba la “Fuente de la eterna juventud”. Ya que don Luis Canobbio, de origen italiano, en 1899 estableció ahi “La Italiana” , la mejor, la más surtida y grande botica de esa época. Actualmente en la parte superior, se instaló un museo con mobiliario del siglo XIX y principios del siglo XX, recordando el modo de vida de las familias de abolengo de esa época. (Museo Casa Machado) En la planta baja podrá encontrar galerías y un restaurante.','img/mazatlan/Portales-de-Cannobio.jpg']);
+
+//mazatlan ingles
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','Cathedral Basílica de la Inmaculada Concepcion ','Mon  to Sun  6:30 - 20:00 hrs ','Guillermo Nelson Esq. 21 de Marzo ','23.20098438192419,-106.42182944067054','Built in the 1800´s, The Mazatlán Cathedral located in the Plazuela Republic Square is the largest religious structure int he city. Resplendet with Gothic art accented by neoclassical influences and magnificent vaulting towers, the Cathedral is an awe-inspiring presense of singular desing, whose crowning effect is its grand organ, built in Paris by Aristide Cavaillie-Col.','img/mazatlan/Catedral-Basílica-de-la-Inmaculada-Concepcion.jpg']);
+//tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','Pino Suárez Market','Mon to Sat 5:00 hrs - 19:0 hrs Sun until 14:00 hrs','Esq. Benito Juárez y Leandro Valle','23.202283079558153,-106.42115888841681','For traditional shopping fun, Pino Suárez Market is the mart to end all marts. This picturesque marketplace features an enormous variety of merchandise ranging from local crafts and novelties to fine jewerly and apparel. Pino Suárez Market includes a cornucopia of fresh fruit stands and open air meat vendors offering fresh and prepared meat and fish delicacies.','img/mazatlan/imagen.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','Ángela Peralta Theater','Mon  to Sun 9:00 - 13:00 hrs  / 15:00 - 18:00 hrs','Entre Constitución y Calle Libertad','23.1980801345798,-106.42245841868453','The Ángela Peralta Theater stands adjacent to Plazuela Machado in Mazatlán´s Historic Distric. The theater was built in 1874 and still retains its original Italian Romantic architectural design, with a loge and three levels of balcony seating. Performances offered at this theater are highly recommended.','img/mazatlan/Teatro-Ángela-Peralta.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','Archaeological Museum','Mon to Sun  10:00 - 15:00 hrs','Calle Sixto Osuna No. 76 Centro Histórico','23.196622757397417,-106.42561940200858','The Archaeological Museum contains an exhibition of artifacts used by original villages of the state. These artifacts show the deep knowledge that their people had of making ceramics as well as their funeral customs, wich were decidedly different to other cultures of México.','img/mazatlan/Museo-Arqueológico.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','Mazatlán Art Museum','Tue - Sat 10:00 - 14:00 hrs &17:00 a 20:00 hrs  / Sun  10:00 - 14:00 hrs','Calle Sixto Osuna y Venustiano Carranza','23.196214828402667,-106.42568042226367','The Mazatlán Art Museum contains the works of grat Mexican artist sush as Rufino Tamayo, Francisco Toledo, Antonio López Sáenz and José Luis Cuevas. The museum is well-regarded in its capacity as host to progressive art exhibitions, and is an experience not to be missed.','img/mazatlan/Museo-de-Arte.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','Casa Machado Museum ','Mon to Sun  9:00 a 18:00 hrs','Constitución No. 79 Centro Histórico','23.19836777293607,-106.42369692869715','Experience the feeling of living in the past, visit this historic building fully decorated families like the 19th century style.','img/mazatlan/Museo-Casa-Machado.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','Historic Distric "Old Mazatlán"','','','23.19832419140673,-106.42414955146842','Mazatlan area where visitors can see over the years while walking through the streets with buildings from the 19th century. Buildings have a strong influence of Spanish, French and German that have recently been restored in their facades.','img/mazatlan/Centro-Histórico.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','The Plazuela Machado','','Entre Constitución y Carnaval','23.198364286414243,-106.42319401450686','Built in 1837 in the historic distric know as Old Mazatlán, the Plazuela Machado is one of the oldes and most popular squares in Mazatlán. The Plazuela is vibrant with historical reach, a living extension of old world commerce, food and music in a modern setting. Plazuela Machado is also a favorite venue of Mazatlán´s annual cultural Canival, where restaurants goers and music lovers alike surrender their senses to the 4-staer cuisine and distintive musicality of the artistic renderings featured there throughout the event.','img/mazatlan/Plazuela-Machado.jpg']);
+tx.executeSql('INSERT INTO historicos(clave,lugar,horario,direccion,coordenadas,descripcion,imagen) VALUES(?,?,?,?,?,?,?)',['H12I','Potales de Cannobio ','','Calle Heriberto Frías y Constitución','23.19821262262686,-106.42361914463572','Known in the past as the House that housed the "Fountain of eternal youth". Already that don Luis Canobbio, of Italian origin, in 1899 he established there "The Italian", the best, the most well-stocked and large pharmacy of that era. Currently at the top, installed a museum with furnishings from the 19th century and beginning of the 20th century, recalling the way of life of the families of lineage of that era. (Museum Casa Machado) On the ground floor you can find galleries and a restaurant.','img/mazatlan/Portales-de-Cannobio.jpg']);
+
+
+
 ////Actividad 24 horas
 //ahome español
 tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','08:00 hrs.','Desayuno.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','09:00 hrs.','Visita al Jardin Botanico.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','10:00 hrs.','Museo regional valle del Fuerte.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','11:00 hrs.','Paseo por la plazuela 27 de septiembre y la iglesia Sagrado Corazón.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','12:00 hrs.','Salida a topolobampo.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','13:00 hrs.','Recorrido por el malecon y Paseo en lancha.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','14:00 hrs.','Isla de pajaros y Santuario de Delfines.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','15:00 hrs.','Comida en la Isla el Maviri.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','16:00 hrs.','*comida.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','17:00 hrs.','Regreso a Los mochis (parada en la cueva de los murcielagos).']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','18:00 hrs.','Visita a la pergola.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','19:00 hrs.','Cena.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','09:00 hrs.','Visita al Jardin Botanico.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','10:00 hrs.','Museo regional valle del Fuerte.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','11:00 hrs.','Paseo por la plazuela 27 de septiembre y la iglesia Sagrado Corazón.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','12:00 hrs.','Salida a topolobampo.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','13:00 hrs.','Recorrido por el malecon y Paseo en lancha.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','14:00 hrs.','Isla de pajaros y Santuario de Delfines.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','15:00 hrs.','Comida en la Isla el Maviri.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','16:00 hrs.','*comida.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','17:00 hrs.','Regreso a Los mochis (parada en la cueva de los murcielagos).']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','18:00 hrs.','Visita a la pergola.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01E','19:00 hrs.','Cena.']);
 //ahome ingles
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','08:00 hrs.','Desayuno.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','09:00 hrs.','Visita al Jardin Botanico.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','10:00 hrs.','Museo regional valle del Fuerte.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','11:00 hrs.','Paseo por la plazuela 27 de septiembre y la iglesia Sagrado Corazón.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','12:00 hrs.','Salida a topolobampo.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','13:00 hrs.','Recorrido por el malecon y Paseo en lancha.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','14:00 hrs.','Isla de pajaros y Santuario de Delfines.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','15:00 hrs.','Comida en la Isla el Maviri.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','16:00 hrs.','*comida.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','17:00 hrs.','Regreso a Los mochis (parada en la cueva de los murcielagos).']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','18:00 hrs.','Visita a la pergola.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','19:00 hrs.','Cena.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','08:00 hrs.','Desayuno.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','09:00 hrs.','Visita al Jardin Botanico.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','10:00 hrs.','Museo regional valle del Fuerte.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','11:00 hrs.','Paseo por la plazuela 27 de septiembre y la iglesia Sagrado Corazón.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','12:00 hrs.','Salida a topolobampo.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','13:00 hrs.','Recorrido por el malecon y Paseo en lancha.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','14:00 hrs.','Isla de pajaros y Santuario de Delfines.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','15:00 hrs.','Comida en la Isla el Maviri.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','16:00 hrs.','*comida.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','17:00 hrs.','Regreso a Los mochis (parada en la cueva de los murcielagos).']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','18:00 hrs.','Visita a la pergola.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A01I','19:00 hrs.','Cena.']);
 
 //cosala español
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','08:00 hrs.','Llegada al Pueblo y desayuno.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','09:00 hrs.','Traslado a la Reserva Ecológica.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','10:00 hrs.','Tirolesa.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','11:00 hrs.','Tirolesa.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','12:00 hrs.','Senderismo.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','13:00 hrs.','Visita a Museo y a las guacamayas.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','14:00 hrs.','Regreso al pueblo y comida.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','15:00 hrs.','Traslado a Vado Hondo.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','16:00 hrs.','Tiempo de recreación.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','17:00 hrs.','Tiempo de recreación.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','18:00 hrs.','Regreso al pueblo visita a museo.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','19:00 hrs.','Paseo por las calles del pueblo, plazuela y kiosko.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','20:00 hrs.','Cena y Descanso.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','08:00 hrs.','Llegada al Pueblo y desayuno.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','09:00 hrs.','Traslado a la Reserva Ecológica.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','10:00 hrs.','Tirolesa.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','11:00 hrs.','Tirolesa.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','12:00 hrs.','Senderismo.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','13:00 hrs.','Visita a Museo y a las guacamayas.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','14:00 hrs.','Regreso al pueblo y comida.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','15:00 hrs.','Traslado a Vado Hondo.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','16:00 hrs.','Tiempo de recreación.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','17:00 hrs.','Tiempo de recreación.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','18:00 hrs.','Regreso al pueblo visita a museo.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','19:00 hrs.','Paseo por las calles del pueblo, plazuela y kiosko.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05E','20:00 hrs.','Cena y Descanso.']);
 //cosala ingles
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','08:00 hrs.','Arrive to town and breakfast.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','09:00 hrs.','Transfer to the Ecological Reserve.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','10:00 hrs.','Zip line.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','11:00 hrs.','Zip line.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','12:00 hrs.','Hiking.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','13:00 hrs.','Visit to the museum and bird watching.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','14:00 hrs.','Back to town and Lunch.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','15:00 hrs.','Transfer to Vado Hondo.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','16:00 hrs.','Recreation time.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','17:00 hrs.','Recreation time.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','18:00 hrs.','Baack to town and visit to the Museum.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','19:00 hrs.','Walking through the village´s streets.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','20:00 hrs.','Dinner and rest.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','08:00 hrs.','Arrive to town and breakfast.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','09:00 hrs.','Transfer to the Ecological Reserve.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','10:00 hrs.','Zip line.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','11:00 hrs.','Zip line.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','12:00 hrs.','Hiking.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','13:00 hrs.','Visit to the museum and bird watching.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','14:00 hrs.','Back to town and Lunch.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','15:00 hrs.','Transfer to Vado Hondo.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','16:00 hrs.','Recreation time.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','17:00 hrs.','Recreation time.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','18:00 hrs.','Baack to town and visit to the Museum.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','19:00 hrs.','Walking through the village´s streets.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A05I','20:00 hrs.','Dinner and rest.']);
 
 //choix español
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','08:00 hrs.',' LLEGAR AL CENTRO REPRODUCTOR DE ALEVINES.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','10:00 hrs.',' VISITAR LAS INSTALACIONES DE LA PRESA LUIS DONALDO COLOSIO MURRIETA “HUITES”.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','12:00 hrs.','SALIR A AGUAS TERMALES DE AGUA CALIENTE DE BACA.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','13:00 hrs.','COMIDA.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','15:00 hrs.','LLEGAR  A LA CABECERA MUNICIPAL']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','16:00 hrs.','SALIDA A LA COMUNIDAD INDIGENA DE BAYMENA.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','17:00 hrs.','MUESTRA GASTRONOMICA.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','18:00 hrs.','DEMOSTRACIONES DE DANZAS INDIGENAS.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','20:00 hrs.','FIN DEL TOUR.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','','OTRO RECORRIDO']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','08:00 hrs.','Desayuno Baymena y Danza Indígena.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','09:30 hrs.','Recorrido por el vaso de la presa en lancha.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','11:30 hrs.','Aguas termales de Juibaca, Cortina, Rio y Puente Huites.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','13:00 hrs.','Comida tipica en Agua Caliente de Baca y Aguas termales.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','14:00 hrs.','Traslado a Las Cruces.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','14:30 hrs.','Cabañas.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','15:30 hrs.','Regreso a Cabecera municipal de Choix.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','16:30 hrs.','Recorrido por la cabecera municipal.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','18:00 hrs.','FIN DEL TOUR.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','08:00 hrs.',' LLEGAR AL CENTRO REPRODUCTOR DE ALEVINES.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','10:00 hrs.',' VISITAR LAS INSTALACIONES DE LA PRESA LUIS DONALDO COLOSIO MURRIETA “HUITES”.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','12:00 hrs.','SALIR A AGUAS TERMALES DE AGUA CALIENTE DE BACA.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','13:00 hrs.','COMIDA.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','15:00 hrs.','LLEGAR  A LA CABECERA MUNICIPAL']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','16:00 hrs.','SALIDA A LA COMUNIDAD INDIGENA DE BAYMENA.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','17:00 hrs.','MUESTRA GASTRONOMICA.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','18:00 hrs.','DEMOSTRACIONES DE DANZAS INDIGENAS.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','20:00 hrs.','FIN DEL TOUR.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','','OTRO RECORRIDO']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','08:00 hrs.','Desayuno Baymena y Danza Indígena.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','09:30 hrs.','Recorrido por el vaso de la presa en lancha.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','11:30 hrs.','Aguas termales de Juibaca, Cortina, Rio y Puente Huites.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','13:00 hrs.','Comida tipica en Agua Caliente de Baca y Aguas termales.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','14:00 hrs.','Traslado a Las Cruces.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','14:30 hrs.','Cabañas.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','15:30 hrs.','Regreso a Cabecera municipal de Choix.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','16:30 hrs.','Recorrido por la cabecera municipal.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07E','18:00 hrs.','FIN DEL TOUR.']);
 //choix español
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','08:00 hrs.',' LLEGAR AL CENTRO REPRODUCTOR DE ALEVINES.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','10:00 hrs.',' VISITAR LAS INSTALACIONES DE LA PRESA LUIS DONALDO COLOSIO MURRIETA “HUITES”.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','12:00 hrs.','SALIR A AGUAS TERMALES DE AGUA CALIENTE DE BACA.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','13:00 hrs.','COMIDA.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','15:00 hrs.','LLEGAR  A LA CABECERA MUNICIPAL']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','16:00 hrs.','SALIDA A LA COMUNIDAD INDIGENA DE BAYMENA.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','17:00 hrs.','MUESTRA GASTRONOMICA.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','18:00 hrs.','DEMOSTRACIONES DE DANZAS INDIGENAS.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','20:00 hrs.','FIN DEL TOUR.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','','OTRO RECORRIDO']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','08:00 hrs.','Desayuno Baymena y Danza Indígena.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','09:30 hrs.','Recorrido por el vaso de la presa en lancha.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','11:30 hrs.','Aguas termales de Juibaca, Cortina, Rio y Puente Huites.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','13:00 hrs.','Comida tipica en Agua Caliente de Baca y Aguas termales.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','14:00 hrs.','Traslado a Las Cruces.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','14:30 hrs.','Cabañas.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','15:30 hrs.','Regreso a Cabecera municipal de Choix.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','16:30 hrs.','Recorrido por la cabecera municipal.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','18:00 hrs.','FIN DEL TOUR.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','08:00 hrs.',' LLEGAR AL CENTRO REPRODUCTOR DE ALEVINES.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','10:00 hrs.',' VISITAR LAS INSTALACIONES DE LA PRESA LUIS DONALDO COLOSIO MURRIETA “HUITES”.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','12:00 hrs.','SALIR A AGUAS TERMALES DE AGUA CALIENTE DE BACA.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','13:00 hrs.','COMIDA.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','15:00 hrs.','LLEGAR  A LA CABECERA MUNICIPAL']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','16:00 hrs.','SALIDA A LA COMUNIDAD INDIGENA DE BAYMENA.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','17:00 hrs.','MUESTRA GASTRONOMICA.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','18:00 hrs.','DEMOSTRACIONES DE DANZAS INDIGENAS.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','20:00 hrs.','FIN DEL TOUR.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','','OTRO RECORRIDO']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','08:00 hrs.','Desayuno Baymena y Danza Indígena.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','09:30 hrs.','Recorrido por el vaso de la presa en lancha.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','11:30 hrs.','Aguas termales de Juibaca, Cortina, Rio y Puente Huites.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','13:00 hrs.','Comida tipica en Agua Caliente de Baca y Aguas termales.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','14:00 hrs.','Traslado a Las Cruces.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','14:30 hrs.','Cabañas.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','15:30 hrs.','Regreso a Cabecera municipal de Choix.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','16:30 hrs.','Recorrido por la cabecera municipal.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A07I','18:00 hrs.','FIN DEL TOUR.']);
 
 //guasave español
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','08:00 hrs.','Salida de la Ciudad de Guasave rumbo a Boca del Río.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','09:00 hrs.','Desayuno en Boca del Rio.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','10:00 hrs.','Recorrido en lancha.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','11:00 hrs.','Salida a Playa Las Glorias.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','12:00 hrs.','Tiempo Libre.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','13:00 hrs.','Comida en Playa Las Glorias.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','14:00 hrs.','Salida hacia la Pitahaya.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','15:00 hrs.','Visita guiada por la granja de ostiones (La Pitahaya).']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','16:00 hrs.','Recorrido en lancha por la Bahía de Macapule.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','17:00 hrs.','Visita a la isla Macapule e Isla de los Pajarós.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','18:00 hrs.','Llegada a la Pitahaya y salida a Guasave.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','19:00 hrs.','Llegada a la ciudad de Guasave.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','08:00 hrs.','Salida de la Ciudad de Guasave rumbo a Boca del Río.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','09:00 hrs.','Desayuno en Boca del Rio.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','10:00 hrs.','Recorrido en lancha.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','11:00 hrs.','Salida a Playa Las Glorias.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','12:00 hrs.','Tiempo Libre.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','13:00 hrs.','Comida en Playa Las Glorias.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','14:00 hrs.','Salida hacia la Pitahaya.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','15:00 hrs.','Visita guiada por la granja de ostiones (La Pitahaya).']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','16:00 hrs.','Recorrido en lancha por la Bahía de Macapule.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','17:00 hrs.','Visita a la isla Macapule e Isla de los Pajarós.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','18:00 hrs.','Llegada a la Pitahaya y salida a Guasave.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11E','19:00 hrs.','Llegada a la ciudad de Guasave.']);
 //guasave ingles
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','08:00 hrs.','Salida de la Ciudad de Guasave rumbo a Boca del Río']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','09:00 hrs.','Desayuno en Boca del Rio']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','10:00 hrs.','Recorrido en lancha.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','11:00 hrs.','Salida a Playa Las Glorias.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','12:00 hrs.','Tiempo Libre.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','13:00 hrs.','Comida en Playa Las Glorias.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','14:00 hrs.','Salida hacia la Pitahaya.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','15:00 hrs.','Visita guiada por la granja de ostiones (La Pitahaya).']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','16:00 hrs.','Recorrido en lancha por la Bahía de Macapule.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','17:00 hrs.','Visita a la isla Macapule e Isla de los Pajarós.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','18:00 hrs.','Llegada a la Pitahaya y salida a Guasave.']);
-//tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','19:00 hrs.','Llegada a la ciudad de Guasave.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','08:00 hrs.','Salida de la Ciudad de Guasave rumbo a Boca del Río']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','09:00 hrs.','Desayuno en Boca del Rio']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','10:00 hrs.','Recorrido en lancha.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','11:00 hrs.','Salida a Playa Las Glorias.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','12:00 hrs.','Tiempo Libre.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','13:00 hrs.','Comida en Playa Las Glorias.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','14:00 hrs.','Salida hacia la Pitahaya.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','15:00 hrs.','Visita guiada por la granja de ostiones (La Pitahaya).']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','16:00 hrs.','Recorrido en lancha por la Bahía de Macapule.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','17:00 hrs.','Visita a la isla Macapule e Isla de los Pajarós.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','18:00 hrs.','Llegada a la Pitahaya y salida a Guasave.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A11I','19:00 hrs.','Llegada a la ciudad de Guasave.']);
 
+//mazatlan español
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12E','08:00 hrs','Desayuno y traslado al centro de la ciudad  recorriendo el malecón a bordo de una "pulmonía", transporte típico del puerto.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12E','10:00 hrs','Visite La Catedral de Mazatlán y Mercado Pino Suárez.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12E','11:00 hrs','Visite El Teatro Ángela la Peralta y los  Museos: Arqueológico, de Arte, y Casa Machado.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12E','14:00 hrs','Comida']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12E','15:00 hrs','Traslado al Acuario Mazatlán, en donde disfrutará de los espectáculos de Lobos Marinos, Aves, exhibición de buceo y animales cazadores. ']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12E','18:00 hrs','Realice un paseo en caminata por el Malecón para disfrutar de atardeceres fascinantes.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12E','20:00 hrs','Visite la Zona dorada donde Ud. encontrará artesanias, hoteles y finos restaurantes.']);
+//mazatlan ingles
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12I','08:00 hrs','Breakfast and transfer to the down town along the malecon aboard a"pulmonia", typical transport from the port.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12I','10:00 hrs','Visit  The  Cathedral of Mazatlán and   Pino Suárez Market.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12I','11:00 hrs','Visit The Angela Peralta Theather, Archaelogical Museum, Art Museum and Casa Machado Museum.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12I','14:00 hrs','Lunch']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12I','15:00 hrs','Visit  The  Aquarium Mazatlán, where you can enjoy shows of sea lions, birds, exhibition of diving and hunting animals.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12I','18:00 hrs','Walking along The Malecon to enjoy fascinating sunsets.']);
+tx.executeSql('INSERT INTO undia(clave,hora,actividad) VALUES(?,?,?)',['A12I','20:00 hrs','Visit the Golden Zone where  you will discover handcrafts,  hotels and fine restaurants ']);
+
+
+
+//descripciones e imagenes gastronomia
+//ahome español
+ tx.executeSql('INSERT INTO desimggas(clave,descripcion,imagen) VALUES(?,?,?)',['DG01E','La comida esta hecha a base de mariscos y cortes americanos y regionales de carne de res, por un lado se sirven alimentos de harina, trigo, arroz, tomate y frijol.<br><br>Los platillos más conocidos son los callos de hacha, cóctel de mariscos a la campechana y la machaca de res, camarón, marlín y jaiba.','img/ahome/gastronomia_portada.jpg']);
+//mazatlan español
+ tx.executeSql('INSERT INTO desimggas(clave,descripcion,imagen) VALUES(?,?,?)',['DG12E','En la gastronomía mazatleca abundan ingredientes procedentes del mar de la más alta calidad, creando exquisitos y auténticos platillos conocidos en todo el mundo, como el aguachile de camarón, callo de hacha y su famoso pescado zarandeado.','img/mazatlan/gastronomia_mazatlan.jpg']);
+//mazatlan ingles
+ tx.executeSql('INSERT INTO desimggas(clave,descripcion,imagen) VALUES(?,?,?)',['DG12I','In Mazatlan cuisine abound ingredients from the sea of the highest quality, creating exquisite and authentic dishes known worldwide as the aguachile shrimp, callos de hacha and famous zarandeado fish.rldwide as the aguachile shrimp, scallops and fish tossed famous.','img/mazatlan/gastronomia_mazatlan.jpg']);
+
+//descripciones e imagenes historicos
+//mazatlan español
+ tx.executeSql('INSERT INTO desimghis(clave,descripcion,imagen) VALUES(?,?,?)',['DH12E','La Perla del Pacifico se distingue por su cultura milenaria, que se da a partir del encuentro natural de la cultura de Totorames y Xiximes con las costumbres de los primeros pobladores provenientes de China, Europa Occidental y Estados Unidos dando origen a la población actual de Mazatlán. </br></br>Esta cultura puede ser apreciada en un recorrido por las calles del Centro Histórico y viviendo la experiencia del Carnaval de Mazatlán.','img/mazatlan/historico_mazatlan.jpg']);
+//mazatlan ingles
+ tx.executeSql('INSERT INTO desimghis(clave,descripcion,imagen) VALUES(?,?,?)',['DH12I','La Perla del Pacifico has an ancient culture that occurs from a natural encounter of Totorames and Xiximes culture with the customs of the early settlers from China, Western Europe and the United States giving rise to the current population of Mazatlán.</br></br>This culture can be appreciated on a tour of the streets of the historic center and living the Carnival experience.','img/mazatlan/historico_mazatlan.jpg']);
+ 
+//descripciones e imagenes un dia
+//ahome español
+ tx.executeSql('INSERT INTO desimgdia(clave,titulo,descripcion,imagen) VALUES(?,?,?,?)',['DA01E','Un día en Ahome','El nombre de Ahome viene del concepto de Aujoome que se traduce como "De ahi es originario", para otros viene del Azteca compuesta por Alt "agua" y por Ome "dos" que significa "aguas templadas" (unión que se produce por agua dulce del rio Fuerte y agua salada de la bahia de Santa Maria del golfo de California.)','img/ahome/personaje_portada.jpg']);
+ //mazatlan español
+ tx.executeSql('INSERT INTO desimgdia(clave,titulo,descripcion,imagen) VALUES(?,?,?,?)',['DA12E','Un día en Mazatlán','Enrique Patrón de Rueda, Director de Orquesta/ Conductor. Situado en uno de los lugares más destacados de la vida artística y cultural de México, mediante su brillante actividad profesional y con profundo conocimiento de la ópera le ha valido ser considerado el mejor director de éste género en su  país. Su talento y dedicación lo hicieron acreedor de becas otorgadas por los gobiernos de Gran Bretaña e Italia, especializándose en ópera en las ciudades de Londres y Siena respectivamente. Titular de Orquesta del Teatro de Bellas Artes, Director artístico de la Compañía Nacional de Opera, Director artístico de la Temporada de Opera Concierto de la Filarmónica de la Ciudad de México, Director artístico del Festival Cultural Sinaloa de donde es originario y promotor de actividades artísticas y culturales de su estado.','img/mazatlan/enrique-patron.jpg']);
+  //mazatlan ingles
+ tx.executeSql('INSERT INTO desimgdia(clave,titulo,descripcion,imagen) VALUES(?,?,?,?)',['DA12I','A day in Mazatlán','Enrique Patrón de Rueda Orchestra Conductor. Situated in one of the most distinguished places of the cultural and artistic life in Mexico, resulting from his brilliant professional activity and profound knowledge of opera, has brought him to be considered the best conductor of this genre in his country. His talent and dedication has earned him scholarships granted by the governments of Great Britain and Italy, specializing in opera in the cities of London and Siena respectively. Principal Conductor of the Orchestra of the Theatre of Bellas Artes, Artistic Director of the National Opera Company, Artistic Director of the Seasonal Opera Concert of the Philharmonic Orchestra of Mexico City, Artistic Director for the Sinaloan Cultural Festival, which is where he originates from and promoter of artistic and cultural activities for his State.','img/mazatlan/enrique-patron.jpg']);
+ 
+////descripcion divercion
+//mazatlan español   
+tx.executeSql('INSERT INTO imgdiv(clave,imagen) VALUES(?,?)',['DI12E','img/mazatlan/diversion_mazatlan.jpg']);
+//mazatlan ingles
+tx.executeSql('INSERT INTO imgdiv(clave,imagen) VALUES(?,?)',['DI12I','img/mazatlan/diversion_mazatlan.jpg']);
 }
  var clave;
 if(!clave){
@@ -485,6 +684,7 @@ function showclima(tx, results){
     var len = results.rows.length;
     console.log('mostrar '+len);
     for (var i=0; i<len; i++){
+        $('#imgprincipal').prop('src',results.rows.item(i).imagen);
     $('#fiel').html(results.rows.item(i).iframe+"<br>"+results.rows.item(i).js).show();
 }
 }
@@ -493,11 +693,13 @@ function showclima(tx, results){
 function loadgastronomia(){
     console.log(clave);
     var clavegastronomia="G"+clave;
+    var clavegastronomia1="DG"+clave;
      console.log(clavegastronomia);
    var db = window.openDatabase("Database", "1.0", "Cordova Demo", 9000000);
         db.transaction(
         function(tx) {
-        tx.executeSql('SELECT * FROM gastronomia where clave=?',[clavegastronomia],showgastronomia);
+        tx.executeSql('SELECT * FROM gastronomia WHERE clave=?',[clavegastronomia],showgastronomia);
+        tx.executeSql('SELECT * FROM desimggas WHERE clave=?',[clavegastronomia1],showgastronomia1);
     });
 }
 function showgastronomia(tx, results){
@@ -510,14 +712,23 @@ function showgastronomia(tx, results){
         }
         $("#contgas").collapsibleset( );
 }
-
+function showgastronomia1(tx, results){
+    var len = results.rows.length;
+    console.log('ejecutando');
+        for (var i=0; i<len; i++){
+         $('#imggastronomia').prop('src',results.rows.item(i).imagen);
+         $('#desgas').html(results.rows.item(i).descripcion);
+         }
+}
 //diversion
 function loaddiversion(){
     var clavediversion="D"+clave;
+    var clavediversion1="DI"+clave;
    var db = window.openDatabase("Database", "1.0", "Cordova Demo", 9000000);
         db.transaction(
-        function(tx) {
+        function(tx) {              
         tx.executeSql('SELECT * FROM diversion where clave=?',[clavediversion],showdiversion);
+        tx.executeSql('SELECT * FROM imgdiv where clave=?',[clavediversion1],showdiversion1);
     }); 
 }
 
@@ -532,6 +743,12 @@ function showdiversion(tx, results){
            $('#contdiv').append("<div data-role='collapsible'><h3>"+results.rows.item(i).actividad+"</h3><p>"+results.rows.item(i).descripcion+"</p><p>"+inf+":<br/><strong>"+results.rows.item(i).contactos+"</strong> </p></div>")         
         }
         $("#contdiv").collapsibleset( "refresh" );
+}
+function showdiversion1(tx, results){
+    var len = results.rows.length;    
+        for (var i=0; i<len; i++){
+         $('#imgdiversion').prop('src',results.rows.item(i).imagen);
+         }
 }
 //emergencia
 function loademergencia(){
@@ -552,23 +769,89 @@ function showemergencia(tx, results){
         }
         $("#conteme").listview('refresh');
 }
-//un dia
+//historicos
 function loadundia(){
-    var claveundia="A"+clave;
+    var clavehisto="H"+clave;
+    var clavehisto1="DH"+clave;
    var db = window.openDatabase("Database", "1.0", "Cordova Demo", 9000000);
         db.transaction(
         function(tx) {
-        tx.executeSql('SELECT * FROM emergencias',[],showundia1);
+        tx.executeSql('SELECT * FROM deshis where clave=?',[clavehisto1],showunhis1);
+        tx.executeSql('SELECT * FROM historicos where clave=?',[clavehisto],showunhis);        
     }); 
 }
-
-function showundia1(tx, results){
-    alert('ejecutando');
+function showunhis(tx, results){
     var len = results.rows.length;
     console.log(len+'un dia');
     $("#contund").html('');
         for (var i=0; i<len; i++){
-         $("#contund").append("<li><h2>"+results.rows.item(i).servicio+"</h2><h6>"+results.rows.item(i).direccion+"</h6></li>");
+         $("#contund").append("<li><h2>"+results.rows.item(i).hora+"</h2><h6>"+results.rows.item(i).actividad+"</h6></li>");
           }
         $("#contund").listview('refresh');
+}
+function showunhis1(tx, results){
+    var len = results.rows.length;
+        for (var i=0; i<len; i++){
+         $('#imgprincipal24').prop('src',results.rows.item(i).imagen);
+         $('#descripcion24').html(results.rows.item(i).descripcion);
+         $('#nomper').html(results.rows.item(i).titulo);
+          }
+}
+//un dia
+function loadundia(){
+    var claveundia="A"+clave;
+    var claveundia1="DA"+clave;
+   var db = window.openDatabase("Database", "1.0", "Cordova Demo", 9000000);
+        db.transaction(
+        function(tx) {
+        tx.executeSql('SELECT * FROM desimgdia where clave=?',[claveundia1],showundia1);
+        tx.executeSql('SELECT * FROM undia where clave=?',[claveundia],showundia);
+    }); 
+}
+
+function showundia(tx, results){
+    var len = results.rows.length;
+    console.log(len+'un dia');
+    $("#contund").html('');
+        for (var i=0; i<len; i++){
+         $("#contund").append("<li><h2>"+results.rows.item(i).hora+"</h2><h6>"+results.rows.item(i).actividad+"</h6></li>");
+          }
+        $("#contund").listview('refresh');
+}
+function showundia1(tx, results){
+    var len = results.rows.length;
+        for (var i=0; i<len; i++){
+         $('#imgprincipal24').prop('src',results.rows.item(i).imagen);
+         $('#descripcion24').html(results.rows.item(i).descripcion);
+         $('#nomper').html(results.rows.item(i).titulo);
+          }
+}
+
+//lugares historicos
+function loadhis(){
+    var claveundia="H"+clave;
+    var claveundia1="DH"+clave;
+   var db = window.openDatabase("Database", "1.0", "Cordova Demo", 9000000);
+        db.transaction(
+        function(tx) {
+        tx.executeSql('SELECT * FROM desimghis where clave=?',[claveundia1],showunhis1);
+        tx.executeSql('SELECT * FROM historicos where clave=?',[claveundia],showunhis);
+    }); 
+}
+
+function showunhis(tx, results){
+    var len = results.rows.length;
+    console.log(len+'un dia');
+    $("#iGallery").html('');
+        for (var i=0; i<len; i++){
+         $("#iGallery").append("<li><a title='<h3>"+results.rows.item(i).lugar+"</h3>"+results.rows.item(i).descripcion+"' href='"+results.rows.item(i).imagen+"'><img src='"+results.rows.item(i).imagen+"' /></a></li>");
+          }
+          $('#iGallery').imageflip();
+}
+function showunhis1(tx, results){
+    var len = results.rows.length;
+        for (var i=0; i<len; i++){
+         $('#imgprinhis').prop('src',results.rows.item(i).imagen);
+         $('#descriphis').html(results.rows.item(i).descripcion);
+          }
 }
